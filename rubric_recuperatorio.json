@@ -1,0 +1,165 @@
+{
+  "tp_metadata": {
+    "tp_id": "LAB1-2026-EXAMEN-RECUPERATORIO",
+    "title": "Instancia de Recuperatorio Integrador: Teoría (TP1–TP5) y Práctica en Prolog (TP7)",
+    "catedra": "Laboratorio I - Tecnicatura Universitaria en Automatización y Robótica / Informática - UCSE DASS",
+    "ciclo": 2026,
+    "docente": "Ing. Fabio D. Argañaraz",
+    "version": "2.0.0"
+  },
+  "security": {
+    "algorithm": "SHA-256 + Salted HMAC + Canonical Prolog AST Alpha-Hash",
+    "protected": true
+  },
+  "max_score": 100,
+  "exercises": {
+    "ej1_teoria_tp1": {
+      "part": "teoria",
+      "weight": 10,
+      "biblio": "Russell & Norvig Cap. 1.2 (pp. 8–10), Cap. 2.2–2.3 (pp. 38–46) y Cap. 26.1–26.2 (pp. 1020–1028) • Diapositivas Clase 1, Clase 2 y Clase 3.1.",
+      "feedback": "Un agente racional elige la acción que maximiza el valor esperado de su medida de rendimiento dada su secuencia de percepciones y conocimiento previo. En un brazo clasificador industrial, la pinza neumática y los motores articulares son los Actuadores. La IA Fuerte sostiene que una máquina puede poseer mente y conciencia genuina. Ante problemas NP-completos, la IA apela a métodos heurísticos y aproximaciones.",
+      "hashes": {
+        "item_definicion_racionalidad": "60deb55413ad2413e8558e2e3d3bf23268dd790ee0ebc9681d077acd924847fe",
+        "item_peas_robot_clasificador": "82b2e0cd78afe381d3072ce86351bcca356e7d61624c9ea7250329521d4631ff",
+        "item_ia_debil_vs_fuerte": "4d07eb9172bf2a7f94b65d264f49783768d590de73555c787d25778f5b478e29",
+        "item_intratabilidad_np_heuristicas": "d54cddf4a20ce3688b97a398cb12b539920b7f27d3a69a1a13a0694a58968faa"
+      }
+    },
+    "ej2_teoria_tp2": {
+      "part": "teoria",
+      "weight": 10,
+      "biblio": "Russell & Norvig Cap. 3.4.4–3.5 (pp. 87–96) • Diapositivas Clase 3.2 (Slides 59–80).",
+      "feedback": "En DLS, si se elige un límite l < d (donde d es la profundidad de la solución más somera), el algoritmo se vuelve incompleto. La Búsqueda Bidireccional reduce la complejidad temporal y espacial a O(b^(d/2)) al detenerse cuando ambas fronteras se intersectan. En Búsqueda en Grafos, la lista cerrada (explored set) evita ciclos infinitos y redundancia exponencial a costa de almacenar en memoria todos los estados expandidos.",
+      "hashes": {
+        "item_dls_causa_incompletitud": "36af9ea4d3fbdcb27e597c10bcc6971ab7f7e27d292c3e884759355b454b896d",
+        "item_busqueda_bidireccional_complejidad": "1e7e3e9d89aaeb45363b3592df16f483428a57d770495c79914f8661e5ea2aed",
+        "item_axioma_historia_estados_repetidos": "3cf2ac2f3470ea13b5f2111761f7227e223021ed163f076005fbec2c9106db83",
+        "item_estructura_explored_set": "b991c7d987675772816ce8385dd2a832335c840d5729ed67c52882eeb0c9d52a"
+      }
+    },
+    "ej3_teoria_tp3": {
+      "part": "teoria",
+      "weight": 10,
+      "biblio": "Russell & Norvig Cap. 4.2.1–4.3 (pp. 110–121) • Diapositivas Clase 4 (Slides 24–32).",
+      "feedback": "IDA* utiliza como umbral de corte el f-coste (g+h), actualizando el límite de la siguiente iteración al menor valor f de cualquier nodo que haya excedido el umbral actual. RBFS mantiene en memoria lineal el valor f_limit del mejor camino alternativo desde cualquier ancestro. En el 8-puzzle, h₂ (Manhattan) domina a h₁ (piezas fuera de lugar) porque h₂(n) >= h₁(n) para todo nodo, y ambas nacen de problemas relajados.",
+      "hashes": {
+        "item_ida_star_actualizacion_umbral": "0256264ce4ddafc51ed828cbec2f1bec20d92680a2e7467a3ed5adcea9de912b",
+        "item_rbfs_rol_f_limit": "6d495b69195711684fd6333032a1e214ae7b1d00d442212f5c5b08fa4bb6534c",
+        "item_8puzzle_dominancia_h2_h1": "c3158b2d365a7a0226163c56d8272f7894a89cdd2d29f685d4cf202c941415ba",
+        "item_invencion_problemas_relajados": "e8df1b0b1fb287c0f2b0b8d07a4e38483239923c190165a1f75152b231abe059"
+      }
+    },
+    "ej4_teoria_tp4": {
+      "part": "teoria",
+      "weight": 10,
+      "biblio": "Russell & Norvig Cap. 7.2 (Ej. 7.2) y Cap. 7.5.3 (pp. 218–224) • Diapositivas Clase 5 (`5 - Conocimiento y Razonamiento.pptx`).",
+      "feedback": "El Encadenamiento hacia Adelante es guiado por datos (Data-Driven: parte de hechos conocidos y dispara reglas hasta llegar a la meta, ideal para monitoreo reactivo). El Encadenamiento hacia Atrás es guiado por metas (Goal-Driven: parte de la hipótesis consultada y busca probar sus premisas, ideal para diagnóstico). En el problema del Unicornio de R&N, se demuestra que es mágico y cornudo, pero no si es mitológico.",
+      "hashes": {
+        "item_forward_chaining_data_driven": "874e1587ef8b54135b0b273bf717e584ac1acdfc78ca8d0ab9c1d567417bf5a0",
+        "item_backward_chaining_goal_driven": "3be227456dadb9ad57672308eeea967cf35fe2e4fbfb67a74857349830f77929",
+        "item_aplicacion_monitoreo_vs_diagnostico": "c7f92eb2c7f846ad32b20108ab3a3287c02afe0b1a4c49a7d5b857965fcf2051",
+        "item_acertijo_unicornio_rn": "47f447c8a67f68c342d1629c36be69370c6f251c6d142464223945a8d9bdbc4e"
+      }
+    },
+    "ej5_teoria_tp5": {
+      "part": "teoria",
+      "weight": 10,
+      "biblio": "Russell & Norvig Cap. 9.2–9.5 (pp. 278–308) • Diapositivas Clase 6 (`6 - Lógica de Primer Orden.pptx`, Slides 17–28).",
+      "feedback": "En el caso del Coronel West, la ley se formaliza como Americano(x) ∧ Arma(y) ∧ Vende(x,y,z) ∧ Hostil(z) ⇒ Criminal(x), y el cuantificador existencial ∃x (Misil(x) ∧ Posee(Nono,x)) se elimina introduciendo la constante de Skolem M₁. La Unificación halla la sustitución más general (θ) que hace idénticas dos expresiones lógicas. Kowalski formuló Algoritmo = Lógica + Control.",
+      "hashes": {
+        "item_coronel_west_regla_crimen": "72173e792b0414b58c7a679f4973450b6b4bcdb577bbf828adb0fda13cf7ed7f",
+        "item_coronel_west_skolemizacion": "2348f14f1604715b0685fb4403c99beaf2c39a3111ec9b25001699a63599b8fd",
+        "item_rol_unificacion_lpo": "35cf463df4aaae9390e6c81cac43153f7f8f3ca6369977b914d7bd36e428de76",
+        "item_ecuacion_kowalski_prolog": "27b38beb41864e5ade95decc22cb24fbcd6a4391aa6177c0bcdb7bb87aa1d1f5"
+      }
+    },
+    "ej6_practica_caso1": {
+      "part": "practica",
+      "weight": 25,
+      "kb_weight": 13,
+      "questions_weight": 12,
+      "pl_file": "caso1_biblioteca.pl",
+      "expected_pred_sigs": [
+        "obra/2",
+        "autor_obra/2",
+        "disponibilidad/2",
+        "prestamo_domicilio/1",
+        "material_ia_disponible/2"
+      ],
+      "biblio": "Russell & Norvig Cap. 9.4–9.5 (pp. 302–308) • Diapositivas Clase 7 (`7 - Lógica aplicada en PROLOG.pptx`, Slides 6–18).",
+      "feedback": "En la biblioteca UCSE, debes declarar los 9 hechos (3 de obra/2, 3 de autor_obra/2 y 3 de disponibilidad/2) y las reglas prestamo_domicilio/1 y material_ia_disponible/2.",
+      "kb_facts_hashes": [
+        "75cc03aa924ed1ac796a2ed333f70069d8c68518cc8958350a721473ae2b5a45",
+        "667cb3f464d18a29a0dc93cbba3ed5c4ad69deed59c8c7c886a965b7cb6cd070",
+        "b21282be365d60384f49ed9852b54248761414d5fc2c319b4358264a00bc35d3",
+        "2ee0039a978ba069d7a3180641d823886ffd3859bb22cfca8f4cfcede35d2b1b",
+        "9d1f369fbe1bb2ba6cfa5da1b41380e00c6715672d7aa2cd58786528d1ad1a41",
+        "ebc5cdb42aa7ea78fd2125200059e03707d83ba30c772bf097ddfa530ccb67ed",
+        "296fa87b9156dd55d3a217226009b4479894dca3bbdc700484e67b7c5a7970bf",
+        "efaf4340a673de77fd9b9318fe211454f68e6f418d23e75c4d48f182e2d15c5a",
+        "d5f0c425eff3e5fe8b1c782d0594199ef14d010b2596aae8b7f5f2309a219bd2"
+      ],
+      "kb_rules_hashes": {
+        "prestamo_domicilio/1": [
+          "f5d4d9229e8288db8063493181f8d6387015f48d23014a5a868acac53bab1600"
+        ],
+        "material_ia_disponible/2": [
+          "30ac4c3a2188818b6671fe8a493417f04565d726f93ae83e8b5aa5bda840eee0",
+          "93904805f0e4e0194874fc3083525915e536956c5da4d48847a40fb68b805b7d"
+        ]
+      },
+      "hashes": {
+        "item_unificacion_variable_compartida_biblio": "c186d7f4e6ac4061216a3f5fb121628e8e78be6dd48c0340fba5e836be28d1ec",
+        "item_consulta_obras_ia": "a36bd9e5eb5b191042bc5e2975660f760ecaf3a64a550ca922c61c8d7898b1cd",
+        "item_backtracking_prestamo_domicilio": "a079db7c99d48a1ad751328ac03a9db343fe612ad652a531999d5113a89e2e47",
+        "item_resultado_material_ia_domicilio": "e3624c891e698474bde26429119cd58b711dd794388fae782339c344c1170719",
+        "item_consulta_inversa_autor": "4aefae12d044b50304efbab86bfeda27a842fbd65e395519992f217dc78d99fe",
+        "item_evaluacion_bratko_domicilio_cwa": "f52accd45b6da9511a7045bbd3c8c116cb2d12b5144bb3bf9bd89b25ade15b1b"
+      }
+    },
+    "ej7_practica_caso2": {
+      "part": "practica",
+      "weight": 25,
+      "kb_weight": 13,
+      "questions_weight": 12,
+      "pl_file": "caso2_energia.pl",
+      "expected_pred_sigs": [
+        "transformador/2",
+        "estado_carga/2",
+        "aislacion_termica/2",
+        "alerta_disparo_termico/1",
+        "mantenimiento_prioritario_zona/2"
+      ],
+      "biblio": "Russell & Norvig Cap. 9.4–9.5 (pp. 302–308) • Diapositivas Clase 7 (`7 - Lógica aplicada en PROLOG.pptx`, Slides 11–20).",
+      "feedback": "En la subestación eléctrica, debes declarar los 9 hechos (3 de transformador/2, 3 de estado_carga/2 y 3 de aislacion_termica/2) y las reglas alerta_disparo_termico/1 y mantenimiento_prioritario_zona/2.",
+      "kb_facts_hashes": [
+        "165a8d7b9b9f9fcdd224dd1f2cadcf4d2145429b3205a8defb2fdeb3c0d543cf",
+        "6459059d8368a4879eefc5b14871ceeebf53f1bffa6d5c71dbf22e4634f9f5cf",
+        "c4a72eceb8dfe2aff6d4055f935c277d9b3090b2791f380e6d365f9aebbf3dc3",
+        "75a92d6f3a10381edcf7cb3be7800ff3675ef3c8f09078534581cf50f0bbc6ec",
+        "f11ae68c4a38c55c8980a281739d7fbb8c41535245f114997fe19489c2edb20f",
+        "d812d4f31732437f6a2537f93aa9239d25327a0f1f2d355cffe778a7f2445c9d",
+        "1588b64bd3a84adc9aff0b16adcc7ba3288375fb8973a79ae3d728a343ef43cc",
+        "af2fa9d448d90a862e44ae7cb4fbb24ec765fcfd296c033c86f91c1a5f0ed146",
+        "4dcc109563b7f2ce1855ee0143789fc0150913947b02c8f24ad91a8ec141a951"
+      ],
+      "kb_rules_hashes": {
+        "alerta_disparo_termico/1": [
+          "6d20af9fe099eaad0f8e57f207c8038ab86f03567899485574b850317995ee0d"
+        ],
+        "mantenimiento_prioritario_zona/2": [
+          "9d513104c79d351cacede3b96b7d9d96b8236f63e656b1db813e0fce30da373b",
+          "61cf8ac340116c48f372bf0ef6c44c7d0486e87cecf4e637b52532c74f5439e1"
+        ]
+      },
+      "hashes": {
+        "item_orden_evaluacion_sld_energia": "f745c9b24bb22c70aefbe26893a0c3ccf021aac4747ac0a9ab910134a6c3386f",
+        "item_consulta_unidades_sobrecarga": "68ec7e809968324f8f2432f9bdb59bf26416332e72640ccb760c2e66f7b657f3",
+        "item_resultado_mantenimiento_prioritario": "8c47ecdf2feae4fbb9c135f44b0863bc384838b461a537f6f5bde4d42d825b49",
+        "item_traza_fallo_trafo_t2": "a24024f8be2595b5a4dbe91c2f3773ffa3fee427199afcdc34d47a2673c37520",
+        "item_consulta_sobrecarga_sin_alerta_naf": "cbbe62b987f1f53f208a27a43e5a8a3d90138e72023107cdca24dbe2e8d6b21b",
+        "item_evaluacion_t3_alerta_cwa": "e41db1cf29edc08fb35717742b14389d89ab11bf2a50fc3e9f22626598f19f66"
+      }
+    }
+  }
+}

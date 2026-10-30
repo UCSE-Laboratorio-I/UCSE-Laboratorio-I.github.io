@@ -1,0 +1,161 @@
+/* ==========================================================================
+   styles.css - Sistema de Diseño Institucional UCSE (https://www.ucse.edu.ar/)
+   Cátedra: Laboratorio I (IA y Agentes Racionales) - UCSE DASS 2026
+   ========================================================================== */
+
+:root {
+  /* Paleta Oficial extraída de https://www.ucse.edu.ar/ (Elementor Kit 2994 / Header 2615) */
+  --ucse-navy: #01305B;
+  --ucse-navy-mid: #023967;
+  --ucse-navy-deep: #01182E;
+  --ucse-blue: #1569AE;
+  --ucse-blue-dark: #154D80;
+  --ucse-blue-bright: #0080FB;
+  --ucse-cyan: #6EC1E4;
+  --ucse-gold: #FFED00;
+  --ucse-gold-warm: #FDD247;
+  --ucse-border-soft: #B6C9DB;
+  --ucse-bg-light: #F4F6F9;
+  --ucse-white: #FFFFFF;
+  --ucse-text-dark: #212529;
+  --ucse-text-muted: #54595F;
+
+  /* Modern Web Guidance (dark-mode-toggle): sincronizar color-scheme con <meta name="color-scheme"> */
+  color-scheme: light dark;
+
+  &:has(> head > meta[name="color-scheme"][content="dark"]) {
+    color-scheme: dark;
+  }
+  &:has(> head > meta[name="color-scheme"][content="light"]) {
+    color-scheme: light;
+  }
+}
+
+/* Tipografía Institucional UCSE */
+body {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, .ucse-heading {
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.prolog-code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Tarjetas Institucionales UCSE (inspiradas en post-159.css de ucse.edu.ar) */
+.ucse-card {
+  border-top: 4px solid var(--ucse-blue-bright);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(1, 48, 91, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.ucse-card-gold {
+  border-top: 4px solid var(--ucse-gold-warm);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(1, 48, 91, 0.08);
+}
+
+/* Barras de desplazamiento personalizadas */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #01182E;
+}
+::-webkit-scrollbar-thumb {
+  background: #1569AE;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #01305B;
+}
+
+/* Selección de Radio Cards */
+.radio-card {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.radio-card:has(input:checked) {
+  border-color: #1569AE !important;
+  background-color: rgba(21, 105, 174, 0.09) !important;
+  box-shadow: 0 0 0 2px rgba(0, 128, 251, 0.25);
+}
+html.dark .radio-card:has(input:checked) {
+  border-color: #6EC1E4 !important;
+  background-color: rgba(110, 193, 228, 0.14) !important;
+  box-shadow: 0 0 14px rgba(110, 193, 228, 0.22);
+}
+
+/* Botones de Filtro de Dominio y Pestañas de Sección */
+.filter-btn.active,
+.part-tab-btn.active {
+  background-color: #01305B !important;
+  color: #FFED00 !important;
+  border-color: #0080FB !important;
+  font-weight: 700;
+}
+html.dark .filter-btn.active,
+html.dark .part-tab-btn.active {
+  background-color: #1569AE !important;
+  color: #FFED00 !important;
+  border-color: #6EC1E4 !important;
+}
+
+/* Modern Web Guidance (color): Soporte para Forced Colors Mode (Alto Contraste de Windows) */
+@media (forced-colors: active) {
+  .radio-card:has(input:checked),
+  .filter-btn.active,
+  .part-tab-btn.active,
+  .ucse-card {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+  }
+}
+
+/* Animación del Cronómetro de Examen */
+@keyframes timerPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.9;
+  }
+}
+
+.timer-warning {
+  color: #FDD247 !important;
+  border-color: #FDD247 !important;
+}
+
+.timer-danger {
+  color: #ef4444 !important;
+  border-color: #ef4444 !important;
+  animation: timerPulse 1.2s infinite ease-in-out;
+}
+
+/* Optimizaciones de Impresión */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .sticky-toolbar,
+  .ucse-topbar,
+  #theme-toggle-btn,
+  #btn-export-json,
+  #btn-preview-json,
+  #btn-export-json-footer,
+  .compiler-sandbox,
+  #exam-timer-controls {
+    display: none !important;
+  }
+}
+
