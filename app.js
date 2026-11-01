@@ -505,66 +505,79 @@
   }
 
   // ==========================================
-  // CÓMPUTO DE PROGRESO (20 TEORÍA + 1 KB + 6 CONSULTAS = 27 ÍTEMS)
+  // ESTADÍSTICAS DE COMPLETITUD DEL EXAMEN (20 TEORÍA + 1 KB + 6 CONSULTAS = 27 ÍTEMS)
   // ==========================================
-  function updateProgress() {
+  function getCompletionStats() {
     const interactiveElements = document.querySelectorAll('select[data-ex], input[type="radio"][data-ex]');
-    const uniqueKeys = new Set();
-    const answeredKeys = new Set();
     const teoriaTotal = new Set();
     const teoriaAnswered = new Set();
-    const practicaTotal = new Set();
-    const practicaAnswered = new Set();
+    const queriesTotal = new Set();
+    const queriesAnswered = new Set();
 
     interactiveElements.forEach(elem => {
       const ex = elem.getAttribute('data-ex') || '';
       const key = elem.getAttribute('data-key') || '';
       const fullKey = `${ex}__${key}`;
-      uniqueKeys.add(fullKey);
 
       const isTeoria = ex.includes('teoria');
       if (isTeoria) teoriaTotal.add(fullKey);
-      else practicaTotal.add(fullKey);
+      else queriesTotal.add(fullKey);
 
       const isAnswered =
         (elem.tagName === 'SELECT' && elem.value && elem.value !== '') ||
         (elem.tagName === 'INPUT' && elem.type === 'radio' && elem.checked);
 
       if (isAnswered) {
-        answeredKeys.add(fullKey);
         if (isTeoria) teoriaAnswered.add(fullKey);
-        else practicaAnswered.add(fullKey);
+        else queriesAnswered.add(fullKey);
       }
     });
 
-    // Contabilizar la Base de Conocimientos Prolog solo si cumple la estructura requerida (9 hechos + 2 reglas)
     const ta = document.getElementById('kb-code-1');
+    let hasKbText = false;
+    let isKbComplete = false;
     if (ta) {
-      const kbKey = 'kb_prolog_1';
-      uniqueKeys.add(kbKey);
-      practicaTotal.add(kbKey);
-
+      const val = ta.value.trim();
+      hasKbText = val.length > 0;
       let expectedSigs = [];
       try {
         expectedSigs = JSON.parse(ta.getAttribute('data-expected-preds') || '[]');
       } catch (e) {}
-
       const res = lintPrologCode(ta.value, expectedSigs);
-      if (res.isExactStructure) {
-        answeredKeys.add(kbKey);
-        practicaAnswered.add(kbKey);
-      }
+      isKbComplete = res.isExactStructure;
     }
 
-    const total = uniqueKeys.size || 27;
-    const answered = answeredKeys.size;
-    const percent = Math.round((answered / total) * 100);
+    const tTotal = teoriaTotal.size || 20;
+    const tAns = teoriaAnswered.size;
+    const qTotal = queriesTotal.size || 6;
+    const qAns = queriesAnswered.size;
+    const total = tTotal + qTotal + 1; // 27
+    const answered = tAns + qAns + (isKbComplete ? 1 : 0);
+
+    return {
+      total,
+      answered,
+      teoriaTotal: tTotal,
+      teoriaAnswered: tAns,
+      queriesTotal: qTotal,
+      queriesAnswered: qAns,
+      hasKbText,
+      isKbComplete
+    };
+  }
+
+  // ==========================================
+  // CÓMPUTO DE PROGRESO EN VIVO
+  // ==========================================
+  function updateProgress() {
+    const stats = getCompletionStats();
+    const percent = Math.round((stats.answered / stats.total) * 100);
 
     if (progressBar) progressBar.style.width = `${percent}%`;
-    if (progressText) progressText.textContent = `${answered} de ${total} completados`;
+    if (progressText) progressText.textContent = `${stats.answered} de ${stats.total} completados`;
     if (progressPercent) progressPercent.textContent = `${percent}%`;
-    if (progressTeoria) progressTeoria.textContent = `Teoría: ${teoriaAnswered.size}/${teoriaTotal.size || 20}`;
-    if (progressPractica) progressPractica.textContent = `Práctica (KB+Consultas): ${practicaAnswered.size}/${practicaTotal.size || 7}`;
+    if (progressTeoria) progressTeoria.textContent = `Teoría: ${stats.teoriaAnswered}/${stats.teoriaTotal}`;
+    if (progressPractica) progressPractica.textContent = `Práctica (KB+Consultas): ${stats.queriesAnswered + (stats.isKbComplete ? 1 : 0)}/${stats.queriesTotal + 1}`;
   }
 
   function initPartTabs() {
@@ -746,6 +759,35 @@
       alert('⚠️ Ingresa un correo electrónico con formato válido.');
       emailInput.focus();
       return;
+    }
+
+    // Validar si la entrega está completa (20 teoría + 1 KB + 6 consultas = 27 consignas)
+    const stats = getCompletionStats();
+    const isComplete = stats.teoriaAnswered === stats.teoriaTotal &&
+                       stats.queriesAnswered === stats.queriesTotal &&
+                       stats.isKbComplete;
+
+    if (!isComplete) {
+      const missing = [];
+      if (stats.teoriaAnswered < stats.teoriaTotal) {
+        missing.push(`• Parte I (Teoría): ${stats.teoriaAnswered} de ${stats.teoriaTotal} respondidas (${stats.teoriaTotal - stats.teoriaAnswered} pendientes)`);
+      }
+      if (!stats.hasKbText) {
+        missing.push('• Parte II (Base de Conocimientos Prolog): No se ha ingresado código en el editor');
+      } else if (!stats.isKbComplete) {
+        missing.push('• Parte II (Base de Conocimientos Prolog): Estructura incompleta (se requieren los 9 hechos y 2 reglas especificadas)');
+      }
+      if (stats.queriesAnswered < stats.queriesTotal) {
+        missing.push(`• Parte II (Consultas Prácticas): ${stats.queriesAnswered} de ${stats.queriesTotal} respondidas (${stats.queriesTotal - stats.queriesAnswered} pendientes)`);
+      }
+
+      const proceed = confirm(
+        '⚠️ ATENCIÓN: Entrega Incompleta (' + stats.answered + ' de ' + stats.total + ' completados)\n\n' +
+        'Se detectaron consignas obligatorias sin responder:\n' +
+        missing.join('\n') + '\n\n' +
+        '¿Deseas confirmar la exportación y descargar el archivo JSON de todas formas?'
+      );
+      if (!proceed) return;
     }
 
     const payload = generatePayload();
