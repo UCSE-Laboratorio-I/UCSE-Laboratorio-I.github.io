@@ -12,11 +12,12 @@
   const EXAM_ID = 'LAB1-2026-EXAMEN-RECUPERATORIO';
   const EXAM_TITLE = 'Examen Recuperatorio Integrador: Teoría (TP1–TP5) y Práctica en Prolog (TP7)';
   const ALLOWED_EXERCISES = new Set([
-    'ej1_teoria', 'ej2_teoria', 'ej3_teoria', 'ej4_teoria', 'ej5_teoria',
-    'ej6_teoria', 'ej7_teoria', 'ej8_teoria', 'ej9_teoria', 'ej10_teoria',
-    'ej11_teoria', 'ej12_teoria', 'ej13_teoria', 'ej14_teoria', 'ej15_teoria',
-    'ej16_teoria', 'ej17_teoria', 'ej18_teoria', 'ej19_teoria', 'ej20_teoria',
-    'ej1_practica'
+    'ej1_teoria_tp1',
+    'ej2_teoria_tp2',
+    'ej3_teoria_tp3',
+    'ej4_teoria_tp4',
+    'ej5_teoria_tp5',
+    'ej6_practica_caso1'
   ]);
 
   const progressBar = document.getElementById('progress-bar');
@@ -733,6 +734,11 @@
     if (!email) {
       alert('⚠️ Por favor completa tu Correo Institucional antes de exportar la entrega.');
       if (emailInput) emailInput.focus();
+      return;
+    }
+    if (emailInput && !emailInput.checkValidity()) {
+      alert('⚠️ Ingresa un correo electrónico con formato válido.');
+      emailInput.focus();
       return;
     }
 
