@@ -147,19 +147,27 @@
         </div>
       </div>
 
+      <!-- Banner Institucional de Modalidad del Examen -->
+      <div class="p-3.5 rounded-xl bg-blue-50 dark:bg-[#01182E] border-l-4 border-[#0080FB] text-xs text-[#01305B] dark:text-slate-200 flex items-center gap-3">
+        <span class="text-base shrink-0">ℹ️</span>
+        <p class="font-medium">
+          <strong>Modalidad de Evaluación:</strong> Evaluación individual con entorno de ejecución permitido. Se autoriza utilizar SWISH exclusivamente para verificar la sintaxis y ejecución del código producido durante el examen.
+        </p>
+      </div>
+
       <!-- Datos de Identificación del Estudiante -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div>
           <label for="student-name" class="block text-xs font-bold text-[#01305B] dark:text-slate-200 mb-1">Nombre y Apellido *</label>
-          <input type="text" id="student-name" placeholder="Ej: Valentina Alarcón" class="w-full bg-[#F4F6F9] dark:bg-[#01182E] text-slate-900 dark:text-white border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0080FB]">
+          <input type="text" id="student-name" required placeholder="Ej: Valentina Alarcón" class="w-full bg-[#F4F6F9] dark:bg-[#01182E] text-slate-900 dark:text-white border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0080FB]">
         </div>
         <div>
           <label for="student-id" class="block text-xs font-bold text-[#01305B] dark:text-slate-200 mb-1">DNI / Legajo UCSE *</label>
-          <input type="text" id="student-id" placeholder="Ej: 44.123.456" class="w-full bg-[#F4F6F9] dark:bg-[#01182E] text-slate-900 dark:text-white border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0080FB]">
+          <input type="text" id="student-id" required placeholder="Ej: 44.123.456" class="w-full bg-[#F4F6F9] dark:bg-[#01182E] text-slate-900 dark:text-white border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0080FB]">
         </div>
         <div>
           <label for="student-email" class="block text-xs font-bold text-[#01305B] dark:text-slate-200 mb-1">Correo Institucional *</label>
-          <input type="email" id="student-email" placeholder="alumno@ucse.edu.ar" class="w-full bg-[#F4F6F9] dark:bg-[#01182E] text-slate-900 dark:text-white border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0080FB]">
+          <input type="email" id="student-email" required placeholder="alumno@ucse.edu.ar" class="w-full bg-[#F4F6F9] dark:bg-[#01182E] text-slate-900 dark:text-white border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0080FB]">
         </div>
         <div>
           <label for="student-comision" class="block text-xs font-bold text-[#01305B] dark:text-slate-200 mb-1">Carrera / Comisión</label>
@@ -812,7 +820,7 @@
                 ✍️ Editor de Entrega de Base de Conocimientos (<code>caso1_biblioteca.pl</code>)
               </h4>
               <p class="text-xs text-slate-300">
-                Escribe aquí tu código Prolog completo (o prográmalo abajo en SWISH y pégalo aquí). Se guarda automáticamente en el JSON de entrega y se evalúa con normalización canónica (&alpha;-equivalencia).
+                Escribe aquí tu código Prolog completo (o prográmalo abajo en SWISH y pégalo aquí). Se guarda automáticamente en el archivo JSON de entrega y será evaluado posteriormente mediante el autograder.
               </p>
             </div>
             <div class="flex flex-wrap items-center gap-2 shrink-0">
@@ -1029,7 +1037,7 @@
         <a href="https://www.ucse.edu.ar/" target="_blank" rel="noopener noreferrer" class="inline-block px-3 py-1.5 rounded-lg bg-[#1569AE] hover:bg-[#0080FB] text-white font-bold transition">
           🌐 Portal Oficial ucse.edu.ar
         </a>
-        <p class="text-slate-400">Evaluación protegida con SHA-256 + Normalización &alpha;-Canónica Prolog</p>
+        <p class="text-slate-400">Entrega estructurada en JSON y verificación posterior mediante autograder.</p>
       </div>
     </div>
   </footer>

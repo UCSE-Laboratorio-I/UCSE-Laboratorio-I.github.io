@@ -11,6 +11,13 @@
   const EXPORT_FILENAME = 'respuestas_recuperatorio.json';
   const EXAM_ID = 'LAB1-2026-EXAMEN-RECUPERATORIO';
   const EXAM_TITLE = 'Examen Recuperatorio Integrador: Teoría (TP1–TP5) y Práctica en Prolog (TP7)';
+  const ALLOWED_EXERCISES = new Set([
+    'ej1_teoria', 'ej2_teoria', 'ej3_teoria', 'ej4_teoria', 'ej5_teoria',
+    'ej6_teoria', 'ej7_teoria', 'ej8_teoria', 'ej9_teoria', 'ej10_teoria',
+    'ej11_teoria', 'ej12_teoria', 'ej13_teoria', 'ej14_teoria', 'ej15_teoria',
+    'ej16_teoria', 'ej17_teoria', 'ej18_teoria', 'ej19_teoria', 'ej20_teoria',
+    'ej1_practica'
+  ]);
 
   const progressBar = document.getElementById('progress-bar');
   const progressText = document.getElementById('progress-text');
@@ -118,7 +125,7 @@
   }
 
   // ==========================================
-  // CRONÓMETRO CONTINUO (EXAMEN CONTROLADO: SIN PAUSA NI REINICIO)
+  // CRONÓMETRO CONTINUO (EXAMEN CONTROLADO: BASADO EN TIEMPO REAL SIN PAUSA)
   // ==========================================
   function initTimer() {
     let startTime = localStorage.getItem(START_TIME_KEY);
@@ -127,26 +134,21 @@
       try { localStorage.setItem(START_TIME_KEY, startTime); } catch (e) {}
     }
 
-    try {
-      const saved = localStorage.getItem(TIMER_STORAGE_KEY);
-      if (saved) {
-        const parsed = parseInt(saved, 10);
-        if (!isNaN(parsed) && parsed >= 0) timerSeconds = parsed;
-      }
-    } catch (e) {}
-
-    renderTimer();
-
-    timerInterval = setInterval(() => {
-      if (timerSeconds > 0) {
-        timerSeconds--;
-        try { localStorage.setItem(TIMER_STORAGE_KEY, timerSeconds.toString()); } catch (e) {}
-        renderTimer();
-      } else {
-        clearInterval(timerInterval);
+    const updateFromWallClock = () => {
+      const startMs = new Date(startTime).getTime();
+      const nowMs = Date.now();
+      const elapsedSeconds = Math.max(0, Math.floor((nowMs - startMs) / 1000));
+      timerSeconds = Math.max(0, DEFAULT_TIMER_SECONDS - elapsedSeconds);
+      try { localStorage.setItem(TIMER_STORAGE_KEY, timerSeconds.toString()); } catch (e) {}
+      renderTimer();
+      if (timerSeconds <= 0) {
+        if (timerInterval) clearInterval(timerInterval);
         alert('⏰ ¡Tiempo cumplido! La instancia ha finalizado. Por favor genera y exporta el archivo ' + EXPORT_FILENAME);
       }
-    }, 1000);
+    };
+
+    updateFromWallClock();
+    timerInterval = setInterval(updateFromWallClock, 1000);
   }
 
   function renderTimer() {
@@ -710,6 +712,30 @@
   }
 
   function exportJSON() {
+    const nameInput = document.getElementById('student-name');
+    const idInput = document.getElementById('student-id');
+    const emailInput = document.getElementById('student-email');
+
+    const name = nameInput ? nameInput.value.trim() : '';
+    const id = idInput ? idInput.value.trim() : '';
+    const email = emailInput ? emailInput.value.trim() : '';
+
+    if (!name) {
+      alert('⚠️ Por favor completa tu Nombre y Apellido antes de exportar la entrega.');
+      if (nameInput) nameInput.focus();
+      return;
+    }
+    if (!id) {
+      alert('⚠️ Por favor completa tu DNI / Legajo UCSE antes de exportar la entrega.');
+      if (idInput) idInput.focus();
+      return;
+    }
+    if (!email) {
+      alert('⚠️ Por favor completa tu Correo Institucional antes de exportar la entrega.');
+      if (emailInput) emailInput.focus();
+      return;
+    }
+
     const payload = generatePayload();
     const jsonStr = JSON.stringify(payload, null, 2);
     const blob = new Blob([jsonStr], { type: 'application/json' });
@@ -738,13 +764,52 @@
     reader.onload = (e) => {
       try {
         const data = JSON.parse(e.target.result);
+
+        if (!data || typeof data !== 'object') {
+          throw new Error('El archivo no contiene un objeto JSON válido.');
+        }
+
+        // 1. Validar metadata.tp_id
+        if (!data.metadata || data.metadata.tp_id !== EXAM_ID) {
+          throw new Error(`El archivo corresponde a otro examen o tiene metadata inválida (esperado: ${EXAM_ID}).`);
+        }
+
+        // 2. Validar que existan student, answers y prolog_kb
+        if (!data.student || typeof data.student !== 'object') {
+          throw new Error('Falta la sección "student" con los datos del alumno.');
+        }
+        if (!data.answers || typeof data.answers !== 'object') {
+          throw new Error('Falta la sección "answers" con las respuestas del examen.');
+        }
+        if (!data.prolog_kb || typeof data.prolog_kb !== 'object') {
+          throw new Error('Falta la sección "prolog_kb" con la base de conocimientos.');
+        }
+
+        // 3. Validar que las respuestas correspondan a ejercicios permitidos
+        const answerKeys = Object.keys(data.answers);
+        for (const exKey of answerKeys) {
+          if (!ALLOWED_EXERCISES.has(exKey)) {
+            throw new Error(`Se detectó un ejercicio no permitido en answers: "${exKey}".`);
+          }
+          if (typeof data.answers[exKey] !== 'object' || data.answers[exKey] === null) {
+            throw new Error(`Formato inválido en las respuestas del ejercicio: "${exKey}".`);
+          }
+        }
+
+        // 4. Validar prolog_kb (debe contener strings de código Prolog)
+        for (const kbKey of Object.keys(data.prolog_kb)) {
+          if (typeof data.prolog_kb[kbKey] !== 'string') {
+            throw new Error(`El contenido de la base de conocimientos "${kbKey}" debe ser texto.`);
+          }
+        }
+
         localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
         loadStoredData();
         runAllLinters();
         updateProgress();
         alert('✅ Respuestas y Base de Conocimientos importadas con éxito desde ' + file.name);
       } catch (err) {
-        alert('❌ Error al importar: El archivo no es un JSON válido.');
+        alert('❌ Error al importar: ' + (err.message || 'El archivo no es un JSON válido.'));
       }
     };
     reader.readAsText(file);
