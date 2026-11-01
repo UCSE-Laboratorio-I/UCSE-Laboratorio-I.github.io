@@ -51,7 +51,7 @@
 <body class="bg-[#F4F6F9] dark:bg-[#01182E] text-[#212529] dark:text-slate-100 min-h-screen antialiased selection:bg-[#01305B] selection:text-[#FFED00]">
 
   <!-- =========================================================================
-       TOPBAR INSTITUCIONAL UCSE (#01305B) - EXAMEN CONTROLADO: TEMPORIZADOR AUTOMÁTICO
+       TOPBAR INSTITUCIONAL UCSE (#01305B) - EXAMEN CONTROLADO: TEMPORIZADOR AUTOMÁTICO (90 MIN)
   ========================================================================== -->
   <div class="ucse-topbar bg-[#01305B] text-white border-b border-[#1569AE]/40 text-xs">
     <div class="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
@@ -83,10 +83,10 @@
         </a>
       </div>
 
-      <!-- Indicador de Progreso Exclusivo de Consignas (34 ítems: 20 Teoría + 2 KB + 12 Consultas) -->
+      <!-- Indicador de Progreso Exclusivo de Consignas (27 ítems: 20 Teoría + 1 KB + 6 Consultas) -->
       <div class="flex-1 max-w-xs min-w-[210px]">
         <div class="flex justify-between text-xs mb-1">
-          <span id="progress-text" class="text-slate-600 dark:text-slate-200 font-bold">0 de 34 completados</span>
+          <span id="progress-text" class="text-slate-600 dark:text-slate-200 font-bold">0 de 27 completados</span>
           <span id="progress-percent" class="text-[#01305B] dark:text-[#FFED00] font-extrabold">0%</span>
         </div>
         <div class="w-full bg-slate-200 dark:bg-[#01182E] h-2.5 rounded-full overflow-hidden border border-slate-300 dark:border-[#1569AE]">
@@ -94,7 +94,7 @@
         </div>
         <div class="flex justify-between text-[10px] text-slate-500 dark:text-slate-300 mt-1 font-medium">
           <span id="progress-teoria">Teoría: 0/20</span>
-          <span id="progress-practica">Práctica (KB+Consultas): 0/14</span>
+          <span id="progress-practica">Práctica (KB+Consultas): 0/7</span>
         </div>
       </div>
 
@@ -142,7 +142,7 @@
           <div class="p-3 rounded-xl bg-[#F4F6F9] dark:bg-[#01182E] border border-[#B6C9DB] dark:border-[#1569AE]">
             <span class="text-[11px] uppercase font-bold text-slate-500 dark:text-slate-400 block">Parte II: Práctica</span>
             <span class="text-lg font-extrabold text-[#01305B] dark:text-[#FFED00] ucse-heading">50 Puntos</span>
-            <span class="text-[11px] text-slate-500 dark:text-slate-300 block">26p KB Prolog + 24p Consultas</span>
+            <span class="text-[11px] text-slate-500 dark:text-slate-300 block">26p KB Prolog + 24p Consultas (1 caso)</span>
           </div>
         </div>
       </div>
@@ -636,13 +636,13 @@
     </section>
 
     <!-- =========================================================================
-         PARTE II: EVALUACIÓN PRÁCTICA EN PROLOG (ESTILO TP7 — 50 PUNTOS)
+         PARTE II: EVALUACIÓN PRÁCTICA EN PROLOG (CASO PRÁCTICO ÚNICO — 50 PUNTOS)
     ========================================================================== -->
     <section id="section-parte-practica" class="space-y-8">
       <div class="p-5 rounded-xl bg-[#01305B] text-white border-l-8 border-[#0080FB] shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <span class="text-xs font-extrabold uppercase tracking-wider text-[#6EC1E4] block">Parte II del Examen • Programación Lógica Declarativa</span>
-          <h2 class="text-xl font-extrabold ucse-heading">Modelado de Base de Conocimientos y Consultas en SWI-Prolog (Modalidad TP7)</h2>
+          <h2 class="text-xl font-extrabold ucse-heading">Modelado de Base de Conocimientos y Consultas en SWI-Prolog (Caso Práctico)</h2>
         </div>
         <span class="px-4 py-1.5 rounded-lg bg-[#FFED00] text-[#01305B] text-xs font-extrabold shrink-0">
           Subtotal Parte II: 50 Puntos (26p KB + 24p Consultas)
@@ -650,19 +650,19 @@
       </div>
 
       <!-- =====================================================================
-           EJERCICIO P1: SISTEMA EXPERTO DE BIBLIOTECA ACADÉMICA UCSE DASS (PROLOG)
+           EJERCICIO PRÁCTICO: SISTEMA EXPERTO DE BIBLIOTECA ACADÉMICA UCSE DASS (PROLOG)
       ====================================================================== -->
       <article class="ucse-card-gold p-6 md:p-8 bg-white dark:bg-[#023967]/90 border border-slate-200 dark:border-[#154D80] space-y-6">
-        <!-- Cabecera del Caso Práctico -->
+        <!-- Cabecera del Caso Práctico Único -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 dark:border-[#154D80] pb-4">
           <div>
             <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-extrabold bg-[#FFED00] text-[#01305B] border border-[#01305B]/20 mb-1.5">
-              <span>💻 Caso Práctico 1 • 25 Puntos (13 pts KB + 12 pts Consultas)</span>
+              <span>💻 Caso Práctico Único • 50 Puntos (26 pts KB + 24 pts Consultas)</span>
             </div>
-            <h3 class="text-lg md:text-xl font-extrabold text-[#01305B] dark:text-white ucse-heading">Ejercicio P1: Sistema Experto de Biblioteca Académica UCSE DASS (Prolog)</h3>
+            <h3 class="text-lg md:text-xl font-extrabold text-[#01305B] dark:text-white ucse-heading">Ejercicio Práctico: Sistema Experto de Biblioteca Académica UCSE DASS (Prolog)</h3>
           </div>
           <span class="px-3.5 py-1 rounded-full bg-[#01305B] text-[#FFED00] text-xs font-extrabold self-start sm:self-auto shrink-0">
-            25 Puntos Totales
+            50 Puntos Totales
           </span>
         </div>
 
@@ -761,40 +761,40 @@
           <!-- Tabla de Especificación de Predicados y Reglas a Codificar -->
           <div class="p-4 rounded-xl bg-[#F4F6F9] dark:bg-[#012243] border border-[#B6C9DB] dark:border-[#1569AE] space-y-2.5">
             <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#01305B] dark:text-[#FFED00]">
-              📐 Especificación de Predicados y Reglas a Codificar en tu Base de Conocimientos (13 Puntos):
+              📐 Especificación de Predicados y Reglas a Codificar en tu Base de Conocimientos (26 Puntos):
             </h4>
             <div class="space-y-1.5">
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 1 pt)</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 2 pts = 6 pts)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">obra(Titulo, Area)</code>
                 </div>
                 <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): asocia cada Titulo ('aima_russell', 'prolog_bratko', 'calculo_stewart') con su Area ('inteligencia_artificial' o 'matematica').</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 1 pt)</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 2 pts = 6 pts)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">autor_obra(Titulo, Autor)</code>
                 </div>
                 <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): declara el autor académico ('russell_norvig', 'ivan_bratko', 'james_stewart') de la obra.</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 1 pt)</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 2 pts = 6 pts)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">disponibilidad(Titulo, Modalidad)</code>
                 </div>
                 <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): registra el régimen de consulta ('domicilio' o 'solo_sala').</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#FFED00] text-[#01305B] shrink-0">Regla (2 pts)</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#FFED00] text-[#01305B] shrink-0">Regla (4 pts)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">prestamo_domicilio(Titulo)</code>
                 </div>
                 <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/1): verdadero si el Titulo tiene modalidad 'domicilio'.</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#FFED00] text-[#01305B] shrink-0">Regla (2 pts)</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#FFED00] text-[#01305B] shrink-0">Regla (4 pts)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">material_ia_disponible(Titulo, Autor)</code>
                 </div>
                 <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/2): verdadero si la obra pertenece a 'inteligencia_artificial', fue escrita por Autor y permite 'domicilio'.</span>
@@ -803,11 +803,11 @@
           </div>
         </div>
 
-        <!-- SECCIÓN A (13 PUNTOS): EDITOR DE ENTREGA DE BASE DE CONOCIMIENTOS + LINTER EN VIVO -->
+        <!-- SECCIÓN A (26 PUNTOS): EDITOR DE ENTREGA DE BASE DE CONOCIMIENTOS + LINTER EN VIVO -->
         <div class="p-5 rounded-2xl bg-[#01182E] text-slate-100 border-2 border-[#0080FB] space-y-4">
           <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 border-b border-[#1569AE]/50 pb-3">
             <div>
-              <span class="px-2.5 py-0.5 rounded bg-[#FFED00] text-[#01305B] text-[11px] font-extrabold uppercase">Sección A • 13 Puntos (9 Hechos + 2 Reglas)</span>
+              <span class="px-2.5 py-0.5 rounded bg-[#FFED00] text-[#01305B] text-[11px] font-extrabold uppercase">Sección A • 26 Puntos (9 Hechos [18 pts] + 2 Reglas [8 pts])</span>
               <h4 class="text-sm font-extrabold text-white mt-1 ucse-heading">
                 ✍️ Editor de Entrega de Base de Conocimientos (<code>caso1_biblioteca.pl</code>)
               </h4>
@@ -829,7 +829,7 @@
             </div>
           </div>
 
-          <textarea id="kb-code-1" data-kb-ex="ej6_practica_caso1" data-expected-preds="[&quot;obra/2&quot;, &quot;autor_obra/2&quot;, &quot;disponibilidad/2&quot;, &quot;prestamo_domicilio/1&quot;, &quot;material_ia_disponible/2&quot;]" rows="14" spellcheck="false" aria-label="Editor de Base de Conocimientos Prolog para Ejercicio P1: Sistema Experto de Biblioteca Académica UCSE DASS (Prolog)" class="w-full p-4 bg-[#010E1C] text-[#FFED00] rounded-xl text-xs prolog-code border border-[#1569AE] focus:outline-none focus:ring-2 focus:ring-[#0080FB] leading-relaxed">:- discontiguous obra/2.
+          <textarea id="kb-code-1" data-kb-ex="ej6_practica_caso1" data-expected-preds="[&quot;obra/2&quot;, &quot;autor_obra/2&quot;, &quot;disponibilidad/2&quot;, &quot;prestamo_domicilio/1&quot;, &quot;material_ia_disponible/2&quot;]" rows="14" spellcheck="false" aria-label="Editor de Base de Conocimientos Prolog para Ejercicio Práctico: Sistema Experto de Biblioteca Académica UCSE DASS (Prolog)" class="w-full p-4 bg-[#010E1C] text-[#FFED00] rounded-xl text-xs prolog-code border border-[#1569AE] focus:outline-none focus:ring-2 focus:ring-[#0080FB] leading-relaxed">:- discontiguous obra/2.
 :- discontiguous autor_obra/2.
 :- discontiguous disponibilidad/2.
 
@@ -873,16 +873,16 @@
               </a>
             </div>
             <div class="rounded-xl overflow-hidden border-2 border-[#1569AE] bg-white">
-              <iframe src="https://swish.swi-prolog.org/" class="w-full h-[380px] border-0" title="SWISH Sandbox - Ejercicio P1: Sistema Experto de Biblioteca Académica UCSE DASS (Prolog)" loading="lazy"></iframe>
+              <iframe src="https://swish.swi-prolog.org/" class="w-full h-[380px] border-0" title="SWISH Sandbox - Ejercicio Práctico: Sistema Experto de Biblioteca Académica UCSE DASS (Prolog)" loading="lazy"></iframe>
             </div>
           </div>
         </div>
 
-        <!-- SECCIÓN B (12 PUNTOS): CUESTIONARIO DE CONSULTAS, SLD, BACKTRACKING Y CWA -->
+        <!-- SECCIÓN B (24 PUNTOS): CUESTIONARIO DE CONSULTAS, SLD, BACKTRACKING Y CWA -->
         <div class="space-y-3.5 pt-2">
           <div class="flex items-center justify-between">
             <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#01305B] dark:text-[#FFED00]">
-              Sección B • Preguntas de Verificación de Consultas, Backtracking y CWA (12 Puntos = 6 &times; 2 pts):
+              Sección B • Preguntas de Verificación de Consultas, Backtracking y CWA (24 Puntos = 6 &times; 4 pts):
             </h4>
           </div>
           <!-- Pregunta Práctica 1: item_unificacion_variable_compartida_biblio -->
@@ -983,349 +983,6 @@
           </div>
         </div>
       </article>
-      <!-- =====================================================================
-           EJERCICIO P2: MONITOREO DE SUBESTACIÓN ELÉCTRICA Y TRANSFORMADORES (PROLOG)
-      ====================================================================== -->
-      <article class="ucse-card-gold p-6 md:p-8 bg-white dark:bg-[#023967]/90 border border-slate-200 dark:border-[#154D80] space-y-6">
-        <!-- Cabecera del Caso Práctico -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 dark:border-[#154D80] pb-4">
-          <div>
-            <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-extrabold bg-[#FFED00] text-[#01305B] border border-[#01305B]/20 mb-1.5">
-              <span>💻 Caso Práctico 2 • 25 Puntos (13 pts KB + 12 pts Consultas)</span>
-            </div>
-            <h3 class="text-lg md:text-xl font-extrabold text-[#01305B] dark:text-white ucse-heading">Ejercicio P2: Monitoreo de Subestación Eléctrica y Transformadores (Prolog)</h3>
-          </div>
-          <span class="px-3.5 py-1 rounded-full bg-[#01305B] text-[#FFED00] text-xs font-extrabold self-start sm:self-auto shrink-0">
-            25 Puntos Totales
-          </span>
-        </div>
-
-        <!-- Enunciado y Tarjetas de Especificación del Dominio -->
-        <div class="space-y-4 text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
-            <p class="max-w-3xl">Una empresa distribuidora de energía supervisa los 3 transformadores troncales de una subestación de media tensión. A partir de las especificaciones de las tarjetas de telemetría, debes codificar los 9 hechos de la base de conocimientos y las 2 reglas deductivas solicitadas:</p>
-            <div class="inline-flex flex-wrap items-center gap-1.5 p-1.5 rounded-xl bg-slate-100 dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs shrink-0">
-              <button type="button" class="filter-btn filter-d2-btn px-3 py-1.5 rounded-lg active transition text-slate-700 dark:text-slate-200 font-medium" data-filter="all">⚡ Todos los Transformadores</button>
-              <button type="button" class="filter-btn filter-d2-btn px-3 py-1.5 rounded-lg  transition text-slate-700 dark:text-slate-200 font-medium" data-filter="sobrecarga">🔴 En Sobrecarga</button>
-              <button type="button" class="filter-btn filter-d2-btn px-3 py-1.5 rounded-lg  transition text-slate-700 dark:text-slate-200 font-medium" data-filter="nominal">🟢 Carga Nominal</button>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
-            <div class="domain2-card p-5 rounded-xl bg-[#F4F6F9] dark:bg-[#012243] border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all duration-300 shadow-sm space-y-3.5" data-category="sobrecarga">
-              <div class="flex items-center justify-between gap-2">
-                <span class="font-bold text-[#01305B] dark:text-white text-sm">⚡ Transformador 1: trafo_t1</span>
-                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/30">
-                  🔴 Carga: Sobrecarga
-                </span>
-              </div>
-              <div class="space-y-1.5">
-                <span class="text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wider block font-bold">Datos Técnicos a Modelar en Prolog:</span>
-                <div class="flex flex-col gap-1.5">
-                  <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">🆔</span> <span>Átomo de la unidad: trafo_t1</span>
-                  </span>
-                  <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">🏭</span> <span>Zona abastecida: parque_industrial</span>
-                  </span>
-                  <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">📊</span> <span>Estado de carga: sobrecarga</span>
-                  </span>
-                  <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">⚠️</span> <span>Aislación térmica: degradada</span>
-                  </span>
-                </div>
-              </div>
-              <div class="pt-2 border-t border-slate-200 dark:border-[#154D80] flex items-center justify-between text-xs text-slate-600 dark:text-slate-300 font-medium">
-                <span>Zona: parque_industrial</span>
-                <span class="text-[#1569AE] dark:text-[#FFED00] font-bold">Aislación: degradada</span>
-              </div>
-            </div>
-            <div class="domain2-card p-5 rounded-xl bg-[#F4F6F9] dark:bg-[#012243] border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all duration-300 shadow-sm space-y-3.5" data-category="sobrecarga">
-              <div class="flex items-center justify-between gap-2">
-                <span class="font-bold text-[#01305B] dark:text-white text-sm">⚡ Transformador 2: trafo_t2</span>
-                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/30">
-                  🔴 Carga: Sobrecarga
-                </span>
-              </div>
-              <div class="space-y-1.5">
-                <span class="text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wider block font-bold">Datos Técnicos a Modelar en Prolog:</span>
-                <div class="flex flex-col gap-1.5">
-                  <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">🆔</span> <span>Átomo de la unidad: trafo_t2</span>
-                  </span>
-                  <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">🏥</span> <span>Zona abastecida: hospital_central</span>
-                  </span>
-                  <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">📊</span> <span>Estado de carga: sobrecarga</span>
-                  </span>
-                  <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">✅</span> <span>Aislación térmica: normal</span>
-                  </span>
-                </div>
-              </div>
-              <div class="pt-2 border-t border-slate-200 dark:border-[#154D80] flex items-center justify-between text-xs text-slate-600 dark:text-slate-300 font-medium">
-                <span>Zona: hospital_central</span>
-                <span class="text-[#1569AE] dark:text-[#FFED00] font-bold">Aislación: normal</span>
-              </div>
-            </div>
-            <div class="domain2-card p-5 rounded-xl bg-[#F4F6F9] dark:bg-[#012243] border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all duration-300 shadow-sm space-y-3.5" data-category="nominal">
-              <div class="flex items-center justify-between gap-2">
-                <span class="font-bold text-[#01305B] dark:text-white text-sm">⚡ Transformador 3: trafo_t3</span>
-                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30">
-                  🟢 Carga: Nominal
-                </span>
-              </div>
-              <div class="space-y-1.5">
-                <span class="text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wider block font-bold">Datos Técnicos a Modelar en Prolog:</span>
-                <div class="flex flex-col gap-1.5">
-                  <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">🆔</span> <span>Átomo de la unidad: trafo_t3</span>
-                  </span>
-                  <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">🎓</span> <span>Zona abastecida: campus_ucse</span>
-                  </span>
-                  <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">📊</span> <span>Estado de carga: nominal</span>
-                  </span>
-                  <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">✅</span> <span>Aislación térmica: normal</span>
-                  </span>
-                </div>
-              </div>
-              <div class="pt-2 border-t border-slate-200 dark:border-[#154D80] flex items-center justify-between text-xs text-slate-600 dark:text-slate-300 font-medium">
-                <span>Zona: campus_ucse</span>
-                <span class="text-[#1569AE] dark:text-[#FFED00] font-bold">Carga: nominal</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tabla de Especificación de Predicados y Reglas a Codificar -->
-          <div class="p-4 rounded-xl bg-[#F4F6F9] dark:bg-[#012243] border border-[#B6C9DB] dark:border-[#1569AE] space-y-2.5">
-            <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#01305B] dark:text-[#FFED00]">
-              📐 Especificación de Predicados y Reglas a Codificar en tu Base de Conocimientos (13 Puntos):
-            </h4>
-            <div class="space-y-1.5">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
-                <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 1 pt)</span>
-                  <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">transformador(Unidad, Zona)</code>
-                </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): asocia cada transformador ('trafo_t1', 'trafo_t2', 'trafo_t3') con la zona de red ('parque_industrial', 'hospital_central', 'campus_ucse').</span>
-              </div>
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
-                <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 1 pt)</span>
-                  <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">estado_carga(Unidad, Nivel)</code>
-                </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): registra el nivel operativo de carga ('sobrecarga' o 'nominal').</span>
-              </div>
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
-                <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 1 pt)</span>
-                  <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">aislacion_termica(Unidad, Estado)</code>
-                </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): indica la condición dieléctrica del aceite aislante ('degradada' o 'normal').</span>
-              </div>
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
-                <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#FFED00] text-[#01305B] shrink-0">Regla (2 pts)</span>
-                  <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">alerta_disparo_termico(Unidad)</code>
-                </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/1): verdadero si la Unidad presenta aislacion_termica 'degradada'.</span>
-              </div>
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
-                <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#FFED00] text-[#01305B] shrink-0">Regla (2 pts)</span>
-                  <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">mantenimiento_prioritario_zona(Unidad, Zona)</code>
-                </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/2): verdadero si la Unidad abastece esa Zona, está en estado_carga 'sobrecarga' y su aislacion_termica es 'degradada'.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SECCIÓN A (13 PUNTOS): EDITOR DE ENTREGA DE BASE DE CONOCIMIENTOS + LINTER EN VIVO -->
-        <div class="p-5 rounded-2xl bg-[#01182E] text-slate-100 border-2 border-[#0080FB] space-y-4">
-          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 border-b border-[#1569AE]/50 pb-3">
-            <div>
-              <span class="px-2.5 py-0.5 rounded bg-[#FFED00] text-[#01305B] text-[11px] font-extrabold uppercase">Sección A • 13 Puntos (9 Hechos + 2 Reglas)</span>
-              <h4 class="text-sm font-extrabold text-white mt-1 ucse-heading">
-                ✍️ Editor de Entrega de Base de Conocimientos (<code>caso2_energia.pl</code>)
-              </h4>
-              <p class="text-xs text-slate-300">
-                Escribe aquí tu código Prolog completo (o prográmalo abajo en SWISH y pégalo aquí). Se guarda automáticamente en el JSON de entrega y se evalúa con normalización canónica (&alpha;-equivalencia).
-              </p>
-            </div>
-            <div class="flex flex-wrap items-center gap-2 shrink-0">
-              <button type="button" id="btn-copy-prolog-2" class="text-xs px-3 py-1.5 rounded-lg bg-[#FFED00] hover:bg-[#FDD247] text-[#01305B] font-extrabold transition shadow flex items-center gap-1.5">
-                <span>📋</span> Copiar KB para SWISH
-              </button>
-              <button type="button" id="btn-load-pl-2" class="text-xs px-3 py-1.5 rounded-lg bg-[#023967] hover:bg-[#1569AE] text-white border border-[#6EC1E4]/40 font-bold transition flex items-center gap-1.5">
-                <span>📂</span> Cargar .pl
-              </button>
-              <input type="file" id="input-load-pl-2" accept=".pl,.txt" class="hidden">
-              <button type="button" id="btn-download-pl-2" data-pl-name="caso2_energia.pl" class="text-xs px-3 py-1.5 rounded-lg bg-[#1569AE] hover:bg-[#0080FB] text-white font-bold transition flex items-center gap-1.5">
-                <span>💾</span> Descargar caso2_energia.pl
-              </button>
-            </div>
-          </div>
-
-          <textarea id="kb-code-2" data-kb-ex="ej7_practica_caso2" data-expected-preds="[&quot;transformador/2&quot;, &quot;estado_carga/2&quot;, &quot;aislacion_termica/2&quot;, &quot;alerta_disparo_termico/1&quot;, &quot;mantenimiento_prioritario_zona/2&quot;]" rows="14" spellcheck="false" aria-label="Editor de Base de Conocimientos Prolog para Ejercicio P2: Monitoreo de Subestación Eléctrica y Transformadores (Prolog)" class="w-full p-4 bg-[#010E1C] text-[#FFED00] rounded-xl text-xs prolog-code border border-[#1569AE] focus:outline-none focus:ring-2 focus:ring-[#0080FB] leading-relaxed">:- discontiguous transformador/2.
-:- discontiguous estado_carga/2.
-:- discontiguous aislacion_termica/2.
-
-% 1. Escribe aquí los 9 hechos (transformador/2, estado_carga/2 y aislacion_termica/2):
-
-
-% 2. Escribe aquí las 2 reglas (alerta_disparo_termico/1 y mantenimiento_prioritario_zona/2):
-</textarea>
-
-          <!-- Panel de Verificador preliminar de estructura y sintaxis básica de Prolog -->
-          <div id="linter-panel-2" class="p-3.5 rounded-xl bg-[#01305B]/90 border border-[#6EC1E4]/40 space-y-2 text-xs">
-            <div class="flex flex-wrap items-center justify-between gap-2">
-              <span class="font-extrabold text-[#6EC1E4] flex items-center gap-1.5">
-                <span>🔍</span> Verificador preliminar de estructura y sintaxis básica de Prolog:
-              </span>
-              <div class="flex flex-wrap items-center gap-2">
-                <span id="linter-facts-2" class="px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-200 font-bold border border-slate-600">
-                  Hechos válidos: 0 / 9
-                </span>
-                <span id="linter-rules-2" class="px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-200 font-bold border border-slate-600">
-                  Reglas deductivas: 0 / 2
-                </span>
-                <span id="linter-status-2" class="px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 font-bold border border-slate-600">
-                  ⏳ Pendiente de codificar
-                </span>
-              </div>
-            </div>
-            <p class="text-[11px] text-amber-200/90 italic">
-              ⚠️ Este verificador brinda orientación y no reemplaza la ejecución en SWI-Prolog.
-            </p>
-            <div id="linter-preds-2" class="text-[11px] text-slate-300 prolog-code"></div>
-            <ul id="linter-warnings-2" class="space-y-1 text-amber-300 text-[11px] list-disc list-inside"></ul>
-          </div>
-
-          <!-- Sandbox SWISH Embebido para Pruebas Interactivas -->
-          <div class="space-y-2 pt-2 border-t border-[#1569AE]/40 compiler-sandbox">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-300 gap-2">
-              <span>💡 <strong>Laboratorio SWISH en Línea:</strong> Pulsa <em>"Copiar KB para SWISH"</em> arriba, pégala a la izquierda en SWISH y ejecuta tus consultas a la derecha <strong>sin anteponer <code>?-</code></strong>.</span>
-              <a href="https://swish.swi-prolog.org/" target="_blank" rel="noopener noreferrer" class="text-[#FFED00] underline hover:text-white font-bold shrink-0">
-                Abrir SWISH en pestaña nueva ↗
-              </a>
-            </div>
-            <div class="rounded-xl overflow-hidden border-2 border-[#1569AE] bg-white">
-              <iframe src="https://swish.swi-prolog.org/" class="w-full h-[380px] border-0" title="SWISH Sandbox - Ejercicio P2: Monitoreo de Subestación Eléctrica y Transformadores (Prolog)" loading="lazy"></iframe>
-            </div>
-          </div>
-        </div>
-
-        <!-- SECCIÓN B (12 PUNTOS): CUESTIONARIO DE CONSULTAS, SLD, BACKTRACKING Y CWA -->
-        <div class="space-y-3.5 pt-2">
-          <div class="flex items-center justify-between">
-            <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#01305B] dark:text-[#FFED00]">
-              Sección B • Preguntas de Verificación de Consultas, Backtracking y CWA (12 Puntos = 6 &times; 2 pts):
-            </h4>
-          </div>
-          <!-- Pregunta Práctica 1: item_orden_evaluacion_sld_energia -->
-          <div class="flex flex-col lg:flex-row lg:items-center justify-between p-4 bg-slate-50 dark:bg-[#012243] rounded-xl border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all gap-4">
-            <div class="lg:max-w-xl space-y-1">
-              <span class="font-bold text-[#01305B] dark:text-[#FFED00] text-sm block">1. Estrategia de búsqueda y resolución SLD en SWI-Prolog:</span>
-              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">¿En qué orden explora las cláusulas de la base de conocimientos y las submetas de una regla el motor de inferencia de Prolog?</span>
-            </div>
-            <div class="lg:w-96 shrink-0">
-              <select data-ex="ej7_practica_caso2" data-key="item_orden_evaluacion_sld_energia" aria-label="1. Estrategia de búsqueda y resolución SLD en SWI-Prolog:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
-                <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="anchura_bfs_derecha_a_izquierda">Búsqueda en anchura (BFS), de abajo hacia arriba y de derecha a izquierda.</option>
-                <option value="busqueda_heuristica_a_estrella">Búsqueda informada A* ordenando los hechos por cantidad de argumentos.</option>
-                <option value="profundidad_dfs_arriba_abajo_izquierda_derecha">Búsqueda en profundidad (DFS), de arriba hacia abajo y de izquierda a derecha.</option>
-                <option value="orden_aleatorio_estocastico">Búsqueda estocástica seleccionando cláusulas de forma pseudoaleatoria.</option>
-              </select>
-            </div>
-          </div>
-          <!-- Pregunta Práctica 2: item_consulta_unidades_sobrecarga -->
-          <div class="flex flex-col lg:flex-row lg:items-center justify-between p-4 bg-slate-50 dark:bg-[#012243] rounded-xl border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all gap-4">
-            <div class="lg:max-w-xl space-y-1">
-              <span class="font-bold text-[#01305B] dark:text-[#FFED00] text-sm block">2. Consulta existencial en consola: "¿Qué transformadores operan en estado de sobrecarga?":</span>
-              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">Meta de consulta en SWISH y soluciones obtenidas:</span>
-            </div>
-            <div class="lg:w-96 shrink-0">
-              <select data-ex="ej7_practica_caso2" data-key="item_consulta_unidades_sobrecarga" aria-label="2. Consulta existencial en consola: &quot;¿Qué transformadores operan en estado de sobrecarga?&quot;:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
-                <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="estado_carga(unidad, sobrecarga) -&gt; trafo_t3">estado_carga(unidad, sobrecarga). → Devuelve Unidad = trafo_t3.</option>
-                <option value="sobrecarga(Unidad) -&gt; true">sobrecarga(Unidad). → Devuelve únicamente true sin instanciar variables.</option>
-                <option value="estado_carga(sobrecarga, Unidad) -&gt; todas">estado_carga(sobrecarga, Unidad). → Devuelve las 3 unidades sin filtrar.</option>
-                <option value="estado_carga(Unidad, sobrecarga) -&gt; trafo_t1_y_trafo_t2">estado_carga(Unidad, sobrecarga). → Devuelve Unidad = trafo_t1 y luego Unidad = trafo_t2.</option>
-              </select>
-            </div>
-          </div>
-          <!-- Pregunta Práctica 3: item_resultado_mantenimiento_prioritario -->
-          <div class="flex flex-col lg:flex-row lg:items-center justify-between p-4 bg-slate-50 dark:bg-[#012243] rounded-xl border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all gap-4">
-            <div class="lg:max-w-xl space-y-1">
-              <span class="font-bold text-[#01305B] dark:text-[#FFED00] text-sm block">3. Resultado de la consulta mantenimiento_prioritario_zona(Unidad, Zona).:</span>
-              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">¿Qué ligadura retorna SWI-Prolog al evaluar la regla conjuntiva sobre los 3 transformadores?</span>
-            </div>
-            <div class="lg:w-96 shrink-0">
-              <select data-ex="ej7_practica_caso2" data-key="item_resultado_mantenimiento_prioritario" aria-label="3. Resultado de la consulta mantenimiento_prioritario_zona(Unidad, Zona).:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
-                <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="trafo_t1_y_parque_industrial">Unidad = trafo_t1, Zona = parque_industrial.</option>
-                <option value="trafo_t2_y_hospital_central">Unidad = trafo_t2, Zona = hospital_central.</option>
-                <option value="trafo_t3_y_campus_ucse">Unidad = trafo_t3, Zona = campus_ucse.</option>
-                <option value="false_ningun_transformador">false, ninguna unidad satisface la regla.</option>
-              </select>
-            </div>
-          </div>
-          <!-- Pregunta Práctica 4: item_traza_fallo_trafo_t2 -->
-          <div class="flex flex-col lg:flex-row lg:items-center justify-between p-4 bg-slate-50 dark:bg-[#012243] rounded-xl border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all gap-4">
-            <div class="lg:max-w-xl space-y-1">
-              <span class="font-bold text-[#01305B] dark:text-[#FFED00] text-sm block">4. Análisis de fallo en mantenimiento_prioritario_zona(trafo_t2, hospital_central).:</span>
-              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">¿Por qué falla esta consulta para trafo_t2 si efectivamente abastece a hospital_central y está en sobrecarga?</span>
-            </div>
-            <div class="lg:w-96 shrink-0">
-              <select data-ex="ej7_practica_caso2" data-key="item_traza_fallo_trafo_t2" aria-label="4. Análisis de fallo en mantenimiento_prioritario_zona(trafo_t2, hospital_central).:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
-                <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="porque_no_esta_en_sobrecarga">Porque su estado de carga se encuentra registrado como nominal en los hechos.</option>
-                <option value="porque_aislacion_es_normal_y_no_degradada">Porque su aislación térmica es normal y la regla exige aislación degradada.</option>
-                <option value="porque_hospital_central_no_existe">Porque la zona hospital_central no unifica con el segundo argumento de la regla.</option>
-                <option value="porque_prolog_no_admite_tres_metas">Porque la presencia de sobrecarga anula preventivamente el mantenimiento zonal.</option>
-              </select>
-            </div>
-          </div>
-          <!-- Pregunta Práctica 5: item_consulta_sobrecarga_sin_alerta_naf -->
-          <div class="flex flex-col lg:flex-row lg:items-center justify-between p-4 bg-slate-50 dark:bg-[#012243] rounded-xl border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all gap-4">
-            <div class="lg:max-w-xl space-y-1">
-              <span class="font-bold text-[#01305B] dark:text-[#FFED00] text-sm block">5. Consulta combinada con Negación como Falla (\+):</span>
-              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">¿Qué consulta permite obtener los transformadores que están en 'sobrecarga' pero NO tienen 'alerta_disparo_termico'?</span>
-            </div>
-            <div class="lg:w-96 shrink-0">
-              <select data-ex="ej7_practica_caso2" data-key="item_consulta_sobrecarga_sin_alerta_naf" aria-label="5. Consulta combinada con Negación como Falla (\+):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
-                <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="naf_primero_sin_ligar">\+ alerta_disparo_termico(U), estado_carga(U, sobrecarga).</option>
-                <option value="estado_carga_igual_not_alerta">estado_carga(U, sobrecarga) \= alerta_disparo_termico(U).</option>
-                <option value="estado_carga_primero_luego_naf">estado_carga(U, sobrecarga), \+ alerta_disparo_termico(U). → Liga U = trafo_t2.</option>
-                <option value="alerta_disparo_termico_false">estado_carga(U, sobrecarga), alerta_disparo_termico(U, false).</option>
-              </select>
-            </div>
-          </div>
-          <!-- Pregunta Práctica 6: item_evaluacion_t3_alerta_cwa -->
-          <div class="flex flex-col lg:flex-row lg:items-center justify-between p-4 bg-slate-50 dark:bg-[#012243] rounded-xl border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all gap-4">
-            <div class="lg:max-w-xl space-y-1">
-              <span class="font-bold text-[#01305B] dark:text-[#FFED00] text-sm block">6. Evaluación bajo Supuesto de Mundo Cerrado (CWA) de alerta_disparo_termico(trafo_t3).:</span>
-              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">Al consultar si el transformador del Campus UCSE está en alerta de disparo térmico, ¿qué responde Prolog y por qué?</span>
-            </div>
-            <div class="lg:w-96 shrink-0">
-              <select data-ex="ej7_practica_caso2" data-key="item_evaluacion_t3_alerta_cwa" aria-label="6. Evaluación bajo Supuesto de Mundo Cerrado (CWA) de alerta_disparo_termico(trafo_t3).:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
-                <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="true_porque_alimenta_campus">true, pues la unidad alimenta una zona prioritaria del campus universitario.</option>
-                <option value="true_por_backtracking_a_t1">true, pues deriva automáticamente un disparo preventivo por sobrecarga.</option>
-                <option value="indefinido_null">false, pues el predicado de alerta exige obligatoriamente un segundo argumento.</option>
-                <option value="false_aislacion_normal_no_unifica_degradada">false, pues su aislación térmica es normal y no unifica con degradada bajo CWA.</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </article>
     </section>
 
     <!-- =========================================================================
@@ -1336,10 +993,10 @@
         <span>✅</span> Finalización y Entrega Oficial de la Instancia
       </div>
       <h3 class="text-xl md:text-2xl font-extrabold text-[#01305B] dark:text-white ucse-heading">
-        Generar y Exportar Archivo de Respuestas + Bases de Conocimiento (<code>respuestas_recuperatorio.json</code>)
+        Generar y Exportar Archivo de Respuestas + Base de Conocimientos (<code>respuestas_recuperatorio.json</code>)
       </h3>
       <p class="text-slate-600 dark:text-slate-200 text-sm max-w-2xl mx-auto">
-        Verifica que el indicador superior marque <strong>34 de 34 completados (100%)</strong> (20 preguntas teóricas, las 2 Bases de Conocimiento Prolog con sus 9 hechos y 2 reglas cada una, y las 12 preguntas de consultas).
+        Verifica que el indicador superior marque <strong>27 de 27 completados (100%)</strong> (20 preguntas teóricas, la Base de Conocimientos Prolog con sus 9 hechos y 2 reglas, y las 6 preguntas de consultas).
       </p>
 
       <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
@@ -1409,8 +1066,8 @@
         </button>
       </div>
       <div class="p-6 overflow-y-auto space-y-4 text-xs text-slate-700 dark:text-slate-200 leading-relaxed">
-        <p><strong>1. Codificar las Bases de Conocimiento (26 pts) y responder el cuestionario (74 pts):</strong> En cada caso práctico de la Parte II, escribe tus 9 hechos y 2 reglas en el <strong>Editor de Entrega de Base de Conocimientos</strong> (puedes usar el botón <em>Descargar .pl</em> o <em>Cargar .pl</em>). El Verificador preliminar comprobará que la estructura sintáctica sea adecuada.</p>
-        <p><strong>2. Exportar el archivo JSON unificado:</strong> Al llegar a 34/34 completados (100%), pulsa en <strong>Exportar (.json)</strong> para guardar <code>respuestas_recuperatorio.json</code> (incluye tus respuestas seleccionadas, el código de ambas Bases de Conocimientos y marcas temporales de entrega).</p>
+        <p><strong>1. Codificar la Base de Conocimientos (26 pts) y responder el cuestionario (74 pts):</strong> En el caso práctico de la Parte II, escribe tus 9 hechos y 2 reglas en el <strong>Editor de Entrega de Base de Conocimientos</strong> (puedes usar el botón <em>Descargar .pl</em> o <em>Cargar .pl</em>). El Verificador preliminar comprobará que la estructura sintáctica sea adecuada.</p>
+        <p><strong>2. Exportar el archivo JSON unificado:</strong> Al llegar a 27/27 completados (100%), pulsa en <strong>Exportar (.json)</strong> para guardar <code>respuestas_recuperatorio.json</code> (incluye tus respuestas seleccionadas, el código de tu Base de Conocimientos y marcas temporales de entrega).</p>
         <p><strong>3. Confirmar y subir tu entrega al repositorio GitHub de la Cátedra:</strong></p>
         <pre class="p-3 rounded-lg bg-[#01182E] text-[#6EC1E4] prolog-code overflow-x-auto">git add respuestas_recuperatorio.json *.pl
 git commit -m "Entrega Examen Recuperatorio Integrador - [Tu Nombre y Apellido]"

@@ -5,7 +5,7 @@
     "catedra": "Laboratorio I - Tecnicatura Universitaria en Automatización y Robótica / Informática - UCSE DASS",
     "ciclo": 2026,
     "docente": "Ing. Fabio D. Argañaraz",
-    "version": "2.1.0"
+    "version": "2.2.0"
   },
   "security": {
     "algorithm": "SHA-256 + Salted HMAC + Canonical Prolog AST Alpha-Hash",
@@ -75,9 +75,9 @@
     },
     "ej6_practica_caso1": {
       "part": "practica",
-      "weight": 25,
-      "kb_weight": 13,
-      "questions_weight": 12,
+      "weight": 50,
+      "kb_weight": 26,
+      "questions_weight": 24,
       "pl_file": "caso1_biblioteca.pl",
       "expected_pred_sigs": [
         "obra/2",
@@ -87,7 +87,7 @@
         "material_ia_disponible/2"
       ],
       "biblio": "Russell & Norvig Cap. 9.4–9.5 (pp. 302–308) • Diapositivas Clase 7 (`7 - Lógica aplicada en PROLOG.pptx`, Slides 6–18).",
-      "feedback": "En la biblioteca UCSE, debes declarar los 9 hechos (3 de obra/2, 3 de autor_obra/2 y 3 de disponibilidad/2) y las reglas prestamo_domicilio/1 y material_ia_disponible/2.",
+      "feedback": "En la biblioteca UCSE, debes declarar los 9 hechos (3 de obra/2, 3 de autor_obra/2 y 3 de disponibilidad/2) y las reglas prestamo_domicilio/1 y material_ia_disponible/2 (26 pts). Las 6 consultas evalúan unificación, backtracking y CWA (24 pts).",
       "kb_facts_hashes": [
         "75cc03aa924ed1ac796a2ed333f70069d8c68518cc8958350a721473ae2b5a45",
         "667cb3f464d18a29a0dc93cbba3ed5c4ad69deed59c8c7c886a965b7cb6cd070",
@@ -115,50 +115,6 @@
         "item_resultado_material_ia_domicilio": "e3624c891e698474bde26429119cd58b711dd794388fae782339c344c1170719",
         "item_consulta_inversa_autor": "4aefae12d044b50304efbab86bfeda27a842fbd65e395519992f217dc78d99fe",
         "item_evaluacion_bratko_domicilio_cwa": "f52accd45b6da9511a7045bbd3c8c116cb2d12b5144bb3bf9bd89b25ade15b1b"
-      }
-    },
-    "ej7_practica_caso2": {
-      "part": "practica",
-      "weight": 25,
-      "kb_weight": 13,
-      "questions_weight": 12,
-      "pl_file": "caso2_energia.pl",
-      "expected_pred_sigs": [
-        "transformador/2",
-        "estado_carga/2",
-        "aislacion_termica/2",
-        "alerta_disparo_termico/1",
-        "mantenimiento_prioritario_zona/2"
-      ],
-      "biblio": "Russell & Norvig Cap. 9.4–9.5 (pp. 302–308) • Diapositivas Clase 7 (`7 - Lógica aplicada en PROLOG.pptx`, Slides 11–20).",
-      "feedback": "En la subestación eléctrica, debes declarar los 9 hechos (3 de transformador/2, 3 de estado_carga/2 y 3 de aislacion_termica/2) y las reglas alerta_disparo_termico/1 y mantenimiento_prioritario_zona/2.",
-      "kb_facts_hashes": [
-        "165a8d7b9b9f9fcdd224dd1f2cadcf4d2145429b3205a8defb2fdeb3c0d543cf",
-        "6459059d8368a4879eefc5b14871ceeebf53f1bffa6d5c71dbf22e4634f9f5cf",
-        "c4a72eceb8dfe2aff6d4055f935c277d9b3090b2791f380e6d365f9aebbf3dc3",
-        "75a92d6f3a10381edcf7cb3be7800ff3675ef3c8f09078534581cf50f0bbc6ec",
-        "f11ae68c4a38c55c8980a281739d7fbb8c41535245f114997fe19489c2edb20f",
-        "d812d4f31732437f6a2537f93aa9239d25327a0f1f2d355cffe778a7f2445c9d",
-        "1588b64bd3a84adc9aff0b16adcc7ba3288375fb8973a79ae3d728a343ef43cc",
-        "af2fa9d448d90a862e44ae7cb4fbb24ec765fcfd296c033c86f91c1a5f0ed146",
-        "4dcc109563b7f2ce1855ee0143789fc0150913947b02c8f24ad91a8ec141a951"
-      ],
-      "kb_rules_hashes": {
-        "alerta_disparo_termico/1": [
-          "6d20af9fe099eaad0f8e57f207c8038ab86f03567899485574b850317995ee0d"
-        ],
-        "mantenimiento_prioritario_zona/2": [
-          "9d513104c79d351cacede3b96b7d9d96b8236f63e656b1db813e0fce30da373b",
-          "9d513104c79d351cacede3b96b7d9d96b8236f63e656b1db813e0fce30da373b"
-        ]
-      },
-      "hashes": {
-        "item_orden_evaluacion_sld_energia": "f745c9b24bb22c70aefbe26893a0c3ccf021aac4747ac0a9ab910134a6c3386f",
-        "item_consulta_unidades_sobrecarga": "68ec7e809968324f8f2432f9bdb59bf26416332e72640ccb760c2e66f7b657f3",
-        "item_resultado_mantenimiento_prioritario": "8c47ecdf2feae4fbb9c135f44b0863bc384838b461a537f6f5bde4d42d825b49",
-        "item_traza_fallo_trafo_t2": "a24024f8be2595b5a4dbe91c2f3773ffa3fee427199afcdc34d47a2673c37520",
-        "item_consulta_sobrecarga_sin_alerta_naf": "cbbe62b987f1f53f208a27a43e5a8a3d90138e72023107cdca24dbe2e8d6b21b",
-        "item_evaluacion_t3_alerta_cwa": "e41db1cf29edc08fb35717742b14389d89ab11bf2a50fc3e9f22626598f19f66"
       }
     }
   }

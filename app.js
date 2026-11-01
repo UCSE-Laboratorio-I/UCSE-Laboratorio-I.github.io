@@ -7,7 +7,7 @@
   const TIMER_STORAGE_KEY = 'ucse_lab1_examen_recuperatorio_timer_2026';
   const START_TIME_KEY = 'ucse_lab1_examen_recuperatorio_start_time';
   const COLOR_SCHEME_KEY = 'ucse_color_scheme';
-  const DEFAULT_TIMER_SECONDS = 90 * 60; // 90 minutos continuos
+  const DEFAULT_TIMER_SECONDS = 90 * 60; // 90 minutos continuos (Examen Controlado)
   const EXPORT_FILENAME = 'respuestas_recuperatorio.json';
   const EXAM_ID = 'LAB1-2026-EXAMEN-RECUPERATORIO';
   const EXAM_TITLE = 'Examen Recuperatorio Integrador: Teoría (TP1–TP5) y Práctica en Prolog (TP7)';
@@ -369,7 +369,6 @@
 
   function runAllLinters() {
     updateLinterUI(1, 'kb-code-1');
-    updateLinterUI(2, 'kb-code-2');
   }
 
   // ==========================================
@@ -429,8 +428,6 @@
     }
 
     setupKBToolbar(1, 'btn-copy-prolog-1', 'kb-code-1', 'btn-load-pl-1', 'input-load-pl-1', 'btn-download-pl-1');
-    setupKBToolbar(2, 'btn-copy-prolog-2', 'kb-code-2', 'btn-load-pl-2', 'input-load-pl-2', 'btn-download-pl-2');
-
     setupModal('btn-git-guide', 'modal-git', 'btn-close-git');
   }
 
@@ -499,7 +496,7 @@
   }
 
   // ==========================================
-  // CÓMPUTO DE PROGRESO (20 TEORÍA + 2 KB + 12 CONSULTAS = 34 ÍTEMS)
+  // CÓMPUTO DE PROGRESO (20 TEORÍA + 1 KB + 6 CONSULTAS = 27 ÍTEMS)
   // ==========================================
   function updateProgress() {
     const interactiveElements = document.querySelectorAll('select[data-ex], input[type="radio"][data-ex]');
@@ -531,28 +528,26 @@
       }
     });
 
-    // Contabilizar las 2 Bases de Conocimiento Prolog solo si cumplen la estructura requerida
-    [1, 2].forEach(num => {
-      const ta = document.getElementById(`kb-code-${num}`);
-      if (ta) {
-        const kbKey = `kb_prolog_${num}`;
-        uniqueKeys.add(kbKey);
-        practicaTotal.add(kbKey);
+    // Contabilizar la Base de Conocimientos Prolog solo si cumple la estructura requerida (9 hechos + 2 reglas)
+    const ta = document.getElementById('kb-code-1');
+    if (ta) {
+      const kbKey = 'kb_prolog_1';
+      uniqueKeys.add(kbKey);
+      practicaTotal.add(kbKey);
 
-        let expectedSigs = [];
-        try {
-          expectedSigs = JSON.parse(ta.getAttribute('data-expected-preds') || '[]');
-        } catch (e) {}
+      let expectedSigs = [];
+      try {
+        expectedSigs = JSON.parse(ta.getAttribute('data-expected-preds') || '[]');
+      } catch (e) {}
 
-        const res = lintPrologCode(ta.value, expectedSigs);
-        if (res.isExactStructure) {
-          answeredKeys.add(kbKey);
-          practicaAnswered.add(kbKey);
-        }
+      const res = lintPrologCode(ta.value, expectedSigs);
+      if (res.isExactStructure) {
+        answeredKeys.add(kbKey);
+        practicaAnswered.add(kbKey);
       }
-    });
+    }
 
-    const total = uniqueKeys.size || 34;
+    const total = uniqueKeys.size || 27;
     const answered = answeredKeys.size;
     const percent = Math.round((answered / total) * 100);
 
@@ -560,7 +555,7 @@
     if (progressText) progressText.textContent = `${answered} de ${total} completados`;
     if (progressPercent) progressPercent.textContent = `${percent}%`;
     if (progressTeoria) progressTeoria.textContent = `Teoría: ${teoriaAnswered.size}/${teoriaTotal.size || 20}`;
-    if (progressPractica) progressPractica.textContent = `Práctica (KB+Consultas): ${practicaAnswered.size}/${practicaTotal.size || 14}`;
+    if (progressPractica) progressPractica.textContent = `Práctica (KB+Consultas): ${practicaAnswered.size}/${practicaTotal.size || 7}`;
   }
 
   function initPartTabs() {
@@ -590,7 +585,6 @@
 
   function initDomainFilters() {
     setupFilterGroup('.filter-d1-btn', '.domain1-card');
-    setupFilterGroup('.filter-d2-btn', '.domain2-card');
   }
 
   function setupFilterGroup(btnSelector, cardSelector) {
@@ -748,7 +742,7 @@
         loadStoredData();
         runAllLinters();
         updateProgress();
-        alert('✅ Respuestas y Bases de Conocimiento importadas con éxito desde ' + file.name);
+        alert('✅ Respuestas y Base de Conocimientos importadas con éxito desde ' + file.name);
       } catch (err) {
         alert('❌ Error al importar: El archivo no es un JSON válido.');
       }
