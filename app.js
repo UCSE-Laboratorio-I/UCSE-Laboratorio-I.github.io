@@ -129,6 +129,7 @@
   // CRONÓMETRO CONTINUO (EXAMEN CONTROLADO: BASADO EN TIEMPO REAL SIN PAUSA)
   // ==========================================
   function initTimer() {
+    if (timerInterval) clearInterval(timerInterval);
     let startTime = localStorage.getItem(START_TIME_KEY);
     if (!startTime) {
       startTime = new Date().toISOString();
@@ -403,6 +404,11 @@
     const btnExportFooter = document.getElementById('btn-export-json-footer');
     if (btnExport) btnExport.addEventListener('click', exportJSON);
     if (btnExportFooter) btnExportFooter.addEventListener('click', exportJSON);
+
+    const btnReset = document.getElementById('btn-reset-exam');
+    const btnResetFooter = document.getElementById('btn-reset-exam-footer');
+    if (btnReset) btnReset.addEventListener('click', resetExam);
+    if (btnResetFooter) btnResetFooter.addEventListener('click', resetExam);
 
     const btnPreview = document.getElementById('btn-preview-json');
     if (btnPreview) btnPreview.addEventListener('click', showPreview);
@@ -820,5 +826,59 @@
     };
     reader.readAsText(file);
     event.target.value = '';
+  }
+
+  function resetExam() {
+    const confirmed = confirm(
+      '⚠️ ¿Estás seguro de que deseas iniciar un nuevo examen?\n\n' +
+      'Esta acción borrará todas las respuestas actuales, datos del alumno y ' +
+      'reiniciará el temporizador a 90 minutos para este equipo/navegador.'
+    );
+    if (!confirmed) return;
+
+    // 1. Limpiar almacenamiento local
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(TIMER_STORAGE_KEY);
+      localStorage.removeItem(START_TIME_KEY);
+    } catch (e) {
+      console.warn('Error al limpiar localStorage:', e);
+    }
+
+    // 2. Limpiar datos del alumno
+    ['student-name', 'student-id', 'student-email', 'student-comision'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = '';
+    });
+
+    // 3. Limpiar selecciones de teoría y consultas
+    document.querySelectorAll('select[data-ex]').forEach(sel => {
+      sel.selectedIndex = 0;
+    });
+    document.querySelectorAll('input[type="radio"][data-ex]').forEach(r => {
+      r.checked = false;
+    });
+
+    // 4. Limpiar editores Prolog
+    document.querySelectorAll('textarea[data-kb-ex]').forEach(ta => {
+      ta.value = '';
+    });
+
+    // 5. Reiniciar cronómetro
+    if (timerInterval) clearInterval(timerInterval);
+    const newStart = new Date().toISOString();
+    try {
+      localStorage.setItem(START_TIME_KEY, newStart);
+      localStorage.setItem(TIMER_STORAGE_KEY, DEFAULT_TIMER_SECONDS.toString());
+    } catch (e) {}
+    timerSeconds = DEFAULT_TIMER_SECONDS;
+    initTimer();
+
+    // 6. Actualizar verificadores y progreso
+    runAllLinters();
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    alert('🔄 Se ha iniciado un nuevo examen con éxito. El cronómetro y las respuestas han sido reiniciados a cero.');
   }
 })();
