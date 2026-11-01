@@ -19,3 +19,8 @@ venv/
 .DS_Store
 Thumbs.db
 
+# Autoevaluador reservado para corrección docente (Examen Controlado)
+autograder_*.py
+autograder*.py
+
+

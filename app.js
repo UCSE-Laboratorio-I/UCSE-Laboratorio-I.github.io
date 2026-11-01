@@ -1,15 +1,16 @@
-// app.js - Lógica interactiva y Linter Prolog en tiempo real (Examen Recuperatorio Integrador - UCSE DASS 2026)
+// app.js - Lógica interactiva y Verificador Prolog (Examen Recuperatorio Integrador - UCSE DASS 2026)
 
 (function () {
   'use strict';
 
   const STORAGE_KEY = 'ucse_lab1_examen_recuperatorio_2026';
   const TIMER_STORAGE_KEY = 'ucse_lab1_examen_recuperatorio_timer_2026';
+  const START_TIME_KEY = 'ucse_lab1_examen_recuperatorio_start_time';
   const COLOR_SCHEME_KEY = 'ucse_color_scheme';
-  const DEFAULT_TIMER_SECONDS = 90 * 60; // 90 minutos
+  const DEFAULT_TIMER_SECONDS = 90 * 60; // 90 minutos continuos
   const EXPORT_FILENAME = 'respuestas_recuperatorio.json';
   const EXAM_ID = 'LAB1-2026-EXAMEN-RECUPERATORIO';
-  const EXAM_TITLE = 'Instancia de Recuperatorio Integrador: Teoría (TP1–TP5) y Práctica en Prolog (TP7)';
+  const EXAM_TITLE = 'Examen Recuperatorio Integrador: Teoría (TP1–TP5) y Práctica en Prolog (TP7)';
 
   const progressBar = document.getElementById('progress-bar');
   const progressText = document.getElementById('progress-text');
@@ -18,17 +19,14 @@
   const progressPractica = document.getElementById('progress-practica');
   const previewArea = document.getElementById('json-preview');
   const previewModal = document.getElementById('modal-preview');
-
   const timerDisplay = document.getElementById('timer-display');
-  const btnTimerToggle = document.getElementById('btn-timer-toggle');
-  const btnTimerReset = document.getElementById('btn-timer-reset');
 
   let timerSeconds = DEFAULT_TIMER_SECONDS;
   let timerInterval = null;
-  let timerRunning = false;
 
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
+    randomizeSelectOptions();
     initTimer();
     loadStoredData();
     bindEvents();
@@ -39,7 +37,25 @@
   });
 
   // ==========================================
-  // TEMA CLARO / OSCURO (Modern Web Guidance: dark-mode-toggle)
+  // ALEATORIZACIÓN DE OPCIONES CLIENT-SIDE
+  // ==========================================
+  function randomizeSelectOptions() {
+    document.querySelectorAll('select[data-ex]').forEach(sel => {
+      const disabledOption = sel.querySelector('option[disabled]');
+      const opts = Array.from(sel.querySelectorAll('option:not([disabled])'));
+      if (opts.length <= 1) return;
+      for (let i = opts.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = opts[i];
+        opts[i] = opts[j];
+        opts[j] = temp;
+      }
+      opts.forEach(opt => sel.appendChild(opt));
+    });
+  }
+
+  // ==========================================
+  // TEMA CLARO / OSCURO
   // ==========================================
   function getSystemScheme() {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -102,9 +118,15 @@
   }
 
   // ==========================================
-  // TEMPORIZADOR DEL EXAMEN (90 MINUTOS)
+  // CRONÓMETRO CONTINUO (EXAMEN CONTROLADO: SIN PAUSA NI REINICIO)
   // ==========================================
   function initTimer() {
+    let startTime = localStorage.getItem(START_TIME_KEY);
+    if (!startTime) {
+      startTime = new Date().toISOString();
+      try { localStorage.setItem(START_TIME_KEY, startTime); } catch (e) {}
+    }
+
     try {
       const saved = localStorage.getItem(TIMER_STORAGE_KEY);
       if (saved) {
@@ -112,7 +134,19 @@
         if (!isNaN(parsed) && parsed >= 0) timerSeconds = parsed;
       }
     } catch (e) {}
+
     renderTimer();
+
+    timerInterval = setInterval(() => {
+      if (timerSeconds > 0) {
+        timerSeconds--;
+        try { localStorage.setItem(TIMER_STORAGE_KEY, timerSeconds.toString()); } catch (e) {}
+        renderTimer();
+      } else {
+        clearInterval(timerInterval);
+        alert('⏰ ¡Tiempo cumplido! La instancia ha finalizado. Por favor genera y exporta el archivo ' + EXPORT_FILENAME);
+      }
+    }, 1000);
   }
 
   function renderTimer() {
@@ -129,43 +163,8 @@
     }
   }
 
-  function toggleTimer() {
-    if (timerRunning) {
-      clearInterval(timerInterval);
-      timerRunning = false;
-      if (btnTimerToggle) btnTimerToggle.textContent = '▶ Reanudar';
-    } else {
-      if (timerSeconds <= 0) timerSeconds = DEFAULT_TIMER_SECONDS;
-      timerRunning = true;
-      if (btnTimerToggle) btnTimerToggle.textContent = '⏸ Pausar';
-      timerInterval = setInterval(() => {
-        if (timerSeconds > 0) {
-          timerSeconds--;
-          try { localStorage.setItem(TIMER_STORAGE_KEY, timerSeconds.toString()); } catch (e) {}
-          renderTimer();
-        } else {
-          clearInterval(timerInterval);
-          timerRunning = false;
-          if (btnTimerToggle) btnTimerToggle.textContent = '▶ Iniciar';
-          alert('⏰ ¡Tiempo cumplido! Revisa tus respuestas y exporta el archivo ' + EXPORT_FILENAME);
-        }
-      }, 1000);
-    }
-  }
-
-  function resetTimer() {
-    if (confirm('¿Deseas reiniciar el cronómetro del examen a 90 minutos?')) {
-      clearInterval(timerInterval);
-      timerRunning = false;
-      timerSeconds = DEFAULT_TIMER_SECONDS;
-      try { localStorage.setItem(TIMER_STORAGE_KEY, timerSeconds.toString()); } catch (e) {}
-      if (btnTimerToggle) btnTimerToggle.textContent = '▶ Iniciar';
-      renderTimer();
-    }
-  }
-
   // ==========================================
-  // LINTER SINTÁCTICO PROLOG EN TIEMPO REAL
+  // VERIFICADOR PRELIMINAR DE ESTRUCTURA Y SINTAXIS BÁSICA DE PROLOG
   // ==========================================
   function splitTopLevelCommas(str) {
     const res = [];
@@ -198,7 +197,14 @@
     let totalRules = 0;
 
     if (!code || !code.trim()) {
-      return { totalFacts: 0, totalRules: 0, factsBySig, rulesBySig, warnings: ['Escribe los 9 hechos y las 2 reglas del dominio.'] };
+      return {
+        totalFacts: 0,
+        totalRules: 0,
+        factsBySig,
+        rulesBySig,
+        warnings: ['Escribe los 9 hechos y las 2 reglas del dominio.'],
+        isExactStructure: false
+      };
     }
 
     const lines = code.split(/\r?\n/);
@@ -264,24 +270,47 @@
         }
         const upperArgs = parsed.args.filter(a => /^[A-Z]/.test(a));
         if (upperArgs.length > 0) {
-          warnings.push(`Hecho ${parsed.sig}: El argumento '${upperArgs[0]}' inicia con mayúscula (Prolog lo interpreta como Variable libre en vez de átomo constante).`);
+          warnings.push(`Hecho ${parsed.sig}: El argumento '${upperArgs[0]}' inicia con mayúscula (Prolog lo interpreta como variable en vez de átomo constante).`);
         }
         totalFacts++;
         factsBySig[parsed.sig] = (factsBySig[parsed.sig] || 0) + 1;
       }
     });
 
-    if (expectedSigs && expectedSigs.length > 0) {
-      expectedSigs.forEach(sig => {
-        const isFactConfirmed = (factsBySig[sig] || 0) > 0;
-        const isRuleConfirmed = (rulesBySig[sig] || 0) > 0;
-        if (!isFactConfirmed && !isRuleConfirmed) {
-          warnings.push(`Aún no se detectaron cláusulas para el predicado requerido '${sig}'.`);
+    // Validación de estructura esperada (9 hechos: 3 por predicado factual; 2 reglas: 1 por predicado deductivo)
+    let isExactStructure = false;
+    if (expectedSigs && expectedSigs.length >= 5) {
+      const factSigs = expectedSigs.slice(0, 3);
+      const ruleSigs = expectedSigs.slice(3);
+
+      factSigs.forEach(sig => {
+        const cnt = factsBySig[sig] || 0;
+        if (cnt < 3) {
+          warnings.push(`Predicado factual '${sig}': Se detectaron ${cnt}/3 hechos esperados.`);
+        } else if (cnt > 3) {
+          warnings.push(`Predicado factual '${sig}': Se detectaron ${cnt} hechos (se requieren exactamente 3).`);
         }
       });
+
+      ruleSigs.forEach(sig => {
+        const cnt = rulesBySig[sig] || 0;
+        if (cnt < 1) {
+          warnings.push(`Predicado deductivo '${sig}': Falta definir la regla correspondiente.`);
+        } else if (cnt > 1) {
+          warnings.push(`Predicado deductivo '${sig}': Se detectaron ${cnt} reglas (se requiere exactamente 1).`);
+        }
+      });
+
+      const allFactsExact = factSigs.every(sig => (factsBySig[sig] || 0) === 3);
+      const allRulesExact = ruleSigs.every(sig => (rulesBySig[sig] || 0) === 1);
+      if (totalFacts === 9 && totalRules === 2 && allFactsExact && allRulesExact && warnings.length === 0) {
+        isExactStructure = true;
+      }
+    } else if (totalFacts === 9 && totalRules === 2 && warnings.length === 0) {
+      isExactStructure = true;
     }
 
-    return { totalFacts, totalRules, factsBySig, rulesBySig, warnings };
+    return { totalFacts, totalRules, factsBySig, rulesBySig, warnings, isExactStructure };
   }
 
   function updateLinterUI(caseNum, textareaId) {
@@ -303,30 +332,30 @@
     if (rulesBadge) rulesBadge.textContent = `Reglas deductivas: ${res.totalRules} / 2`;
 
     if (predsDiv && expectedSigs.length > 0) {
+      const factSigs = expectedSigs.slice(0, 3);
       const pills = expectedSigs.map(sig => {
-        const cF = res.factsBySig[sig] || 0;
-        const cR = res.rulesBySig[sig] || 0;
-        const count = cF + cR;
-        const ok = count > 0;
-        return `<span class="inline-block mr-2 mb-1 px-2 py-0.5 rounded ${ok ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40' : 'bg-slate-800 text-slate-400 border border-slate-700'}">${ok ? '✓' : '○'} ${sig} (${count})</span>`;
+        const isFact = factSigs.includes(sig);
+        const expectedCount = isFact ? 3 : 1;
+        const actualCount = isFact ? (res.factsBySig[sig] || 0) : (res.rulesBySig[sig] || 0);
+        const ok = actualCount === expectedCount;
+        return `<span class="inline-block mr-2 mb-1 px-2 py-0.5 rounded ${ok ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40' : 'bg-slate-800 text-slate-400 border border-slate-700'}">${ok ? '✓' : '○'} ${sig} (${actualCount}/${expectedCount})</span>`;
       });
       predsDiv.innerHTML = pills.join('');
     }
 
     if (warnList) {
       warnList.innerHTML = '';
-      res.warnings.slice(0, 5).forEach(w => {
+      res.warnings.slice(0, 6).forEach(w => {
         const li = document.createElement('li');
         li.textContent = w;
         warnList.appendChild(li);
       });
     }
 
-    const isComplete = res.totalFacts >= 9 && res.totalRules >= 2 && res.warnings.length === 0;
     if (statusBadge) {
-      if (isComplete) {
+      if (res.isExactStructure) {
         statusBadge.className = 'px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-400/40';
-        statusBadge.textContent = '✅ KB Lista (Sintaxis OK)';
+        statusBadge.textContent = 'ℹ️ Estructura mínima detectada. Falta comprobar ejecución y semántica.';
       } else if (res.totalFacts > 0 || res.totalRules > 0) {
         statusBadge.className = 'px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold border border-amber-400/40';
         statusBadge.textContent = '🛠️ En construcción (revisa avisos)';
@@ -335,7 +364,7 @@
         statusBadge.textContent = '⏳ Pendiente de codificar';
       }
     }
-    return isComplete;
+    return res.isExactStructure;
   }
 
   function runAllLinters() {
@@ -367,9 +396,6 @@
         saveData();
       });
     });
-
-    if (btnTimerToggle) btnTimerToggle.addEventListener('click', toggleTimer);
-    if (btnTimerReset) btnTimerReset.addEventListener('click', resetTimer);
 
     const btnExport = document.getElementById('btn-export-json');
     const btnExportFooter = document.getElementById('btn-export-json-footer');
@@ -405,7 +431,6 @@
     setupKBToolbar(1, 'btn-copy-prolog-1', 'kb-code-1', 'btn-load-pl-1', 'input-load-pl-1', 'btn-download-pl-1');
     setupKBToolbar(2, 'btn-copy-prolog-2', 'kb-code-2', 'btn-load-pl-2', 'input-load-pl-2', 'btn-download-pl-2');
 
-    setupModal('btn-open-biblio-all', 'modal-biblio', 'btn-close-biblio');
     setupModal('btn-git-guide', 'modal-git', 'btn-close-git');
   }
 
@@ -506,15 +531,21 @@
       }
     });
 
-    // Contabilizar las 2 Bases de Conocimiento Prolog
+    // Contabilizar las 2 Bases de Conocimiento Prolog solo si cumplen la estructura requerida
     [1, 2].forEach(num => {
       const ta = document.getElementById(`kb-code-${num}`);
       if (ta) {
         const kbKey = `kb_prolog_${num}`;
         uniqueKeys.add(kbKey);
         practicaTotal.add(kbKey);
-        const res = lintPrologCode(ta.value, []);
-        if (res.totalFacts >= 9 && res.totalRules >= 2) {
+
+        let expectedSigs = [];
+        try {
+          expectedSigs = JSON.parse(ta.getAttribute('data-expected-preds') || '[]');
+        } catch (e) {}
+
+        const res = lintPrologCode(ta.value, expectedSigs);
+        if (res.isExactStructure) {
           answeredKeys.add(kbKey);
           practicaAnswered.add(kbKey);
         }
@@ -587,12 +618,19 @@
   }
 
   function generatePayload() {
+    const startTime = localStorage.getItem(START_TIME_KEY) || new Date().toISOString();
+    const endTime = new Date().toISOString();
+    const elapsedSec = Math.max(0, Math.round((new Date(endTime).getTime() - new Date(startTime).getTime()) / 1000));
+
     const payload = {
       metadata: {
         tp_id: EXAM_ID,
         title: EXAM_TITLE,
         institucion: 'Universidad Católica de Santiago del Estero (UCSE) - DASS',
-        timestamp: new Date().toISOString()
+        start_time: startTime,
+        end_time: endTime,
+        elapsed_seconds: elapsedSec,
+        timestamp: endTime
       },
       student: {
         nombre: document.getElementById('student-name')?.value.trim() || '',

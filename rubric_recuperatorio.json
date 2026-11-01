@@ -1,11 +1,11 @@
 {
   "tp_metadata": {
     "tp_id": "LAB1-2026-EXAMEN-RECUPERATORIO",
-    "title": "Instancia de Recuperatorio Integrador: Teoría (TP1–TP5) y Práctica en Prolog (TP7)",
+    "title": "Examen Recuperatorio Integrador: Teoría (TP1–TP5) y Práctica en Prolog (TP7)",
     "catedra": "Laboratorio I - Tecnicatura Universitaria en Automatización y Robótica / Informática - UCSE DASS",
     "ciclo": 2026,
     "docente": "Ing. Fabio D. Argañaraz",
-    "version": "2.0.0"
+    "version": "2.1.0"
   },
   "security": {
     "algorithm": "SHA-256 + Salted HMAC + Canonical Prolog AST Alpha-Hash",
@@ -16,12 +16,12 @@
     "ej1_teoria_tp1": {
       "part": "teoria",
       "weight": 10,
-      "biblio": "Russell & Norvig Cap. 1.2 (pp. 8–10), Cap. 2.2–2.3 (pp. 38–46) y Cap. 26.1–26.2 (pp. 1020–1028) • Diapositivas Clase 1, Clase 2 y Clase 3.1.",
+      "biblio": "Russell & Norvig Cap. 1.2–1.3 (pp. 5–18), Cap. 2.2–2.4 (pp. 37–52) y Cap. 26.1–26.2 (pp. 1020–1028) • Diapositivas Clase 1 (Slides 8–24).",
       "feedback": "Un agente racional elige la acción que maximiza el valor esperado de su medida de rendimiento dada su secuencia de percepciones y conocimiento previo. En un brazo clasificador industrial, la pinza neumática y los motores articulares son los Actuadores. La IA Fuerte sostiene que una máquina puede poseer mente y conciencia genuina. Ante problemas NP-completos, la IA apela a métodos heurísticos y aproximaciones.",
       "hashes": {
-        "item_definicion_racionalidad": "60deb55413ad2413e8558e2e3d3bf23268dd790ee0ebc9681d077acd924847fe",
-        "item_peas_robot_clasificador": "82b2e0cd78afe381d3072ce86351bcca356e7d61624c9ea7250329521d4631ff",
-        "item_ia_debil_vs_fuerte": "4d07eb9172bf2a7f94b65d264f49783768d590de73555c787d25778f5b478e29",
+        "item_definicion_racionalidad_russell": "1d88a1c2d79a7f8c9e6279b06fb9e7d56842a4be12609e1e5f77f17a0b08d82f",
+        "item_peas_brazo_robotico_clasificador": "820955b7b03d17239f4e44276a08e4e182fbb8db4401bf3814331c86ed399b97",
+        "item_filosofia_ia_debil_vs_fuerte": "46a0466ae1c134159c7a30f2c2d34d32bc3af4984a78fd35316a1b0c91b36e46",
         "item_intratabilidad_np_heuristicas": "d54cddf4a20ce3688b97a398cb12b539920b7f27d3a69a1a13a0694a58968faa"
       }
     },
@@ -67,10 +67,10 @@
       "biblio": "Russell & Norvig Cap. 9.2–9.5 (pp. 278–308) • Diapositivas Clase 6 (`6 - Lógica de Primer Orden.pptx`, Slides 17–28).",
       "feedback": "En el caso del Coronel West, la ley se formaliza como Americano(x) ∧ Arma(y) ∧ Vende(x,y,z) ∧ Hostil(z) ⇒ Criminal(x), y el cuantificador existencial ∃x (Misil(x) ∧ Posee(Nono,x)) se elimina introduciendo la constante de Skolem M₁. La Unificación halla la sustitución más general (θ) que hace idénticas dos expresiones lógicas. Kowalski formuló Algoritmo = Lógica + Control.",
       "hashes": {
-        "item_coronel_west_regla_crimen": "72173e792b0414b58c7a679f4973450b6b4bcdb577bbf828adb0fda13cf7ed7f",
-        "item_coronel_west_skolemizacion": "2348f14f1604715b0685fb4403c99beaf2c39a3111ec9b25001699a63599b8fd",
-        "item_rol_unificacion_lpo": "35cf463df4aaae9390e6c81cac43153f7f8f3ca6369977b914d7bd36e428de76",
-        "item_ecuacion_kowalski_prolog": "27b38beb41864e5ade95decc22cb24fbcd6a4391aa6177c0bcdb7bb87aa1d1f5"
+        "item_formalizacion_crimen_west": "ad2cbc31087239ec34daf28c1723191f37f4aea8d1738a50bf57f8f228c02726",
+        "item_skolemizacion_existencial_nono": "b938f7beb4e7b40d76fcddc75b2697c0ae0fd2fc77e81ba15c3d543b992bf388",
+        "item_unificador_mas_general_mgu": "6932f49ceed1e22680d66b13d4483335be38e16f5c2321554028cac9ba58922f",
+        "item_ecuacion_kowalski_prolog": "543a2dbe0f49d34ddb64a7d92b31e7b555985f1256f7213196a0a61505ee63af"
       }
     },
     "ej6_practica_caso1": {
@@ -105,7 +105,7 @@
         ],
         "material_ia_disponible/2": [
           "30ac4c3a2188818b6671fe8a493417f04565d726f93ae83e8b5aa5bda840eee0",
-          "93904805f0e4e0194874fc3083525915e536956c5da4d48847a40fb68b805b7d"
+          "30ac4c3a2188818b6671fe8a493417f04565d726f93ae83e8b5aa5bda840eee0"
         ]
       },
       "hashes": {
@@ -149,7 +149,7 @@
         ],
         "mantenimiento_prioritario_zona/2": [
           "9d513104c79d351cacede3b96b7d9d96b8236f63e656b1db813e0fce30da373b",
-          "61cf8ac340116c48f372bf0ef6c44c7d0486e87cecf4e637b52532c74f5439e1"
+          "9d513104c79d351cacede3b96b7d9d96b8236f63e656b1db813e0fce30da373b"
         ]
       },
       "hashes": {

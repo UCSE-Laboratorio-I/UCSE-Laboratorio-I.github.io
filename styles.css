@@ -44,7 +44,21 @@ h1, h2, h3, h4, .ucse-heading {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-/* Tarjetas Institucionales UCSE (inspiradas en post-159.css de ucse.edu.ar) */
+/* Reglas Institucionales Específicas UCSE */
+a {
+  text-decoration: none;
+  color: #464feb;
+}
+
+tr th, tr td {
+  border: 1px solid #e6e6e6;
+}
+
+tr th {
+  background-color: #f5f5f5;
+}
+
+/* Tarjetas Institucionales UCSE */
 .ucse-card {
   border-top: 4px solid var(--ucse-blue-bright);
   border-radius: 10px;
@@ -107,7 +121,7 @@ html.dark .part-tab-btn.active {
   border-color: #6EC1E4 !important;
 }
 
-/* Modern Web Guidance (color): Soporte para Forced Colors Mode (Alto Contraste de Windows) */
+/* Soporte para Forced Colors Mode (Alto Contraste de Windows) */
 @media (forced-colors: active) {
   .radio-card:has(input:checked),
   .filter-btn.active,
@@ -158,4 +172,3 @@ html.dark .part-tab-btn.active {
     display: none !important;
   }
 }
-

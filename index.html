@@ -51,7 +51,7 @@
 <body class="bg-[#F4F6F9] dark:bg-[#01182E] text-[#212529] dark:text-slate-100 min-h-screen antialiased selection:bg-[#01305B] selection:text-[#FFED00]">
 
   <!-- =========================================================================
-       TOPBAR INSTITUCIONAL UCSE (Estilo https://www.ucse.edu.ar/ - #01305B)
+       TOPBAR INSTITUCIONAL UCSE (#01305B) - EXAMEN CONTROLADO: TEMPORIZADOR AUTOMÁTICO
   ========================================================================== -->
   <div class="ucse-topbar bg-[#01305B] text-white border-b border-[#1569AE]/40 text-xs">
     <div class="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
@@ -59,17 +59,9 @@
         <span class="px-2 py-0.5 rounded bg-[#FFED00] text-[#01305B] font-extrabold text-[11px]">UCSE • DASS</span>
         <span class="hidden sm:inline text-slate-200">Universidad Católica de Santiago del Estero &bull; Departamento Académico San Salvador</span>
       </div>
-      <div class="flex items-center gap-3" id="exam-timer-controls">
-        <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#023967] border border-[#6EC1E4]/30">
-          <span>⏱️</span>
-          <span id="timer-display" class="prolog-code font-bold text-[#FFED00] text-xs">90:00</span>
-        </div>
-        <button type="button" id="btn-timer-toggle" class="px-2.5 py-1 rounded bg-[#FFED00] hover:bg-[#FDD247] text-[#01305B] font-bold transition text-[11px]">
-          ▶ Iniciar
-        </button>
-        <button type="button" id="btn-timer-reset" class="px-2 py-1 rounded bg-[#023967] hover:bg-[#1569AE] text-white border border-white/20 transition text-[11px]" title="Reiniciar cronómetro a 90 minutos">
-          ↺
-        </button>
+      <div class="flex items-center gap-2" id="exam-timer-controls">
+        <span class="text-xs text-slate-200">⏱️ Tiempo restante:</span>
+        <span id="timer-display" class="prolog-code font-bold text-[#FFED00] text-xs px-2.5 py-1 rounded-lg bg-[#023967] border border-[#6EC1E4]/30">90:00</span>
       </div>
     </div>
   </div>
@@ -106,11 +98,8 @@
         </div>
       </div>
 
-      <!-- Botones Globales Obligatorios -->
+      <!-- Botones Globales (Examen Controlado: Sin botón de bibliografía externa durante la prueba) -->
       <div class="flex items-center gap-2">
-        <button type="button" id="btn-open-biblio-all" class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-[#F4F6F9] dark:bg-[#01182E] hover:bg-slate-200 text-[#01305B] dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] transition flex items-center gap-1.5">
-          <span>📖</span> <span class="hidden md:inline">Bibliografía</span>
-        </button>
         <button type="button" id="btn-git-guide" class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-[#F4F6F9] dark:bg-[#01182E] hover:bg-slate-200 text-[#01305B] dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] transition flex items-center gap-1.5">
           <span>🐙</span> <span class="hidden md:inline">Guía Entrega</span>
         </button>
@@ -135,13 +124,13 @@
       <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 dark:border-[#154D80] pb-5">
         <div class="space-y-2">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#01305B] text-[#FFED00] text-xs font-extrabold tracking-wide">
-            <span>🏛️</span> INSTANCIA DE RECUPERATORIO • 2026
+            <span>🏛️</span> INSTANCIA OFICIAL DE RECUPERATORIO • 2026
           </div>
           <h2 class="text-2xl md:text-3xl font-extrabold text-[#01305B] dark:text-white ucse-heading">
-            Instancia de Recuperatorio Integrador: Teoría (TP1–TP5) y Práctica en Prolog (TP7)
+            Examen Recuperatorio Integrador: Teoría (TP1–TP5) y Práctica en Prolog (TP7)
           </h2>
           <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed max-w-4xl">
-            Evaluación oficial de recuperación sobre Racionalidad y Límites de la IA, Búsqueda a Ciegas (DLS, Bidireccional, Grafos), Búsqueda de Memoria Acotada (IDA*, RBFS, 8-Puzzle), Encadenamiento Proposicional, Caso Coronel West y Programación en SWI-Prolog.
+            Evaluación oficial de recuperación sobre Racionalidad, Espacios de Búsqueda (DLS, Bidireccional), Heurísticas (IDA*, RBFS), Motores de Inferencia y Programación Lógica en SWI-Prolog.
           </p>
         </div>
         <div class="grid grid-cols-2 gap-2.5 shrink-0 text-center">
@@ -210,7 +199,7 @@
       </div>
 
       <!-- =====================================================================
-           EJERCICIO T1: RACIONALIDAD IDEAL, PEAS ROBÓTICO, IA FUERTE VS. DÉBIL Y COMPLEJIDAD NP
+           EJERCICIO T1: RACIONALIDAD, PEAS INDUSTRIAL, AGENTES CON ESTADO E IA FUERTE
       ====================================================================== -->
       <article class="ucse-card p-6 md:p-8 bg-white dark:bg-[#023967]/90 border border-slate-200 dark:border-[#154D80] space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 dark:border-[#154D80] pb-4">
@@ -218,7 +207,7 @@
             <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-bold bg-[#01305B] text-[#FFED00] mb-1.5">
               <span>📘 Unidad 1 • TP N° 1</span>
             </div>
-            <h3 class="text-lg md:text-xl font-extrabold text-[#01305B] dark:text-white ucse-heading">Ejercicio T1: Racionalidad Ideal, PEAS Robótico, IA Fuerte vs. Débil y Complejidad NP</h3>
+            <h3 class="text-lg md:text-xl font-extrabold text-[#01305B] dark:text-white ucse-heading">Ejercicio T1: Racionalidad, PEAS Industrial, Agentes con Estado e IA Fuerte</h3>
           </div>
           <span class="px-3.5 py-1 rounded-full bg-[#1569AE]/10 dark:bg-[#6EC1E4]/15 text-[#01305B] dark:text-[#6EC1E4] border border-[#1569AE]/30 text-xs font-extrabold self-start sm:self-auto shrink-0">
             10 Puntos (4 &times; 2,5 pts)
@@ -226,55 +215,55 @@
         </div>
 
         <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed">
-          Evalúa el concepto formal de racionalidad esperada, la especificación PEAS de manipuladores robóticos industriales, la distinción filosófica entre IA Débil e IA Fuerte y la respuesta de la IA ante problemas computacionalmente intratables (NP-completos).
+          Evalúa la definición formal de Racionalidad en agentes, la especificación PEAS de un brazo robótico clasificador, la necesidad ontológica de agentes con estado interno frente a entornos parcialmente observables, y el debate epistemológico de la IA Fuerte.
         </p>
 
         <div class="space-y-3.5">
-          <!-- Ítem 1: item_definicion_racionalidad -->
+          <!-- Ítem 1: item_definicion_racionalidad_russell -->
           <div class="flex flex-col lg:flex-row lg:items-center justify-between p-4 bg-slate-50 dark:bg-[#012243] rounded-xl border border-slate-200 dark:border-[#154D80] hover:border-[#1569AE] transition-all gap-4">
             <div class="lg:max-w-xl space-y-1">
-              <span class="font-bold text-[#01305B] dark:text-[#6EC1E4] text-sm block">1. Definición Formal de Agente Racional (Russell & Norvig):</span>
-              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">¿De qué factores depende la racionalidad en un instante dado y qué busca optimizar el agente?</span>
+              <span class="font-bold text-[#01305B] dark:text-[#6EC1E4] text-sm block">1. Definición Formal de Racionalidad (Russell & Norvig):</span>
+              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">¿De qué cuatro factores depende estrictamente la elección de una acción racional por parte de un agente inteligente?</span>
             </div>
             <div class="lg:w-96 shrink-0">
-              <select data-ex="ej1_teoria_tp1" data-key="item_definicion_racionalidad" aria-label="1. Definición Formal de Agente Racional (Russell &amp; Norvig):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
+              <select data-ex="ej1_teoria_tp1" data-key="item_definicion_racionalidad_russell" aria-label="1. Definición Formal de Racionalidad (Russell &amp; Norvig):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="omnisciencia_perfecta_futuro_exacto">De conocer con certeza absoluta el futuro real (omnisciencia) sin margen de incertidumbre</option>
-                <option value="max_desempeno_esperado_segun_percepciones_y_conocimiento">De la medida de rendimiento, la secuencia de percepciones recibidas hasta el momento, el conocimiento previo del entorno y las acciones posibles, buscando maximizar el desempeño esperado</option>
-                <option value="imitar_errores_emocionales_humanos">De reproducir exactamente los sesgos cognitivos y reflejos biológicos humanos</option>
-                <option value="minimizar_lineas_codigo_fuente">Exclusivamente de ejecutar la acción que consuma menos ciclos de reloj del procesador</option>
+                <option value="max_desempeno_esperado_segun_percepciones_y_conocimiento">De la medida de rendimiento, la secuencia de percepciones, el conocimiento previo y las acciones posibles.</option>
+                <option value="solo_del_conocimiento_humano">De los objetivos de su diseñador, su velocidad de cálculo y el lenguaje de desarrollo.</option>
+                <option value="de_la_omnipotencia_del_hardware">De la capacidad de prever el futuro sin incertidumbre y garantizar siempre el éxito.</option>
+                <option value="exclusivamente_de_la_ultima_percepcion">Únicamente de la última percepción inmediata ignorando el aprendizaje acumulado.</option>
               </select>
             </div>
           </div>
-          <!-- Ítem 2: item_peas_robot_clasificador -->
+          <!-- Ítem 2: item_peas_brazo_robotico_clasificador -->
           <div class="flex flex-col lg:flex-row lg:items-center justify-between p-4 bg-slate-50 dark:bg-[#012243] rounded-xl border border-slate-200 dark:border-[#154D80] hover:border-[#1569AE] transition-all gap-4">
             <div class="lg:max-w-xl space-y-1">
-              <span class="font-bold text-[#01305B] dark:text-[#6EC1E4] text-sm block">2. Especificación PEAS de un Robot Clasificador de Piezas en Cinta Transportadora:</span>
-              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">En el análisis PEAS de una celda de manufactura, ¿a qué categoría pertenecen el brazo articulado de 6 grados de libertad y la pinza neumática (gripper)?</span>
+              <span class="font-bold text-[#01305B] dark:text-[#6EC1E4] text-sm block">2. Especificación PEAS de un Brazo Robótico Clasificador Industrial:</span>
+              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">En un robot clasificador de piezas defectuosas en una cinta transportadora, ¿a qué componente corresponden los motores angulares y la pinza neumática?</span>
             </div>
             <div class="lg:w-96 shrink-0">
-              <select data-ex="ej1_teoria_tp1" data-key="item_peas_robot_clasificador" aria-label="2. Especificación PEAS de un Robot Clasificador de Piezas en Cinta Transportadora:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
+              <select data-ex="ej1_teoria_tp1" data-key="item_peas_brazo_robotico_clasificador" aria-label="2. Especificación PEAS de un Brazo Robótico Clasificador Industrial:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="sensores_celda">Sensores (Sensors): cámara cenital RGB-D y codificadores ópticos</option>
-                <option value="actuadores_manipulacion">Actuadores (Actuators): órganos efectores mediante los cuales el agente modifica físicamente el entorno depositando las piezas</option>
-                <option value="medida_rendimiento_calidad">Medida de Rendimiento (Performance): porcentaje de piezas clasificadas sin errores por minuto</option>
-                <option value="entorno_cinta_recipientes">Entorno (Environment): cinta transportadora, iluminación industrial y contenedores</option>
+                <option value="sensores_camara_vision">Sensores: cámara óptica de alta velocidad y sensores infrarrojos de proximidad.</option>
+                <option value="actuadores_motores_pinza">Actuadores: motores paso a paso de las articulaciones y pinza neumática de sujeción.</option>
+                <option value="entorno_cinta_piezas">Entorno: cinta transportadora, piezas metálicas, operarios y condiciones de luz.</option>
+                <option value="medida_rendimiento_calidad">Medida de Rendimiento: porcentaje de piezas correctamente clasificadas por minuto.</option>
               </select>
             </div>
           </div>
-          <!-- Ítem 3: item_ia_debil_vs_fuerte -->
+          <!-- Ítem 3: item_filosofia_ia_debil_vs_fuerte -->
           <div class="flex flex-col lg:flex-row lg:items-center justify-between p-4 bg-slate-50 dark:bg-[#012243] rounded-xl border border-slate-200 dark:border-[#154D80] hover:border-[#1569AE] transition-all gap-4">
             <div class="lg:max-w-xl space-y-1">
               <span class="font-bold text-[#01305B] dark:text-[#6EC1E4] text-sm block">3. Filosofía de la IA (Hipótesis de la IA Débil vs. IA Fuerte):</span>
               <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">¿Cuál es la diferencia fundamental entre la hipótesis de la IA Débil y la hipótesis de la IA Fuerte?</span>
             </div>
             <div class="lg:w-96 shrink-0">
-              <select data-ex="ej1_teoria_tp1" data-key="item_ia_debil_vs_fuerte" aria-label="3. Filosofía de la IA (Hipótesis de la IA Débil vs. IA Fuerte):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
+              <select data-ex="ej1_teoria_tp1" data-key="item_filosofia_ia_debil_vs_fuerte" aria-label="3. Filosofía de la IA (Hipótesis de la IA Débil vs. IA Fuerte):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="debil_usa_prolog_fuerte_usa_python">La IA Débil usa lenguajes declarativos y la IA Fuerte usa lenguajes imperativos</option>
-                <option value="debil_actua_como_si_pensara_fuerte_mente_consciente_real">La IA Débil afirma que las máquinas pueden actuar inteligentemente (como si pensaran), mientras que la IA Fuerte sostiene que un computador adecuadamente programado realmente piensa y posee mente/estados conscientes genuinos</option>
-                <option value="debil_no_resuelve_problemas_fuerte_si">La IA Débil solo resuelve sumas aritméticas y la IA Fuerte juega al ajedrez</option>
-                <option value="ambas_niegan_posibilidad_de_agentes">Ambas sostienen que ninguna computadora podrá jamás superar el Test de Turing</option>
+                <option value="debil_usa_prolog_fuerte_usa_python">La IA Débil programa agentes reactivos y la IA Fuerte agentes basados en conocimiento.</option>
+                <option value="debil_no_resuelve_problemas_fuerte_si">La IA Débil resuelve problemas finitos y la IA Fuerte opera en dominios infinitos.</option>
+                <option value="debil_actua_como_si_pensara_fuerte_mente_consciente_real">La IA Débil simula conducta inteligente y la IA Fuerte afirma una mente consciente real.</option>
+                <option value="ambas_niegan_posibilidad_de_agentes">La IA Débil requiere supervisión humana y la IA Fuerte prescinde de datos de entrada.</option>
               </select>
             </div>
           </div>
@@ -287,25 +276,14 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej1_teoria_tp1" data-key="item_intratabilidad_np_heuristicas" aria-label="4. Límites Computacionales (Intratabilidad NP-Completa e Indecidibilidad):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="porque_las_gpu_tienen_memoria_infinita">Porque los procesadores modernos resuelven problemas exponenciales de 10¹⁰⁰ estados por fuerza bruta exacta en milisegundos</option>
-                <option value="porque_ia_usa_heuristicas_y_aproximaciones_racionales">Porque la inteligencia (tanto humana como artificial) no requiere búsqueda exhaustiva ciega, sino que emplea heurísticas, poda del espacio de búsqueda y soluciones aproximadas suficientemente buenas en tiempo razonable</option>
-                <option value="porque_en_ia_todos_los_problemas_son_lineales">Porque todos los problemas de planificación y lógica en IA pertenecen a la clase O(1)</option>
-                <option value="porque_godel_demostro_que_np_es_igual_a_p">Porque el teorema de incompletitud de Gödel demostró que P = NP</option>
+                <option value="porque_las_gpu_tienen_memoria_infinita">Porque las arquitecturas paralelas resuelven cualquier búsqueda exhaustiva en milisegundos.</option>
+                <option value="porque_en_ia_todos_los_problemas_son_lineales">Porque la mayoría de los problemas de planificación formal pertenecen a la clase lineal O(n).</option>
+                <option value="porque_godel_demostro_que_np_es_igual_a_p">Porque la reducción formal a lógica proposicional elimina el crecimiento combinatorio.</option>
+                <option value="porque_ia_usa_heuristicas_y_aproximaciones_racionales">Porque la IA utiliza heurísticas y aproximaciones racionales sin requerir búsqueda exhaustiva.</option>
               </select>
             </div>
           </div>
         </div>
-
-        <!-- Orientación Bibliográfica Oficial -->
-        <details class="group mt-4 rounded-xl border border-[#1569AE]/30 bg-[#F4F6F9] dark:bg-[#01182E]/80 p-3.5 text-xs text-slate-700 dark:text-slate-200 transition-all">
-          <summary class="flex cursor-pointer items-center justify-between font-bold text-[#01305B] dark:text-[#FFED00] select-none">
-            <span>📖 Dónde estudiar y repasar este tema en la bibliografía oficial de cátedra</span>
-            <span class="transition group-open:rotate-180">▾</span>
-          </summary>
-          <div class="mt-2.5 pt-2.5 border-t border-slate-300 dark:border-[#154D80] space-y-1">
-            <p><strong>Referencia Bibliográfica:</strong> <a href="http://jdelagarza.fime.uanl.mx/IA/Libros/inteligencia-artificial-un-enfoque-moderno-stuart-j-russell.pdf" target="_blank" rel="noopener noreferrer" class="underline text-[#1569AE] dark:text-[#6EC1E4] hover:text-[#01305B] font-semibold">Russell &amp; Norvig — Inteligencia Artificial: Un Enfoque Moderno</a> &bull; Russell & Norvig Cap. 1.2 (pp. 8–10), Cap. 2.2–2.3 (pp. 38–46) y Cap. 26.1–26.2 (pp. 1020–1028) • Diapositivas Clase 1, Clase 2 y Clase 3.1.</p>
-          </div>
-        </details>
       </article>
       <!-- =====================================================================
            EJERCICIO T2: PROFUNDIDAD LIMITADA (DLS), BÚSQUEDA BIDIRECCIONAL Y BÚSQUEDA EN GRAFOS
@@ -337,10 +315,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej2_teoria_tp2" data-key="item_dls_causa_incompletitud" aria-label="1. Búsqueda Primero en Profundidad Limitada (DLS — Depth-Limited Search):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="encuentra_solucion_optima_igual">Encuentra igualmente la solución óptima gracias a la cola FIFO</option>
-                <option value="incompletitud_por_corte_prematuro">El algoritmo introduce una fuente adicional de incompletitud: falla en encontrar la solución porque todas las metas quedan más allá del horizonte de corte l</option>
-                <option value="consume_memoria_exponencial_infinita">La memoria pasa de lineal O(b · l) a doblemente exponencial</option>
-                <option value="se_convierte_en_costo_uniforme">Se transforma automáticamente en Búsqueda de Costo Uniforme</option>
+                <option value="incompletitud_por_corte_prematuro">El algoritmo es incompleto, pues todas las soluciones quedan más allá del límite l.</option>
+                <option value="encuentra_solucion_optima_igual">Encuentra igualmente la solución óptima reteniendo la frontera en una cola FIFO.</option>
+                <option value="consume_memoria_exponencial_infinita">El consumo de memoria se incrementa de lineal a exponencial por podas sucesivas.</option>
+                <option value="se_convierte_en_costo_uniforme">La búsqueda converge automáticamente a una exploración de costo uniforme.</option>
               </select>
             </div>
           </div>
@@ -353,10 +331,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej2_teoria_tp2" data-key="item_busqueda_bidireccional_complejidad" aria-label="2. Búsqueda Bidireccional (Simultánea hacia Adelante y hacia Atrás):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="para_en_raiz_complejidad_lineal">Se detiene al vaciar el árbol con complejidad O(b · d)</option>
-                <option value="interseccion_fronteras_complejidad_b_d_sobre_2">Se detiene cuando se intersectan la frontera de avance (desde el inicio) y la de retroceso (desde la meta), reduciendo la complejidad temporal y espacial a O(b^(d/2))</option>
-                <option value="no_requiere_memoria_en_ninguna_frontera">No necesita retener ninguna de las dos fronteras en memoria RAM</option>
-                <option value="duplica_el_exponente_a_2d">Aumenta la complejidad temporal a O(b^(2d))</option>
+                <option value="para_en_raiz_complejidad_lineal">Se detiene al alcanzar el límite d con complejidad temporal lineal O(b · d).</option>
+                <option value="interseccion_fronteras_complejidad_b_d_sobre_2">Se detiene al intersectar ambas fronteras con complejidad reducida O(b^(d/2)).</option>
+                <option value="no_requiere_memoria_en_ninguna_frontera">Se detiene al vaciar la cola de prioridad con complejidad cuadrática O(d^2).</option>
+                <option value="duplica_el_exponente_a_2d">Se detiene al generar el primer nodo meta con complejidad exponencial O(b^(2d)).</option>
               </select>
             </div>
           </div>
@@ -369,10 +347,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej2_teoria_tp2" data-key="item_axioma_historia_estados_repetidos" aria-label="3. Búsqueda en Árboles vs. Búsqueda en Grafos (Estados Repetidos):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="mejora_la_velocidad_de_busqueda">Acelera la convergencia al evitar consultar estructuras auxiliares</option>
-                <option value="explosion_exponencial_y_bucles_infinitos">Transforma grafos pequeños finitos en árboles de búsqueda exponenciales o infinitos debido a caminos redundantes y ciclos</option>
-                <option value="garantiza_optimalidad_en_dfs">Hace que la búsqueda primero en profundidad sea siempre óptima</option>
-                <option value="elimina_el_factor_de_ramificacion">Reduce el factor de ramificación efectivo a cero</option>
+                <option value="mejora_la_velocidad_de_busqueda">Acelera la búsqueda al evitar la verificación de pertenencia en listas cerradas.</option>
+                <option value="garantiza_optimalidad_en_dfs">Asegura la admisibilidad de las soluciones halladas por algoritmos no informados.</option>
+                <option value="explosion_exponencial_y_bucles_infinitos">Provoca explosión combinatoria exponencial y riesgo de lazos infinitos en ciclos.</option>
+                <option value="elimina_el_factor_de_ramificacion">Reduce el factor de ramificación efectivo al omitir estructuras de control.</option>
               </select>
             </div>
           </div>
@@ -385,25 +363,14 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej2_teoria_tp2" data-key="item_estructura_explored_set" aria-label="4. El Conjunto de Explorados (Explored Set / Lista Cerrada) en Búsqueda en Grafos:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="ordena_heuristica_sin_memoria">Calcula la distancia en línea recta sin ocupar memoria adicional</option>
-                <option value="recuerda_estados_expandidos_a_costa_de_memoria">Registra cada estado ya expandido para descartar nuevos caminos redundantes hacia él, a costa de retener en memoria todos los estados visitados</option>
-                <option value="almacena_solo_el_nodo_padre_inmediato">Solo guarda el nodo raíz inicial ocupando espacio O(1)</option>
-                <option value="sustituye_a_la_funcion_objetivo">Reemplaza al test objetivo eliminando la frontera</option>
+                <option value="ordena_heuristica_sin_memoria">Calcula heurísticas dinámicas de camino sin ocupar memoria adicional en la ejecución.</option>
+                <option value="almacena_solo_el_nodo_padre_inmediato">Conserva únicamente el camino activo desde la raíz descartando ramas alternativas.</option>
+                <option value="sustituye_a_la_funcion_objetivo">Reemplaza al test de parada evaluando la meta antes de generar los sucesores.</option>
+                <option value="recuerda_estados_expandidos_a_costa_de_memoria">Registra estados ya expandidos para evitar redundancias, reteniendo dichos nodos en memoria.</option>
               </select>
             </div>
           </div>
         </div>
-
-        <!-- Orientación Bibliográfica Oficial -->
-        <details class="group mt-4 rounded-xl border border-[#1569AE]/30 bg-[#F4F6F9] dark:bg-[#01182E]/80 p-3.5 text-xs text-slate-700 dark:text-slate-200 transition-all">
-          <summary class="flex cursor-pointer items-center justify-between font-bold text-[#01305B] dark:text-[#FFED00] select-none">
-            <span>📖 Dónde estudiar y repasar este tema en la bibliografía oficial de cátedra</span>
-            <span class="transition group-open:rotate-180">▾</span>
-          </summary>
-          <div class="mt-2.5 pt-2.5 border-t border-slate-300 dark:border-[#154D80] space-y-1">
-            <p><strong>Referencia Bibliográfica:</strong> <a href="http://jdelagarza.fime.uanl.mx/IA/Libros/inteligencia-artificial-un-enfoque-moderno-stuart-j-russell.pdf" target="_blank" rel="noopener noreferrer" class="underline text-[#1569AE] dark:text-[#6EC1E4] hover:text-[#01305B] font-semibold">Russell &amp; Norvig — Inteligencia Artificial: Un Enfoque Moderno</a> &bull; Russell & Norvig Cap. 3.4.4–3.5 (pp. 87–96) • Diapositivas Clase 3.2 (Slides 59–80).</p>
-          </div>
-        </details>
       </article>
       <!-- =====================================================================
            EJERCICIO T3: BÚSQUEDA HEURÍSTICA DE MEMORIA ACOTADA (IDA*, RBFS) Y DISEÑO DE HEURÍSTICAS
@@ -435,10 +402,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej3_teoria_tp3" data-key="item_ida_star_actualizacion_umbral" aria-label="1. Algoritmo A* de Profundidad Iterativa (IDA* / A*PI):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="usa_solo_h_multiplica_por_dos">Usa solo h(n) y duplica el límite en cada iteración sucesiva</option>
-                <option value="usa_f_coste_menor_f_que_excedio_umbral">Usa el f-coste (g(n) + h(n)); el nuevo límite de corte se fija en el menor valor f de entre todos los nodos que superaron el umbral en la iteración previa</option>
-                <option value="usa_cantidad_de_nodos_en_cola">Usa el tamaño de la cola FIFO con complejidad espacial exponencial</option>
-                <option value="usa_profundidad_fija_sin_heuristica">Descarta la heurística h(n) y corta únicamente por nivel topológico</option>
+                <option value="usa_f_coste_menor_f_que_excedio_umbral">Usa el f-coste (g+h); fija el nuevo corte en el menor f que superó el umbral previo.</option>
+                <option value="usa_solo_h_multiplica_por_dos">Usa exclusivamente h(n) y duplica el umbral numérico en cada iteración sucesiva.</option>
+                <option value="usa_cantidad_de_nodos_en_cola">Usa la cantidad de nodos de la frontera manteniendo una memoria exponencial.</option>
+                <option value="usa_profundidad_fija_sin_heuristica">Descarta la función heurística y corta únicamente por la profundidad entera del árbol.</option>
               </select>
             </div>
           </div>
@@ -451,10 +418,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej3_teoria_tp3" data-key="item_rbfs_rol_f_limit" aria-label="2. Búsqueda Recursiva del Primero Mejor (RBFS / BRPM):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="guardando_toda_la_lista_cerrada">Almacenando todos los estados del grafo en una tabla hash global</option>
-                <option value="rastreando_f_limit_y_respaldando_mejor_f_al_retroceder">Usando el parámetro f_limit para recordar el f-valor del mejor camino alternativo disponible desde cualquier ancestro, y respaldando (backing up) en el padre el mejor valor f de sus hijos cuando retrocede</option>
-                <option value="eliminando_la_recursion_y_el_costo_g">Ignorando por completo el costo acumulado g(n) y eligiendo al azar</option>
-                <option value="expandiendo_solo_dos_nodos_totales">Podando permanentemente los subárboles sin posibilidad de regenerarlos</option>
+                <option value="guardando_toda_la_lista_cerrada">Almacenando todos los estados del grafo en una tabla hash global en memoria RAM.</option>
+                <option value="rastreando_f_limit_y_respaldando_mejor_f_al_retroceder">Rastreando f_limit del mejor camino alternativo y respaldando en el padre el mejor f de sus hijos.</option>
+                <option value="eliminando_la_recursion_y_el_costo_g">Ignorando por completo el costo acumulado g(n) y eligiendo ramificaciones al azar.</option>
+                <option value="expandiendo_solo_dos_nodos_totales">Podando permanentemente los subárboles explorados sin posibilidad de regeneración.</option>
               </select>
             </div>
           </div>
@@ -467,10 +434,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej3_teoria_tp3" data-key="item_8puzzle_dominancia_h2_h1" aria-label="3. Comparación de Heurísticas en el 8-Puzzle (h₁ Piezas Descolocadas vs. h₂ Manhattan):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="h1_es_mayor_que_h2_pero_inadmisible">Que h₁(n) &gt; h₂(n) y por tanto h₂ viola la condición de admisibilidad</option>
-                <option value="h2_mayor_igual_h1_expande_menos_nodos">Que para todo nodo n se cumple h₂(n) ≥ h₁(n) siendo ambas admisibles; por ello A* usando h₂ nunca expandirá más nodos con f(n) &lt; C* que A* usando h₁</option>
-                <option value="ambas_expanden_exactamente_los_mismos_nodos">Que ambas son idénticas en valor numérico para cualquier configuración del tablero</option>
-                <option value="h2_solo_sirve_para_busqueda_voraz">Que h₂ solo puede utilizarse en búsqueda voraz y no en A*</option>
+                <option value="h1_es_mayor_que_h2_pero_inadmisible">Que h₁(n) &gt; h₂(n) para todo nodo, por lo que h₂ deja de ser admisible en árboles.</option>
+                <option value="ambas_expanden_exactamente_los_mismos_nodos">Que ambas producen valores numéricos idénticos en todas las configuraciones del juego.</option>
+                <option value="h2_mayor_igual_h1_expande_menos_nodos">Que h₂(n) ≥ h₁(n) siendo ambas admisibles; A* con h₂ nunca expande más nodos que con h₁.</option>
+                <option value="h2_solo_sirve_para_busqueda_voraz">Que h₂ solo puede aplicarse en algoritmos voraces y no en variantes informadas óptimas.</option>
               </select>
             </div>
           </div>
@@ -483,25 +450,14 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej3_teoria_tp3" data-key="item_invencion_problemas_relajados" aria-label="4. Invención Automática de Heurísticas Admisibles (Problemas Relajados):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="agregando_mas_restricciones_al_problema">Añadiendo nuevas prohibiciones y obstáculos para encarecer las acciones</option>
-                <option value="eliminando_restricciones_a_las_acciones_costo_exacto_relajado">Eliminando restricciones en la descripción de las acciones (problema relajado): el costo exacto de una solución óptima del problema relajado es siempre una heurística admisible y consistente para el problema original</option>
-                <option value="multiplicando_el_costo_real_por_diez">Multiplicando la distancia real por un factor aleatorio mayor que 1</option>
-                <option value="restando_el_factor_de_ramificacion">Restando la profundidad d al número total de operadores</option>
+                <option value="agregando_mas_restricciones_al_problema">Añadiendo restricciones a las acciones para penalizar los movimientos subóptimos.</option>
+                <option value="multiplicando_el_costo_real_por_diez">Multiplicando la distancia euclidiana por el factor de ramificación efectivo del grafo.</option>
+                <option value="restando_el_factor_de_ramificacion">Aproximando la profundidad media de la solución mediante una regresión cuadrática.</option>
+                <option value="eliminando_restricciones_a_las_acciones_costo_exacto_relajado">Eliminando restricciones a las acciones: el costo óptimo del problema relajado es admisible y consistente.</option>
               </select>
             </div>
           </div>
         </div>
-
-        <!-- Orientación Bibliográfica Oficial -->
-        <details class="group mt-4 rounded-xl border border-[#1569AE]/30 bg-[#F4F6F9] dark:bg-[#01182E]/80 p-3.5 text-xs text-slate-700 dark:text-slate-200 transition-all">
-          <summary class="flex cursor-pointer items-center justify-between font-bold text-[#01305B] dark:text-[#FFED00] select-none">
-            <span>📖 Dónde estudiar y repasar este tema en la bibliografía oficial de cátedra</span>
-            <span class="transition group-open:rotate-180">▾</span>
-          </summary>
-          <div class="mt-2.5 pt-2.5 border-t border-slate-300 dark:border-[#154D80] space-y-1">
-            <p><strong>Referencia Bibliográfica:</strong> <a href="http://jdelagarza.fime.uanl.mx/IA/Libros/inteligencia-artificial-un-enfoque-moderno-stuart-j-russell.pdf" target="_blank" rel="noopener noreferrer" class="underline text-[#1569AE] dark:text-[#6EC1E4] hover:text-[#01305B] font-semibold">Russell &amp; Norvig — Inteligencia Artificial: Un Enfoque Moderno</a> &bull; Russell & Norvig Cap. 4.2.1–4.3 (pp. 110–121) • Diapositivas Clase 4 (Slides 24–32).</p>
-          </div>
-        </details>
       </article>
       <!-- =====================================================================
            EJERCICIO T4: ENCADENAMIENTO HACIA ADELANTE VS. ATRÁS Y RAZONAMIENTO EN DOMINIOS
@@ -533,10 +489,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej4_teoria_tp4" data-key="item_forward_chaining_data_driven" aria-label="1. Encadenamiento hacia Adelante (Forward Chaining):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="goal_driven_de_meta_a_premisas">Guiado por metas (Goal-Driven): parte de la consulta final y retrocede hacia los hechos</option>
-                <option value="data_driven_de_hechos_a_conclusiones">Guiado por datos (Data-Driven): parte de los hechos conocidos en la KB y dispara todas las reglas cuyas premisas se satisfacen, añadiendo sus conclusiones hasta alcanzar la meta</option>
-                <option value="aleatorio_sin_reglas_de_horn">Enumera tablas de verdad sin utilizar cláusulas definidas ni Modus Ponens</option>
-                <option value="exclusivo_para_eliminar_hechos">Borra hechos de la Base de Conocimiento hasta vaciarla</option>
+                <option value="data_driven_de_hechos_a_conclusiones">Guiado por datos: parte de los hechos conocidos y dispara reglas hacia las conclusiones.</option>
+                <option value="goal_driven_de_meta_a_premisas">Guiado por metas: parte de la consulta final y retrocede hacia las premisas de los hechos.</option>
+                <option value="aleatorio_sin_reglas_de_horn">Guiado por modelos: enumera interpretaciones booleanas mediante tablas de verdad completas.</option>
+                <option value="exclusivo_para_eliminar_hechos">Guiado por costos: evalúa las reglas ordenadas por el costo acumulado de sus antecedentes.</option>
               </select>
             </div>
           </div>
@@ -549,10 +505,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej4_teoria_tp4" data-key="item_backward_chaining_goal_driven" aria-label="2. Encadenamiento hacia Atrás (Backward Chaining):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="dispara_todas_las_reglas_irrelevantes">Deriva exhaustivamente todas las consecuencias posibles de la KB aunque no tengan relación con la consulta</option>
-                <option value="parte_de_meta_prueba_submetas_relevantes">Es guiado por metas (Goal-Driven): parte de la consulta q, busca reglas que concluyan q y encadena recursivamente solo las submetas relevantes para demostrarla</option>
-                <option value="no_puede_usarse_en_prolog">No admite variables ni puede implementarse en lenguajes declarativos</option>
-                <option value="requiere_conocer_la_meta_falsa">Solo funciona cuando la consulta inicial ya figura como hecho atómico en la KB</option>
+                <option value="dispara_todas_las_reglas_irrelevantes">Dispara exhaustivamente todas las reglas derivando conclusiones no solicitadas.</option>
+                <option value="parte_de_meta_prueba_submetas_relevantes">Parte de la hipótesis objetivo y encadena recursivamente solo las premisas relevantes.</option>
+                <option value="no_puede_usarse_en_prolog">Inhabilita el uso de variables obligando a evaluar únicamente términos ground.</option>
+                <option value="requiere_conocer_la_meta_falsa">Exige conocer de antemano el valor de verdad final antes de iniciar la inferencia.</option>
               </select>
             </div>
           </div>
@@ -565,10 +521,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej4_teoria_tp4" data-key="item_aplicacion_monitoreo_vs_diagnostico" aria-label="3. Selección de Arquitectura de Inferencia en Ingeniería de Sistemas Expertos:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="ambos_con_tablas_de_verdad">(A) Tablas de verdad manuales • (B) Búsqueda Primero en Anchura</option>
-                <option value="monitoreo_forward_diagnostico_backward">(A) Encadenamiento hacia Adelante (procesa nuevos datos de sensores al llegar) • (B) Encadenamiento hacia Atrás (verifica una hipótesis diagnóstica puntual)</option>
-                <option value="monitoreo_backward_diagnostico_forward">(A) Encadenamiento hacia Atrás • (B) Encadenamiento hacia Adelante</option>
-                <option value="ninguno_usa_reglas_condicionales">Ninguno de los dos casos admite reglas condicionales Si-Entonces</option>
+                <option value="ambos_con_tablas_de_verdad">(A) Tablas de verdad exhaustivas • (B) Búsqueda en anchura no informada.</option>
+                <option value="monitoreo_backward_diagnostico_forward">(A) Encadenamiento hacia Atrás • (B) Encadenamiento hacia Adelante.</option>
+                <option value="monitoreo_forward_diagnostico_backward">(A) Encadenamiento hacia Adelante (datos continuos) • (B) Encadenamiento hacia Atrás (hipótesis puntual).</option>
+                <option value="ninguno_usa_reglas_condicionales">(A) Inferencia por contradicción • (B) Algoritmo TT-Entails proposicional.</option>
               </select>
             </div>
           </div>
@@ -581,25 +537,14 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej4_teoria_tp4" data-key="item_acertijo_unicornio_rn" aria-label="4. Inferencia Formal en el Problema del Unicornio (Russell &amp; Norvig Cap. 7):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="se_demuestra_que_es_mitologico">Se demuestra que el unicornio es mitológico, pero no que tenga cuernos</option>
-                <option value="se_demuestra_cornudo_y_magico_pero_no_mitologico">No se puede demostrar si es mitológico o no, pero en ambos casos (por análisis de casos exhaustivo) se demuestra que es cornudo y por tanto que es mágico</option>
-                <option value="no_se_puede_demostrar_nada">La Base de Conocimiento es contradictoria y no permite deducir ninguna propiedad</option>
-                <option value="se_demuestra_que_no_es_magico">Se demuestra que el unicornio es mortal y que no es mágico</option>
+                <option value="se_demuestra_que_es_mitologico">Se demuestra que es mitológico y por lo tanto inmortal, pero no se deduce que sea mágico.</option>
+                <option value="no_se_puede_demostrar_nada">Se demuestra que no es mitológico y por lo tanto es mamífero, pero no que sea cornudo.</option>
+                <option value="se_demuestra_que_no_es_magico">La base de conocimientos es inconsistente y no permite deducir ninguna propiedad válida.</option>
+                <option value="se_demuestra_cornudo_y_magico_pero_no_mitologico">No se demuestra si es mitológico, pero en ambos casos se deduce que es cornudo y mágico.</option>
               </select>
             </div>
           </div>
         </div>
-
-        <!-- Orientación Bibliográfica Oficial -->
-        <details class="group mt-4 rounded-xl border border-[#1569AE]/30 bg-[#F4F6F9] dark:bg-[#01182E]/80 p-3.5 text-xs text-slate-700 dark:text-slate-200 transition-all">
-          <summary class="flex cursor-pointer items-center justify-between font-bold text-[#01305B] dark:text-[#FFED00] select-none">
-            <span>📖 Dónde estudiar y repasar este tema en la bibliografía oficial de cátedra</span>
-            <span class="transition group-open:rotate-180">▾</span>
-          </summary>
-          <div class="mt-2.5 pt-2.5 border-t border-slate-300 dark:border-[#154D80] space-y-1">
-            <p><strong>Referencia Bibliográfica:</strong> <a href="http://jdelagarza.fime.uanl.mx/IA/Libros/inteligencia-artificial-un-enfoque-moderno-stuart-j-russell.pdf" target="_blank" rel="noopener noreferrer" class="underline text-[#1569AE] dark:text-[#6EC1E4] hover:text-[#01305B] font-semibold">Russell &amp; Norvig — Inteligencia Artificial: Un Enfoque Moderno</a> &bull; Russell & Norvig Cap. 7.2 (Ej. 7.2) y Cap. 7.5.3 (pp. 218–224) • Diapositivas Clase 5 (`5 - Conocimiento y Razonamiento.pptx`).</p>
-          </div>
-        </details>
       </article>
       <!-- =====================================================================
            EJERCICIO T5: CASO CORONEL WEST, UNIFICACIÓN Y ECUACIÓN DE KOWALSKI EN PROLOG
@@ -622,82 +567,71 @@
         </p>
 
         <div class="space-y-3.5">
-          <!-- Ítem 1: item_coronel_west_regla_crimen -->
+          <!-- Ítem 1: item_formalizacion_crimen_west -->
           <div class="flex flex-col lg:flex-row lg:items-center justify-between p-4 bg-slate-50 dark:bg-[#012243] rounded-xl border border-slate-200 dark:border-[#154D80] hover:border-[#1569AE] transition-all gap-4">
             <div class="lg:max-w-xl space-y-1">
-              <span class="font-bold text-[#01305B] dark:text-[#6EC1E4] text-sm block">1. Formalización en Cláusulas Definidas de LPO (Caso del Coronel West):</span>
-              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">¿Cómo se traduce a una cláusula definida de primer orden el enunciado: "Es un crimen para un estadounidense vender armas a una nación hostil"?</span>
+              <span class="font-bold text-[#01305B] dark:text-[#6EC1E4] text-sm block">1. Formalización en Cláusula Definitiva del Crimen del Coronel West:</span>
+              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">"Es un crimen que un estadounidense venda armas a naciones hostiles". ¿Cuál es la formalización correcta en LPO de esta regla jurídica?</span>
             </div>
             <div class="lg:w-96 shrink-0">
-              <select data-ex="ej5_teoria_tp5" data-key="item_coronel_west_regla_crimen" aria-label="1. Formalización en Cláusulas Definidas de LPO (Caso del Coronel West):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
+              <select data-ex="ej5_teoria_tp5" data-key="item_formalizacion_crimen_west" aria-label="1. Formalización en Cláusula Definitiva del Crimen del Coronel West:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="americano_o_arma_implica_hostil">∀x, y, z (Americano(x) ∨ Arma(y) ⇒ Vende(x, y, z))</option>
-                <option value="conjuncion_premisas_implica_criminal">∀x, y, z (Americano(x) ∧ Arma(y) ∧ Vende(x, y, z) ∧ Hostil(z) ⇒ Criminal(x))</option>
-                <option value="criminal_implica_americano">∃x (Criminal(x) ∧ Americano(x) ∧ ¬Hostil(x))</option>
-                <option value="vende_implica_no_arma">∀x (Americano(x) ⇒ ¬Arma(x))</option>
+                <option value="americano_arma_vende_hostil_implica_criminal">Americano(x) ∧ Arma(y) ∧ Vende(x, y, z) ∧ Hostil(z) ⇒ Criminal(x)</option>
+                <option value="americano_o_arma_implica_criminal">Americano(x) ∨ Arma(y) ∨ Vende(x, y, z) ⇒ Criminal(x)</option>
+                <option value="criminal_implica_vende_armas">Criminal(x) ⇒ Americano(x) ∧ Arma(y) ∧ Vende(x, y, z) ∧ Hostil(z)</option>
+                <option value="vende_armas_sin_cuantificadores">Americano(x) ∧ Hostil(z) ⇒ Arma(y) ∧ Criminal(x)</option>
               </select>
             </div>
           </div>
-          <!-- Ítem 2: item_coronel_west_skolemizacion -->
+          <!-- Ítem 2: item_skolemizacion_existencial_nono -->
           <div class="flex flex-col lg:flex-row lg:items-center justify-between p-4 bg-slate-50 dark:bg-[#012243] rounded-xl border border-slate-200 dark:border-[#154D80] hover:border-[#1569AE] transition-all gap-4">
             <div class="lg:max-w-xl space-y-1">
-              <span class="font-bold text-[#01305B] dark:text-[#6EC1E4] text-sm block">2. Eliminación Existencial (Skolemización) en "Nono posee algunos misiles":</span>
-              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">Al transformar ∃x (Misil(x) ∧ Posee(Nono, x)) para incorporarla a la Base de Conocimiento de West, ¿cómo se elimina el cuantificador existencial?</span>
+              <span class="font-bold text-[#01305B] dark:text-[#6EC1E4] text-sm block">2. Eliminación de Cuantificadores Existenciales (Constantes de Skolem):</span>
+              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">Para la premisa "El país Nono tiene algunos misiles" formalizada como ∃x (Misil(x) ∧ Posee(Nono, x)), ¿cómo se elimina el cuantificador ∃x conservando la satisfacibilidad?</span>
             </div>
             <div class="lg:w-96 shrink-0">
-              <select data-ex="ej5_teoria_tp5" data-key="item_coronel_west_skolemizacion" aria-label="2. Eliminación Existencial (Skolemización) en &quot;Nono posee algunos misiles&quot;:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
+              <select data-ex="ej5_teoria_tp5" data-key="item_skolemizacion_existencial_nono" aria-label="2. Eliminación de Cuantificadores Existenciales (Constantes de Skolem):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="reemplazando_por_variable_libre_universal">Dejando la variable x libre sin instanciar en toda la base</option>
-                <option value="introduciendo_constante_skolem_nueva_m1">Mediante Instanciación Existencial (Skolemización): se introduce una constante de Skolem nueva M₁ que no aparezca previamente en la KB, obteniendo Misil(M₁) y Posee(Nono, M₁)</option>
-                <option value="reemplazando_por_nono_mismo">Sustituyendo x por la constante existente West, obteniendo Misil(West)</option>
-                <option value="borrando_el_predicado_misil">Eliminando el predicado Misil(x) por completo</option>
+                <option value="reemplazar_por_variable_universal">Reemplazando x por una variable cuantificada universalmente ∀x.</option>
+                <option value="introducir_constante_skolem_m1">Introduciendo una constante de Skolem nueva M₁: Misil(M₁) ∧ Posee(Nono, M₁).</option>
+                <option value="borrar_el_cuantificador_sin_cambios">Omitiendo el símbolo ∃x sin renombrar la variable dentro de los predicados.</option>
+                <option value="negar_ambas_proposiciones">Negando la fórmula completa mediante las Leyes de De Morgan proposicionales.</option>
               </select>
             </div>
           </div>
-          <!-- Ítem 3: item_rol_unificacion_lpo -->
+          <!-- Ítem 3: item_unificador_mas_general_mgu -->
           <div class="flex flex-col lg:flex-row lg:items-center justify-between p-4 bg-slate-50 dark:bg-[#012243] rounded-xl border border-slate-200 dark:border-[#154D80] hover:border-[#1569AE] transition-all gap-4">
             <div class="lg:max-w-xl space-y-1">
-              <span class="font-bold text-[#01305B] dark:text-[#6EC1E4] text-sm block">3. Mecanismo de Unificación (UNIFY) en Inferencia de Primer Orden:</span>
-              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">¿Cuál es el propósito formal del operador de Unificación UNIFY(p, q) = θ en el encadenamiento hacia adelante y hacia atrás?</span>
+              <span class="font-bold text-[#01305B] dark:text-[#6EC1E4] text-sm block">3. Algoritmo de Unificación (Most General Unifier — MGU):</span>
+              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">¿Cuál es el Unificador Más General (MGU) entre Conoce(Juan, x) y Conoce(y, Madre(y))?</span>
             </div>
             <div class="lg:w-96 shrink-0">
-              <select data-ex="ej5_teoria_tp5" data-key="item_rol_unificacion_lpo" aria-label="3. Mecanismo de Unificación (UNIFY) en Inferencia de Primer Orden:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
+              <select data-ex="ej5_teoria_tp5" data-key="item_unificador_mas_general_mgu" aria-label="3. Algoritmo de Unificación (Most General Unifier — MGU):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="convertir_predicados_en_numeros_flotantes">Transformar predicados simbólicos en vectores de punto flotante</option>
-                <option value="encontrar_sustitucion_mas_general_hace_identicas">Encontrar la Sustitución Más General (MGU) θ de variables tal que al aplicarla a ambas expresiones lógicas las hace sintácticamente idénticas: SUBST(θ, p) = SUBST(θ, q)</option>
-                <option value="negar_todas_las_variables_compartidas">Invertir el signo de todos los literales de la cláusula de Horn</option>
-                <option value="ordenar_alfabeticamente_las_constantes">Ordenar alfabéticamente los átomos de la base de conocimientos</option>
+                <option value="sustitucion_vacia">{x/Juan, y/Juan}</option>
+                <option value="no_unifican_por_aridad">{y/Madre(x), x/Juan}</option>
+                <option value="sustitucion_mgu_correcta">{y/Juan, x/Madre(Juan)}</option>
+                <option value="falla_occurs_check">Falla: los dos predicados no unifican por diferencia de aridad.</option>
               </select>
             </div>
           </div>
           <!-- Ítem 4: item_ecuacion_kowalski_prolog -->
           <div class="flex flex-col lg:flex-row lg:items-center justify-between p-4 bg-slate-50 dark:bg-[#012243] rounded-xl border border-slate-200 dark:border-[#154D80] hover:border-[#1569AE] transition-all gap-4">
             <div class="lg:max-w-xl space-y-1">
-              <span class="font-bold text-[#01305B] dark:text-[#6EC1E4] text-sm block">4. Fundamentos de Programación Lógica y Ecuación de Robert Kowalski:</span>
-              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">¿Qué expresa la célebre ecuación "Algoritmo = Lógica + Control" en el diseño de SWI-Prolog?</span>
+              <span class="font-bold text-[#01305B] dark:text-[#6EC1E4] text-sm block">4. Fundamentos de la Programación Lógica (Ecuación de Robert Kowalski):</span>
+              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">¿Cuál es la ecuación fundacional formulada por Kowalski (1979) que sintetiza la filosofía de lenguajes como Prolog?</span>
             </div>
             <div class="lg:w-96 shrink-0">
-              <select data-ex="ej5_teoria_tp5" data-key="item_ecuacion_kowalski_prolog" aria-label="4. Fundamentos de Programación Lógica y Ecuación de Robert Kowalski:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
+              <select data-ex="ej5_teoria_tp5" data-key="item_ecuacion_kowalski_prolog" aria-label="4. Fundamentos de la Programación Lógica (Ecuación de Robert Kowalski):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="programador_escribe_bucles_while_y_punteros">Que el programador debe codificar manualmente las pilas de memoria y los punteros de retorno</option>
-                <option value="usuario_declara_logica_motor_aporta_control_dfs">Que el programador especifica únicamente la Lógica declarativa del problema (hechos y reglas de Horn: QUÉ es verdad), mientras el intérprete aporta el Control (CÓMO deducirlo mediante encadenamiento hacia atrás DFS y backtracking)</option>
-                <option value="prolog_no_utiliza_control_alguno">Que los algoritmos declarativos carecen de estrategia de búsqueda en árbol</option>
-                <option value="logica_es_hardware_control_es_red">Que la Lógica reside en la placa de red y el Control en el monitor</option>
+                <option value="algoritmo_igual_datos_mas_codigo">Algoritmo = Estructuras de Datos + Código Imperativo</option>
+                <option value="algoritmo_igual_heuristica_mas_memoria">Algoritmo = Función Heurística + Asignación Dinámica de Memoria</option>
+                <option value="algoritmo_igual_sintaxis_mas_semantica">Algoritmo = Reglas Sintácticas + Validación Semántica de Modelos</option>
+                <option value="algoritmo_igual_logica_mas_control">Algoritmo = Lógica (base de conocimiento del programador) + Control (estrategia del intérprete)</option>
               </select>
             </div>
           </div>
         </div>
-
-        <!-- Orientación Bibliográfica Oficial -->
-        <details class="group mt-4 rounded-xl border border-[#1569AE]/30 bg-[#F4F6F9] dark:bg-[#01182E]/80 p-3.5 text-xs text-slate-700 dark:text-slate-200 transition-all">
-          <summary class="flex cursor-pointer items-center justify-between font-bold text-[#01305B] dark:text-[#FFED00] select-none">
-            <span>📖 Dónde estudiar y repasar este tema en la bibliografía oficial de cátedra</span>
-            <span class="transition group-open:rotate-180">▾</span>
-          </summary>
-          <div class="mt-2.5 pt-2.5 border-t border-slate-300 dark:border-[#154D80] space-y-1">
-            <p><strong>Referencia Bibliográfica:</strong> <a href="http://jdelagarza.fime.uanl.mx/IA/Libros/inteligencia-artificial-un-enfoque-moderno-stuart-j-russell.pdf" target="_blank" rel="noopener noreferrer" class="underline text-[#1569AE] dark:text-[#6EC1E4] hover:text-[#01305B] font-semibold">Russell &amp; Norvig — Inteligencia Artificial: Un Enfoque Moderno</a> &bull; Russell & Norvig Cap. 9.2–9.5 (pp. 278–308) • Diapositivas Clase 6 (`6 - Lógica de Primer Orden.pptx`, Slides 17–28).</p>
-          </div>
-        </details>
       </article>
     </section>
 
@@ -735,99 +669,90 @@
         <!-- Enunciado y Tarjetas de Especificación del Dominio -->
         <div class="space-y-4 text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
-            <p class="max-w-3xl">La Biblioteca del Departamento Académico San Salvador (UCSE DASS) gestiona su catálogo bibliográfico mediante Prolog. A partir de las 3 fichas de obras académicas, debes codificar los 9 hechos y las 2 reglas deductivas solicitadas en el editor de la Base de Conocimientos:</p>
+            <p class="max-w-3xl">La biblioteca de la UCSE DASS administra el catálogo de textos de estudio de Ingeniería. A partir de las especificaciones de las 3 obras registradas, debes codificar los 9 hechos de la base de conocimientos y las 2 reglas deductivas solicitadas:</p>
             <div class="inline-flex flex-wrap items-center gap-1.5 p-1.5 rounded-xl bg-slate-100 dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs shrink-0">
               <button type="button" class="filter-btn filter-d1-btn px-3 py-1.5 rounded-lg active transition text-slate-700 dark:text-slate-200 font-medium" data-filter="all">📚 Todo el Catálogo</button>
-              <button type="button" class="filter-btn filter-d1-btn px-3 py-1.5 rounded-lg  transition text-slate-700 dark:text-slate-200 font-medium" data-filter="domicilio">🟢 Préstamo a Domicilio</button>
-              <button type="button" class="filter-btn filter-d1-btn px-3 py-1.5 rounded-lg  transition text-slate-700 dark:text-slate-200 font-medium" data-filter="solo_sala">🟡 Consulta en Sala</button>
+              <button type="button" class="filter-btn filter-d1-btn px-3 py-1.5 rounded-lg  transition text-slate-700 dark:text-slate-200 font-medium" data-filter="domicilio">🏠 Préstamo Domicilio</button>
+              <button type="button" class="filter-btn filter-d1-btn px-3 py-1.5 rounded-lg  transition text-slate-700 dark:text-slate-200 font-medium" data-filter="solo_sala">📖 Solo Consulta en Sala</button>
             </div>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
             <div class="domain1-card p-5 rounded-xl bg-[#F4F6F9] dark:bg-[#012243] border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all duration-300 shadow-sm space-y-3.5" data-category="domicilio">
               <div class="flex items-center justify-between gap-2">
-                <span class="font-bold text-[#01305B] dark:text-white text-sm">📘 Ficha 1: AIMA (Russell & Norvig)</span>
+                <span class="font-bold text-[#01305B] dark:text-white text-sm">📚 Obra 1: AIMA (Russell & Norvig)</span>
                 <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30">
-                  🟢 Modalidad: domicilio
+                  🏠 Modalidad: Domicilio
                 </span>
               </div>
               <div class="space-y-1.5">
                 <span class="text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wider block font-bold">Datos Técnicos a Modelar en Prolog:</span>
                 <div class="flex flex-col gap-1.5">
                   <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">🆔</span> <span>Átomo del título: aima_russell</span>
-                  </span>
-                  <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
                     <span aria-hidden="true">🤖</span> <span>Área temática: inteligencia_artificial</span>
                   </span>
                   <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">✍️</span> <span>Autor: russell_norvig</span>
+                    <span aria-hidden="true">✍️</span> <span>Autor académico: russell_norvig</span>
                   </span>
                   <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">🏠</span> <span>Disponibilidad: domicilio</span>
+                    <span aria-hidden="true">🏠</span> <span>Régimen de préstamo: domicilio</span>
                   </span>
                 </div>
               </div>
               <div class="pt-2 border-t border-slate-200 dark:border-[#154D80] flex items-center justify-between text-xs text-slate-600 dark:text-slate-300 font-medium">
-                <span>Área: inteligencia_artificial</span>
+                <span>Área: IA</span>
                 <span class="text-[#1569AE] dark:text-[#FFED00] font-bold">Préstamo: domicilio</span>
               </div>
             </div>
             <div class="domain1-card p-5 rounded-xl bg-[#F4F6F9] dark:bg-[#012243] border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all duration-300 shadow-sm space-y-3.5" data-category="solo_sala">
               <div class="flex items-center justify-between gap-2">
-                <span class="font-bold text-[#01305B] dark:text-white text-sm">📙 Ficha 2: Prolog Programming (Bratko)</span>
+                <span class="font-bold text-[#01305B] dark:text-white text-sm">📚 Obra 2: Prolog Programming (Bratko)</span>
                 <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/30">
-                  🟡 Modalidad: solo_sala
+                  📖 Modalidad: Sala
                 </span>
               </div>
               <div class="space-y-1.5">
                 <span class="text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wider block font-bold">Datos Técnicos a Modelar en Prolog:</span>
                 <div class="flex flex-col gap-1.5">
                   <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">🆔</span> <span>Átomo del título: prolog_bratko</span>
-                  </span>
-                  <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
                     <span aria-hidden="true">🤖</span> <span>Área temática: inteligencia_artificial</span>
                   </span>
                   <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">✍️</span> <span>Autor: ivan_bratko</span>
+                    <span aria-hidden="true">✍️</span> <span>Autor académico: ivan_bratko</span>
                   </span>
                   <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">🏛️</span> <span>Disponibilidad: solo_sala</span>
+                    <span aria-hidden="true">📖</span> <span>Régimen de préstamo: solo_sala</span>
                   </span>
                 </div>
               </div>
               <div class="pt-2 border-t border-slate-200 dark:border-[#154D80] flex items-center justify-between text-xs text-slate-600 dark:text-slate-300 font-medium">
-                <span>Área: inteligencia_artificial</span>
+                <span>Área: IA</span>
                 <span class="text-[#1569AE] dark:text-[#FFED00] font-bold">Préstamo: solo_sala</span>
               </div>
             </div>
             <div class="domain1-card p-5 rounded-xl bg-[#F4F6F9] dark:bg-[#012243] border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all duration-300 shadow-sm space-y-3.5" data-category="domicilio">
               <div class="flex items-center justify-between gap-2">
-                <span class="font-bold text-[#01305B] dark:text-white text-sm">📗 Ficha 3: Cálculo (James Stewart)</span>
+                <span class="font-bold text-[#01305B] dark:text-white text-sm">📚 Obra 3: Cálculo Trascendentes (Stewart)</span>
                 <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30">
-                  🟢 Modalidad: domicilio
+                  🏠 Modalidad: Domicilio
                 </span>
               </div>
               <div class="space-y-1.5">
                 <span class="text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wider block font-bold">Datos Técnicos a Modelar en Prolog:</span>
                 <div class="flex flex-col gap-1.5">
                   <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">🆔</span> <span>Átomo del título: calculo_stewart</span>
-                  </span>
-                  <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
                     <span aria-hidden="true">📐</span> <span>Área temática: matematica</span>
                   </span>
                   <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">✍️</span> <span>Autor: james_stewart</span>
+                    <span aria-hidden="true">✍️</span> <span>Autor académico: james_stewart</span>
                   </span>
                   <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">🏠</span> <span>Disponibilidad: domicilio</span>
+                    <span aria-hidden="true">🏠</span> <span>Régimen de préstamo: domicilio</span>
                   </span>
                 </div>
               </div>
               <div class="pt-2 border-t border-slate-200 dark:border-[#154D80] flex items-center justify-between text-xs text-slate-600 dark:text-slate-300 font-medium">
-                <span>Área: matematica</span>
+                <span>Área: Matemática</span>
                 <span class="text-[#1569AE] dark:text-[#FFED00] font-bold">Préstamo: domicilio</span>
               </div>
             </div>
@@ -842,37 +767,37 @@
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 1 pt)</span>
-                  <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">obra(Titulo, AreaTematica)</code>
+                  <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">obra(Titulo, Area)</code>
                 </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): asocia cada Titulo ('aima_russell', 'prolog_bratko', 'calculo_stewart') con su área ('inteligencia_artificial' o 'matematica').</span>
+                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): asocia cada Titulo ('aima_russell', 'prolog_bratko', 'calculo_stewart') con su Area ('inteligencia_artificial' o 'matematica').</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 1 pt)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">autor_obra(Titulo, Autor)</code>
                 </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): registra el autor ('russell_norvig', 'ivan_bratko', 'james_stewart') de cada Titulo.</span>
+                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): declara el autor académico ('russell_norvig', 'ivan_bratko', 'james_stewart') de la obra.</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 1 pt)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">disponibilidad(Titulo, Modalidad)</code>
                 </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): indica la modalidad de préstamo ('domicilio' o 'solo_sala') de cada Titulo.</span>
+                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): registra el régimen de consulta ('domicilio' o 'solo_sala').</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#FFED00] text-[#01305B] shrink-0">Regla (2 pts)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">prestamo_domicilio(Titulo)</code>
                 </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/1): verdadero si la disponibilidad del Titulo es 'domicilio'.</span>
+                <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/1): verdadero si el Titulo tiene modalidad 'domicilio'.</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#FFED00] text-[#01305B] shrink-0">Regla (2 pts)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">material_ia_disponible(Titulo, Autor)</code>
                 </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/2): verdadero si Titulo pertenece al área 'inteligencia_artificial', su autor_obra es Autor y tiene disponibilidad 'domicilio' (o prestamo_domicilio).</span>
+                <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/2): verdadero si la obra pertenece a 'inteligencia_artificial', fue escrita por Autor y permite 'domicilio'.</span>
               </div>
             </div>
           </div>
@@ -914,11 +839,11 @@
 % 2. Escribe aquí las 2 reglas (prestamo_domicilio/1 y material_ia_disponible/2):
 </textarea>
 
-          <!-- Panel de Validador Sintáctico en Tiempo Real (Linter Prolog) -->
+          <!-- Panel de Verificador preliminar de estructura y sintaxis básica de Prolog -->
           <div id="linter-panel-1" class="p-3.5 rounded-xl bg-[#01305B]/90 border border-[#6EC1E4]/40 space-y-2 text-xs">
             <div class="flex flex-wrap items-center justify-between gap-2">
               <span class="font-extrabold text-[#6EC1E4] flex items-center gap-1.5">
-                <span>🔍</span> Validador Sintáctico de Edimburgo en Tiempo Real:
+                <span>🔍</span> Verificador preliminar de estructura y sintaxis básica de Prolog:
               </span>
               <div class="flex flex-wrap items-center gap-2">
                 <span id="linter-facts-1" class="px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-200 font-bold border border-slate-600">
@@ -927,11 +852,14 @@
                 <span id="linter-rules-1" class="px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-200 font-bold border border-slate-600">
                   Reglas deductivas: 0 / 2
                 </span>
-                <span id="linter-status-1" class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold border border-amber-400/40">
+                <span id="linter-status-1" class="px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 font-bold border border-slate-600">
                   ⏳ Pendiente de codificar
                 </span>
               </div>
             </div>
+            <p class="text-[11px] text-amber-200/90 italic">
+              ⚠️ Este verificador brinda orientación y no reemplaza la ejecución en SWI-Prolog.
+            </p>
             <div id="linter-preds-1" class="text-[11px] text-slate-300 prolog-code"></div>
             <ul id="linter-warnings-1" class="space-y-1 text-amber-300 text-[11px] list-disc list-inside"></ul>
           </div>
@@ -966,10 +894,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej6_practica_caso1" data-key="item_unificacion_variable_compartida_biblio" aria-label="1. Unificación de variables compartidas en reglas conjuntivas:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="por_estetica_visual_opcional">Es solo una recomendación estética; usar T1, T2 y T3 daría el mismo resultado</option>
-                <option value="para_forzar_que_las_tres_condiciones_refieran_al_mismo_libro">Porque en una cláusula de Horn, una variable compartida obliga a unificar el mismo objeto (el mismo libro) simultáneamente en todas las submetas de la conjunción</option>
-                <option value="para_ahorrar_memoria_en_pila">Porque Prolog solo permite declarar un máximo de dos variables por archivo</option>
-                <option value="para_evitar_usar_el_punto_final">Porque al repetir la variable ya no hace falta cerrar la regla con punto</option>
+                <option value="para_forzar_que_las_tres_condiciones_refieran_al_mismo_libro">Porque una variable compartida obliga a unificar el mismo libro en todas las submetas.</option>
+                <option value="por_estetica_visual_opcional">Es una convención de estilo; usar identificadores distintos produciría el mismo resultado.</option>
+                <option value="para_ahorrar_memoria_en_pila">Porque Prolog restringe la aridad total impidiendo el uso de variables independientes.</option>
+                <option value="para_evitar_usar_el_punto_final">Porque permite declarar la regla omitiendo el operador de implicación en la cabeza.</option>
               </select>
             </div>
           </div>
@@ -982,10 +910,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej6_practica_caso1" data-key="item_consulta_obras_ia" aria-label="2. Consulta existencial en SWISH: &quot;¿Qué obras pertenecen al área de inteligencia_artificial?&quot;:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="obra(titulo, inteligencia_artificial) -&gt; false">obra(titulo, inteligencia_artificial). → Devuelve false</option>
-                <option value="obra(Titulo, inteligencia_artificial) -&gt; aima_y_bratko">obra(Titulo, inteligencia_artificial). → Devuelve Titulo = aima_russell y luego Titulo = prolog_bratko</option>
-                <option value="obra(inteligencia_artificial, Titulo) -&gt; stewart">obra(inteligencia_artificial, Titulo). → Devuelve Titulo = calculo_stewart</option>
-                <option value="material_ia(Titulo) -&gt; true">material_ia(Titulo). → Devuelve únicamente true</option>
+                <option value="obra(titulo, inteligencia_artificial) -&gt; false">obra(titulo, inteligencia_artificial). → Devuelve false.</option>
+                <option value="obra(Titulo, inteligencia_artificial) -&gt; aima_y_bratko">obra(Titulo, inteligencia_artificial). → Devuelve Titulo = aima_russell y luego Titulo = prolog_bratko.</option>
+                <option value="obra(inteligencia_artificial, Titulo) -&gt; stewart">obra(inteligencia_artificial, Titulo). → Devuelve Titulo = calculo_stewart.</option>
+                <option value="material_ia(Titulo) -&gt; true">material_ia(Titulo). → Devuelve únicamente true.</option>
               </select>
             </div>
           </div>
@@ -998,10 +926,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej6_practica_caso1" data-key="item_backtracking_prestamo_domicilio" aria-label="3. Soluciones por Backtracking de prestamo_domicilio(Titulo).:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="solo_prolog_bratko">Únicamente Titulo = prolog_bratko</option>
-                <option value="aima_russell_y_calculo_stewart">Titulo = aima_russell y luego Titulo = calculo_stewart (las dos obras con modalidad domicilio)</option>
-                <option value="las_tres_obras_del_catalogo">Las 3 obras del catálogo sin distinción</option>
-                <option value="ninguna_obra_false">false inmediatamente</option>
+                <option value="solo_prolog_bratko">Únicamente Titulo = prolog_bratko.</option>
+                <option value="las_tres_obras_del_catalogo">Las 3 obras del catálogo sin distinción.</option>
+                <option value="aima_russell_y_calculo_stewart">Titulo = aima_russell y luego Titulo = calculo_stewart.</option>
+                <option value="ninguna_obra_false">false inmediatamente sin ligar variables.</option>
               </select>
             </div>
           </div>
@@ -1014,10 +942,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej6_practica_caso1" data-key="item_resultado_material_ia_domicilio" aria-label="4. Resultado de la consulta material_ia_disponible(Titulo, Autor).:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="incluye_ambos_libros_de_ia">Devuelve tanto aima_russell como prolog_bratko porque ambos son de IA</option>
-                <option value="solo_aima_russell_y_russell_norvig">Devuelve únicamente Titulo = aima_russell, Autor = russell_norvig, ya que prolog_bratko falla en la condición de disponibilidad a domicilio</option>
-                <option value="devuelve_calculo_stewart">Devuelve Titulo = calculo_stewart, Autor = james_stewart</option>
-                <option value="devuelve_false_sin_soluciones">Devuelve false porque ninguna obra cumple las tres condiciones</option>
+                <option value="incluye_ambos_libros_de_ia">Devuelve aima_russell y luego prolog_bratko pues ambos son del área de IA.</option>
+                <option value="devuelve_calculo_stewart">Devuelve Titulo = calculo_stewart al verificar la disponibilidad a domicilio.</option>
+                <option value="devuelve_false_sin_soluciones">Devuelve false pues la conjunción de tres submetas no encuentra soluciones.</option>
+                <option value="solo_aima_russell_y_russell_norvig">Devuelve únicamente Titulo = aima_russell, pues prolog_bratko es de solo sala.</option>
               </select>
             </div>
           </div>
@@ -1030,8 +958,8 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej6_practica_caso1" data-key="item_consulta_inversa_autor" aria-label="5. Consulta relacional inversa: &quot;¿De qué título es autor ivan_bratko?&quot;:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
+                <option value="autor_obra(Titulo, ivan_bratko).">autor_obra(Titulo, ivan_bratko). → Liga Titulo = prolog_bratko.</option>
                 <option value="autor_obra(ivan_bratko, Titulo).">autor_obra(ivan_bratko, Titulo).</option>
-                <option value="autor_obra(Titulo, ivan_bratko).">autor_obra(Titulo, ivan_bratko). → Liga Titulo = prolog_bratko</option>
                 <option value="autor_obra(titulo, Ivan_Bratko).">autor_obra(titulo, Ivan_Bratko).</option>
                 <option value="quien_escribio(ivan_bratko).">quien_escribio(ivan_bratko).</option>
               </select>
@@ -1046,25 +974,14 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej6_practica_caso1" data-key="item_evaluacion_bratko_domicilio_cwa" aria-label="6. Evaluación bajo Supuesto de Mundo Cerrado (CWA) de prestamo_domicilio(prolog_bratko).:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="true_porque_es_libro_de_prolog">true, porque el libro está cargado en la base de conocimientos</option>
-                <option value="false_disponibilidad_solo_sala_cwa">false, porque disponibilidad(prolog_bratko, solo_sala) no unifica con domicilio y bajo CWA lo que no se puede derivar se asume falso</option>
-                <option value="true_por_reemplazo_de_constante">true, porque unifica el átomo domicilio con solo_sala</option>
-                <option value="warning_clausula_dispersa">Detiene el intérprete con un error fatal de compilación</option>
+                <option value="true_porque_es_libro_de_prolog">true, pues la obra figura registrada como texto de estudio en la base.</option>
+                <option value="false_disponibilidad_solo_sala_cwa">false, pues su modalidad es solo_sala y no unifica con domicilio bajo CWA.</option>
+                <option value="true_por_reemplazo_de_constante">true, pues el motor infiere automáticamente disponibilidad condicional.</option>
+                <option value="warning_clausula_dispersa">false, pues el predicado de disponibilidad no admite términos ground.</option>
               </select>
             </div>
           </div>
         </div>
-
-        <!-- Orientación Bibliográfica Oficial -->
-        <details class="group mt-4 rounded-xl border border-[#1569AE]/30 bg-[#F4F6F9] dark:bg-[#01182E]/80 p-3.5 text-xs text-slate-700 dark:text-slate-200 transition-all">
-          <summary class="flex cursor-pointer items-center justify-between font-bold text-[#01305B] dark:text-[#FFED00] select-none">
-            <span>📖 Dónde estudiar este tema en la bibliografía oficial de cátedra</span>
-            <span class="transition group-open:rotate-180">▾</span>
-          </summary>
-          <div class="mt-2.5 pt-2.5 border-t border-slate-300 dark:border-[#154D80] space-y-1">
-            <p><strong>Referencia Bibliográfica:</strong> <a href="http://jdelagarza.fime.uanl.mx/IA/Libros/inteligencia-artificial-un-enfoque-moderno-stuart-j-russell.pdf" target="_blank" rel="noopener noreferrer" class="underline text-[#1569AE] dark:text-[#6EC1E4] hover:text-[#01305B] font-semibold">Russell &amp; Norvig — Inteligencia Artificial: Un Enfoque Moderno</a> &bull; Russell & Norvig Cap. 9.4–9.5 (pp. 302–308) • Diapositivas Clase 7 (`7 - Lógica aplicada en PROLOG.pptx`, Slides 6–18).</p>
-          </div>
-        </details>
       </article>
       <!-- =====================================================================
            EJERCICIO P2: MONITOREO DE SUBESTACIÓN ELÉCTRICA Y TRANSFORMADORES (PROLOG)
@@ -1086,20 +1003,20 @@
         <!-- Enunciado y Tarjetas de Especificación del Dominio -->
         <div class="space-y-4 text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
-            <p class="max-w-3xl">El sistema experto SCADA de una subestación eléctrica supervisa los 3 transformadores de potencia que abastecen a la ciudad. A partir de las tarjetas de telemetría, debes codificar los 9 hechos y las 2 reglas deductivas en el editor de la Base de Conocimientos:</p>
+            <p class="max-w-3xl">Una empresa distribuidora de energía supervisa los 3 transformadores troncales de una subestación de media tensión. A partir de las especificaciones de las tarjetas de telemetría, debes codificar los 9 hechos de la base de conocimientos y las 2 reglas deductivas solicitadas:</p>
             <div class="inline-flex flex-wrap items-center gap-1.5 p-1.5 rounded-xl bg-slate-100 dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs shrink-0">
               <button type="button" class="filter-btn filter-d2-btn px-3 py-1.5 rounded-lg active transition text-slate-700 dark:text-slate-200 font-medium" data-filter="all">⚡ Todos los Transformadores</button>
-              <button type="button" class="filter-btn filter-d2-btn px-3 py-1.5 rounded-lg  transition text-slate-700 dark:text-slate-200 font-medium" data-filter="degradada">🔴 Aislación Degradada</button>
-              <button type="button" class="filter-btn filter-d2-btn px-3 py-1.5 rounded-lg  transition text-slate-700 dark:text-slate-200 font-medium" data-filter="normal">🟢 Aislación Normal</button>
+              <button type="button" class="filter-btn filter-d2-btn px-3 py-1.5 rounded-lg  transition text-slate-700 dark:text-slate-200 font-medium" data-filter="sobrecarga">🔴 En Sobrecarga</button>
+              <button type="button" class="filter-btn filter-d2-btn px-3 py-1.5 rounded-lg  transition text-slate-700 dark:text-slate-200 font-medium" data-filter="nominal">🟢 Carga Nominal</button>
             </div>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
-            <div class="domain2-card p-5 rounded-xl bg-[#F4F6F9] dark:bg-[#012243] border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all duration-300 shadow-sm space-y-3.5" data-category="degradada">
+            <div class="domain2-card p-5 rounded-xl bg-[#F4F6F9] dark:bg-[#012243] border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all duration-300 shadow-sm space-y-3.5" data-category="sobrecarga">
               <div class="flex items-center justify-between gap-2">
-                <span class="font-bold text-[#01305B] dark:text-white text-sm">⚡ Unidad 1: Transformador T1</span>
+                <span class="font-bold text-[#01305B] dark:text-white text-sm">⚡ Transformador 1: trafo_t1</span>
                 <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/30">
-                  🔴 Aislación: degradada
+                  🔴 Carga: Sobrecarga
                 </span>
               </div>
               <div class="space-y-1.5">
@@ -1112,23 +1029,23 @@
                     <span aria-hidden="true">🏭</span> <span>Zona abastecida: parque_industrial</span>
                   </span>
                   <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">📈</span> <span>Estado de carga: sobrecarga</span>
+                    <span aria-hidden="true">📊</span> <span>Estado de carga: sobrecarga</span>
                   </span>
                   <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">🌡️</span> <span>Aislación térmica: degradada</span>
+                    <span aria-hidden="true">⚠️</span> <span>Aislación térmica: degradada</span>
                   </span>
                 </div>
               </div>
               <div class="pt-2 border-t border-slate-200 dark:border-[#154D80] flex items-center justify-between text-xs text-slate-600 dark:text-slate-300 font-medium">
                 <span>Zona: parque_industrial</span>
-                <span class="text-[#1569AE] dark:text-[#FFED00] font-bold">Carga: sobrecarga</span>
+                <span class="text-[#1569AE] dark:text-[#FFED00] font-bold">Aislación: degradada</span>
               </div>
             </div>
-            <div class="domain2-card p-5 rounded-xl bg-[#F4F6F9] dark:bg-[#012243] border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all duration-300 shadow-sm space-y-3.5" data-category="normal">
+            <div class="domain2-card p-5 rounded-xl bg-[#F4F6F9] dark:bg-[#012243] border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all duration-300 shadow-sm space-y-3.5" data-category="sobrecarga">
               <div class="flex items-center justify-between gap-2">
-                <span class="font-bold text-[#01305B] dark:text-white text-sm">⚡ Unidad 2: Transformador T2</span>
-                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30">
-                  🟢 Aislación: normal
+                <span class="font-bold text-[#01305B] dark:text-white text-sm">⚡ Transformador 2: trafo_t2</span>
+                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/30">
+                  🔴 Carga: Sobrecarga
                 </span>
               </div>
               <div class="space-y-1.5">
@@ -1141,7 +1058,7 @@
                     <span aria-hidden="true">🏥</span> <span>Zona abastecida: hospital_central</span>
                   </span>
                   <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
-                    <span aria-hidden="true">📈</span> <span>Estado de carga: sobrecarga</span>
+                    <span aria-hidden="true">📊</span> <span>Estado de carga: sobrecarga</span>
                   </span>
                   <span class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] text-xs text-[#01305B] dark:text-slate-100 flex items-center gap-1.5">
                     <span aria-hidden="true">✅</span> <span>Aislación térmica: normal</span>
@@ -1150,14 +1067,14 @@
               </div>
               <div class="pt-2 border-t border-slate-200 dark:border-[#154D80] flex items-center justify-between text-xs text-slate-600 dark:text-slate-300 font-medium">
                 <span>Zona: hospital_central</span>
-                <span class="text-[#1569AE] dark:text-[#FFED00] font-bold">Carga: sobrecarga</span>
+                <span class="text-[#1569AE] dark:text-[#FFED00] font-bold">Aislación: normal</span>
               </div>
             </div>
-            <div class="domain2-card p-5 rounded-xl bg-[#F4F6F9] dark:bg-[#012243] border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all duration-300 shadow-sm space-y-3.5" data-category="normal">
+            <div class="domain2-card p-5 rounded-xl bg-[#F4F6F9] dark:bg-[#012243] border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all duration-300 shadow-sm space-y-3.5" data-category="nominal">
               <div class="flex items-center justify-between gap-2">
-                <span class="font-bold text-[#01305B] dark:text-white text-sm">⚡ Unidad 3: Transformador T3</span>
+                <span class="font-bold text-[#01305B] dark:text-white text-sm">⚡ Transformador 3: trafo_t3</span>
                 <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30">
-                  🟢 Aislación: normal
+                  🟢 Carga: Nominal
                 </span>
               </div>
               <div class="space-y-1.5">
@@ -1195,35 +1112,35 @@
                   <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 1 pt)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">transformador(Unidad, Zona)</code>
                 </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): asocia cada Unidad ('trafo_t1', 'trafo_t2', 'trafo_t3') con la zona que alimenta ('parque_industrial', 'hospital_central', 'campus_ucse').</span>
+                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): asocia cada transformador ('trafo_t1', 'trafo_t2', 'trafo_t3') con la zona de red ('parque_industrial', 'hospital_central', 'campus_ucse').</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 1 pt)</span>
-                  <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">estado_carga(Unidad, NivelCarga)</code>
+                  <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">estado_carga(Unidad, Nivel)</code>
                 </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): registra el régimen de carga ('sobrecarga' o 'nominal') de la Unidad.</span>
+                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): registra el nivel operativo de carga ('sobrecarga' o 'nominal').</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 1 pt)</span>
-                  <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">aislacion_termica(Unidad, Condicion)</code>
+                  <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">aislacion_termica(Unidad, Estado)</code>
                 </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): indica el estado del aceite dieléctrico ('degradada' o 'normal') de la Unidad.</span>
+                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): indica la condición dieléctrica del aceite aislante ('degradada' o 'normal').</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#FFED00] text-[#01305B] shrink-0">Regla (2 pts)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">alerta_disparo_termico(Unidad)</code>
                 </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/1): verdadero si la aislacion_termica de la Unidad es 'degradada'.</span>
+                <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/1): verdadero si la Unidad presenta aislacion_termica 'degradada'.</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#FFED00] text-[#01305B] shrink-0">Regla (2 pts)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">mantenimiento_prioritario_zona(Unidad, Zona)</code>
                 </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/2): verdadero si el transformador(Unidad, Zona) alimenta la Zona, su estado_carga es 'sobrecarga' y su aislacion_termica es 'degradada' (o tiene alerta_disparo_termico).</span>
+                <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/2): verdadero si la Unidad abastece esa Zona, está en estado_carga 'sobrecarga' y su aislacion_termica es 'degradada'.</span>
               </div>
             </div>
           </div>
@@ -1265,11 +1182,11 @@
 % 2. Escribe aquí las 2 reglas (alerta_disparo_termico/1 y mantenimiento_prioritario_zona/2):
 </textarea>
 
-          <!-- Panel de Validador Sintáctico en Tiempo Real (Linter Prolog) -->
+          <!-- Panel de Verificador preliminar de estructura y sintaxis básica de Prolog -->
           <div id="linter-panel-2" class="p-3.5 rounded-xl bg-[#01305B]/90 border border-[#6EC1E4]/40 space-y-2 text-xs">
             <div class="flex flex-wrap items-center justify-between gap-2">
               <span class="font-extrabold text-[#6EC1E4] flex items-center gap-1.5">
-                <span>🔍</span> Validador Sintáctico de Edimburgo en Tiempo Real:
+                <span>🔍</span> Verificador preliminar de estructura y sintaxis básica de Prolog:
               </span>
               <div class="flex flex-wrap items-center gap-2">
                 <span id="linter-facts-2" class="px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-200 font-bold border border-slate-600">
@@ -1278,11 +1195,14 @@
                 <span id="linter-rules-2" class="px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-200 font-bold border border-slate-600">
                   Reglas deductivas: 0 / 2
                 </span>
-                <span id="linter-status-2" class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold border border-amber-400/40">
+                <span id="linter-status-2" class="px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 font-bold border border-slate-600">
                   ⏳ Pendiente de codificar
                 </span>
               </div>
             </div>
+            <p class="text-[11px] text-amber-200/90 italic">
+              ⚠️ Este verificador brinda orientación y no reemplaza la ejecución en SWI-Prolog.
+            </p>
             <div id="linter-preds-2" class="text-[11px] text-slate-300 prolog-code"></div>
             <ul id="linter-warnings-2" class="space-y-1 text-amber-300 text-[11px] list-disc list-inside"></ul>
           </div>
@@ -1317,10 +1237,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej7_practica_caso2" data-key="item_orden_evaluacion_sld_energia" aria-label="1. Estrategia de búsqueda y resolución SLD en SWI-Prolog:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="anchura_bfs_derecha_a_izquierda">Búsqueda primero en anchura (BFS), evaluando cláusulas de abajo hacia arriba y metas de derecha a izquierda</option>
-                <option value="profundidad_dfs_arriba_abajo_izquierda_derecha">Búsqueda primero en profundidad (DFS), evaluando las cláusulas de arriba hacia abajo (top-to-bottom) y las submetas de izquierda a derecha (left-to-right)</option>
-                <option value="busqueda_heuristica_a_estrella">Búsqueda informada A* ordenando los hechos por cantidad de argumentos</option>
-                <option value="orden_aleatorio_estocastico">Selección pseudoaleatoria en cada consulta</option>
+                <option value="anchura_bfs_derecha_a_izquierda">Búsqueda en anchura (BFS), de abajo hacia arriba y de derecha a izquierda.</option>
+                <option value="busqueda_heuristica_a_estrella">Búsqueda informada A* ordenando los hechos por cantidad de argumentos.</option>
+                <option value="profundidad_dfs_arriba_abajo_izquierda_derecha">Búsqueda en profundidad (DFS), de arriba hacia abajo y de izquierda a derecha.</option>
+                <option value="orden_aleatorio_estocastico">Búsqueda estocástica seleccionando cláusulas de forma pseudoaleatoria.</option>
               </select>
             </div>
           </div>
@@ -1333,10 +1253,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej7_practica_caso2" data-key="item_consulta_unidades_sobrecarga" aria-label="2. Consulta existencial en consola: &quot;¿Qué transformadores operan en estado de sobrecarga?&quot;:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="estado_carga(unidad, sobrecarga) -&gt; trafo_t3">estado_carga(unidad, sobrecarga). → Devuelve Unidad = trafo_t3</option>
-                <option value="estado_carga(Unidad, sobrecarga) -&gt; trafo_t1_y_trafo_t2">estado_carga(Unidad, sobrecarga). → Devuelve primero Unidad = trafo_t1 y con ';' devuelve Unidad = trafo_t2</option>
-                <option value="sobrecarga(Unidad) -&gt; true">sobrecarga(Unidad). → Devuelve únicamente true</option>
-                <option value="estado_carga(sobrecarga, Unidad) -&gt; todas">estado_carga(sobrecarga, Unidad). → Devuelve las 3 unidades</option>
+                <option value="estado_carga(unidad, sobrecarga) -&gt; trafo_t3">estado_carga(unidad, sobrecarga). → Devuelve Unidad = trafo_t3.</option>
+                <option value="sobrecarga(Unidad) -&gt; true">sobrecarga(Unidad). → Devuelve únicamente true sin instanciar variables.</option>
+                <option value="estado_carga(sobrecarga, Unidad) -&gt; todas">estado_carga(sobrecarga, Unidad). → Devuelve las 3 unidades sin filtrar.</option>
+                <option value="estado_carga(Unidad, sobrecarga) -&gt; trafo_t1_y_trafo_t2">estado_carga(Unidad, sobrecarga). → Devuelve Unidad = trafo_t1 y luego Unidad = trafo_t2.</option>
               </select>
             </div>
           </div>
@@ -1349,10 +1269,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej7_practica_caso2" data-key="item_resultado_mantenimiento_prioritario" aria-label="3. Resultado de la consulta mantenimiento_prioritario_zona(Unidad, Zona).:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="trafo_t2_y_hospital_central">Unidad = trafo_t2, Zona = hospital_central</option>
-                <option value="trafo_t1_y_parque_industrial">Unidad = trafo_t1, Zona = parque_industrial (única unidad que presenta simultáneamente sobrecarga y aislación degradada)</option>
-                <option value="trafo_t3_y_campus_ucse">Unidad = trafo_t3, Zona = campus_ucse</option>
-                <option value="false_ningun_transformador">false, porque ningún transformador está en el parque industrial</option>
+                <option value="trafo_t1_y_parque_industrial">Unidad = trafo_t1, Zona = parque_industrial.</option>
+                <option value="trafo_t2_y_hospital_central">Unidad = trafo_t2, Zona = hospital_central.</option>
+                <option value="trafo_t3_y_campus_ucse">Unidad = trafo_t3, Zona = campus_ucse.</option>
+                <option value="false_ningun_transformador">false, ninguna unidad satisface la regla.</option>
               </select>
             </div>
           </div>
@@ -1365,10 +1285,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej7_practica_caso2" data-key="item_traza_fallo_trafo_t2" aria-label="4. Análisis de fallo en mantenimiento_prioritario_zona(trafo_t2, hospital_central).:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="porque_no_esta_en_sobrecarga">Porque su estado de carga figura como nominal</option>
-                <option value="porque_aislacion_es_normal_y_no_degradada">Porque la tercera condición exige aislacion_termica(trafo_t2, degradada), pero el hecho registrado es aislacion_termica(trafo_t2, normal)</option>
-                <option value="porque_hospital_central_no_existe">Porque el átomo hospital_central contiene un guion bajo</option>
-                <option value="porque_prolog_no_admite_tres_metas">Porque una regla de Horn no puede tener más de dos condiciones en el cuerpo</option>
+                <option value="porque_no_esta_en_sobrecarga">Porque su estado de carga se encuentra registrado como nominal en los hechos.</option>
+                <option value="porque_aislacion_es_normal_y_no_degradada">Porque su aislación térmica es normal y la regla exige aislación degradada.</option>
+                <option value="porque_hospital_central_no_existe">Porque la zona hospital_central no unifica con el segundo argumento de la regla.</option>
+                <option value="porque_prolog_no_admite_tres_metas">Porque la presencia de sobrecarga anula preventivamente el mantenimiento zonal.</option>
               </select>
             </div>
           </div>
@@ -1382,9 +1302,9 @@
               <select data-ex="ej7_practica_caso2" data-key="item_consulta_sobrecarga_sin_alerta_naf" aria-label="5. Consulta combinada con Negación como Falla (\+):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
                 <option value="naf_primero_sin_ligar">\+ alerta_disparo_termico(U), estado_carga(U, sobrecarga).</option>
-                <option value="estado_carga_primero_luego_naf">estado_carga(U, sobrecarga), \+ alerta_disparo_termico(U). → Liga exitosamente U = trafo_t2</option>
                 <option value="estado_carga_igual_not_alerta">estado_carga(U, sobrecarga) \= alerta_disparo_termico(U).</option>
-                <option value="alerta_disparo_termico_false">alerta_disparo_termico(U, false).</option>
+                <option value="estado_carga_primero_luego_naf">estado_carga(U, sobrecarga), \+ alerta_disparo_termico(U). → Liga U = trafo_t2.</option>
+                <option value="alerta_disparo_termico_false">estado_carga(U, sobrecarga), alerta_disparo_termico(U, false).</option>
               </select>
             </div>
           </div>
@@ -1397,25 +1317,14 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej7_practica_caso2" data-key="item_evaluacion_t3_alerta_cwa" aria-label="6. Evaluación bajo Supuesto de Mundo Cerrado (CWA) de alerta_disparo_termico(trafo_t3).:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="true_porque_alimenta_campus">true, porque abastece al campus universitario</option>
-                <option value="false_aislacion_normal_no_unifica_degradada">false, porque aislacion_termica(trafo_t3, normal) no unifica con degradada y bajo CWA se asume falsa toda propiedad no demostrable</option>
-                <option value="true_por_backtracking_a_t1">true, porque reemplaza automáticamente trafo_t3 por trafo_t1</option>
-                <option value="indefinido_null">Retorna null por tratarse de una consulta sin variables</option>
+                <option value="true_porque_alimenta_campus">true, pues la unidad alimenta una zona prioritaria del campus universitario.</option>
+                <option value="true_por_backtracking_a_t1">true, pues deriva automáticamente un disparo preventivo por sobrecarga.</option>
+                <option value="indefinido_null">false, pues el predicado de alerta exige obligatoriamente un segundo argumento.</option>
+                <option value="false_aislacion_normal_no_unifica_degradada">false, pues su aislación térmica es normal y no unifica con degradada bajo CWA.</option>
               </select>
             </div>
           </div>
         </div>
-
-        <!-- Orientación Bibliográfica Oficial -->
-        <details class="group mt-4 rounded-xl border border-[#1569AE]/30 bg-[#F4F6F9] dark:bg-[#01182E]/80 p-3.5 text-xs text-slate-700 dark:text-slate-200 transition-all">
-          <summary class="flex cursor-pointer items-center justify-between font-bold text-[#01305B] dark:text-[#FFED00] select-none">
-            <span>📖 Dónde estudiar este tema en la bibliografía oficial de cátedra</span>
-            <span class="transition group-open:rotate-180">▾</span>
-          </summary>
-          <div class="mt-2.5 pt-2.5 border-t border-slate-300 dark:border-[#154D80] space-y-1">
-            <p><strong>Referencia Bibliográfica:</strong> <a href="http://jdelagarza.fime.uanl.mx/IA/Libros/inteligencia-artificial-un-enfoque-moderno-stuart-j-russell.pdf" target="_blank" rel="noopener noreferrer" class="underline text-[#1569AE] dark:text-[#6EC1E4] hover:text-[#01305B] font-semibold">Russell &amp; Norvig — Inteligencia Artificial: Un Enfoque Moderno</a> &bull; Russell & Norvig Cap. 9.4–9.5 (pp. 302–308) • Diapositivas Clase 7 (`7 - Lógica aplicada en PROLOG.pptx`, Slides 11–20).</p>
-          </div>
-        </details>
       </article>
     </section>
 
@@ -1430,7 +1339,7 @@
         Generar y Exportar Archivo de Respuestas + Bases de Conocimiento (<code>respuestas_recuperatorio.json</code>)
       </h3>
       <p class="text-slate-600 dark:text-slate-200 text-sm max-w-2xl mx-auto">
-        Verifica que el indicador superior marque <strong>34 de 34 completados (100%)</strong> (20 preguntas teóricas, las 2 Bases de Conocimiento Prolog con sus 9 hechos y 2 reglas cada una, y las 12 preguntas de consultas). Descarga el JSON y ejecuta <code>python autograder_recuperatorio.py respuestas_recuperatorio.json</code>.
+        Verifica que el indicador superior marque <strong>34 de 34 completados (100%)</strong> (20 preguntas teóricas, las 2 Bases de Conocimiento Prolog con sus 9 hechos y 2 reglas cada una, y las 12 preguntas de consultas).
       </p>
 
       <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
@@ -1489,58 +1398,20 @@
   </div>
 
   <!-- =========================================================================
-       MODAL 2: MAPA BIBLIOGRÁFICO COMPLETO (TP1 A TP7)
-  ========================================================================== -->
-  <div id="modal-biblio" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-[#023967] border-2 border-[#1569AE] rounded-2xl max-w-4xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
-      <div class="px-5 py-4 bg-[#01305B] text-white flex items-center justify-between">
-        <h3 class="font-extrabold text-sm text-[#FFED00] ucse-heading">📖 Mapa Bibliográfico Oficial de Cátedra — Laboratorio I (UCSE DASS)</h3>
-        <button type="button" id="btn-close-biblio" class="px-2.5 py-1 rounded bg-rose-600 text-white text-xs font-bold hover:bg-rose-500 transition">
-          ✕ Cerrar
-        </button>
-      </div>
-      <div class="p-6 overflow-y-auto space-y-4 text-xs text-slate-700 dark:text-slate-200">
-        <p>Toda la evaluación se fundamenta en el libro de cátedra <a href="http://jdelagarza.fime.uanl.mx/IA/Libros/inteligencia-artificial-un-enfoque-moderno-stuart-j-russell.pdf" target="_blank" rel="noopener noreferrer" class="underline font-bold text-[#1569AE] dark:text-[#FFED00]">Russell, S. &amp; Norvig, P. — Inteligencia Artificial: Un Enfoque Moderno</a> y en las presentaciones oficiales:</p>
-        <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-[#154D80]">
-          <table class="w-full text-left border-collapse">
-            <thead class="bg-[#01305B] text-[#FFED00] uppercase text-[11px]">
-              <tr>
-                <th class="p-3">Sección / Unidad</th>
-                <th class="p-3">Capítulos en Russell &amp; Norvig</th>
-                <th class="p-3">Presentaciones de Cátedra (Ing. Fabio Argañaraz)</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-200 dark:divide-[#154D80]">
-              <tr><td class="p-3 font-bold">Parte I • TP1 (Agentes y PEAS)</td><td class="p-3">Cap. 1 (pp. 1–30), Cap. 2 (pp. 34–58) y Cap. 26 (pp. 1020–1028)</td><td class="p-3">Clases 1, 2 y 3.1</td></tr>
-              <tr><td class="p-3 font-bold">Parte I • TP2 (Búsqueda a Ciegas)</td><td class="p-3">Cap. 3.1 a 3.5 (pp. 64–96, Tabla 3.17)</td><td class="p-3">Clase 3.2: Resolución mediante búsqueda</td></tr>
-              <tr><td class="p-3 font-bold">Parte I • TP3 (Búsqueda Informada)</td><td class="p-3">Cap. 4.1 a 4.3 (pp. 98–121)</td><td class="p-3">Clase 4: Búsqueda informada y exploración</td></tr>
-              <tr><td class="p-3 font-bold">Parte I • TP4 (Conocimiento y LP)</td><td class="p-3">Cap. 7.1 a 7.5 (pp. 194–224)</td><td class="p-3">Clase 5: Conocimiento y Razonamiento</td></tr>
-              <tr><td class="p-3 font-bold">Parte I • TP5 (Lógica Primer Orden)</td><td class="p-3">Cap. 8 (pp. 240–268) y Cap. 9.1–9.5 (pp. 272–308)</td><td class="p-3">Clase 6: Lógica de Primer Orden</td></tr>
-              <tr><td class="p-3 font-bold">Parte II • TP7 (Práctica en Prolog)</td><td class="p-3">Cap. 9.4–9.5 (Resolución SLD, Horn, CWA y NAF)</td><td class="p-3">Clase 7: Lógica aplicada en PROLOG</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-       MODAL 3: GUÍA DE AUTOEVALUACIÓN Y ENTREGA GIT / GITHUB
+       MODAL 2: GUÍA DE ENTREGA Y COMANDOS GIT
   ========================================================================== -->
   <div id="modal-git" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white dark:bg-[#023967] border-2 border-[#1569AE] rounded-2xl max-w-3xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
       <div class="px-5 py-4 bg-[#01305B] text-white flex items-center justify-between">
-        <h3 class="font-extrabold text-sm text-[#FFED00] ucse-heading">🐙 Instructivo de Autoevaluación Híbrida (KB + Consultas) y Entrega Git</h3>
+        <h3 class="font-extrabold text-sm text-[#FFED00] ucse-heading">🐙 Instructivo de Entrega y Comandos Git</h3>
         <button type="button" id="btn-close-git" class="px-2.5 py-1 rounded bg-rose-600 text-white text-xs font-bold hover:bg-rose-500 transition">
           ✕ Cerrar
         </button>
       </div>
       <div class="p-6 overflow-y-auto space-y-4 text-xs text-slate-700 dark:text-slate-200 leading-relaxed">
-        <p><strong>1. Codificar las Bases de Conocimiento (26 pts) y responder el cuestionario (74 pts):</strong> En cada caso práctico de la Parte II, escribe tus 9 hechos y 2 reglas en el <strong>Editor de Entrega de Base de Conocimientos</strong> (puedes usar el botón <em>Descargar .pl</em> o <em>Cargar .pl</em>). El Linter en vivo verificará que no tengas errores de sintaxis.</p>
-        <p><strong>2. Exportar el archivo JSON unificado:</strong> Al llegar a 34/34 completados (100%), pulsa en <strong>Exportar (.json)</strong> para guardar <code>respuestas_recuperatorio.json</code> (incluye tanto tus selecciones como el código fuente de tus 2 Bases de Conocimientos).</p>
-        <p><strong>3. Ejecutar el Autoevaluador en Python 3:</strong></p>
-        <pre class="p-3 rounded-lg bg-[#01182E] text-[#FFED00] prolog-code overflow-x-auto">python autograder_recuperatorio.py respuestas_recuperatorio.json</pre>
-        <p><strong>4. Confirmar y subir tu entrega al repositorio GitHub:</strong></p>
+        <p><strong>1. Codificar las Bases de Conocimiento (26 pts) y responder el cuestionario (74 pts):</strong> En cada caso práctico de la Parte II, escribe tus 9 hechos y 2 reglas en el <strong>Editor de Entrega de Base de Conocimientos</strong> (puedes usar el botón <em>Descargar .pl</em> o <em>Cargar .pl</em>). El Verificador preliminar comprobará que la estructura sintáctica sea adecuada.</p>
+        <p><strong>2. Exportar el archivo JSON unificado:</strong> Al llegar a 34/34 completados (100%), pulsa en <strong>Exportar (.json)</strong> para guardar <code>respuestas_recuperatorio.json</code> (incluye tus respuestas seleccionadas, el código de ambas Bases de Conocimientos y marcas temporales de entrega).</p>
+        <p><strong>3. Confirmar y subir tu entrega al repositorio GitHub de la Cátedra:</strong></p>
         <pre class="p-3 rounded-lg bg-[#01182E] text-[#6EC1E4] prolog-code overflow-x-auto">git add respuestas_recuperatorio.json *.pl
 git commit -m "Entrega Examen Recuperatorio Integrador - [Tu Nombre y Apellido]"
 git push origin main</pre>
