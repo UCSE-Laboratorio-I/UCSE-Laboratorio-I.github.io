@@ -278,7 +278,6 @@
     if (totalOpenP !== totalCloseP) {
       warnings.push(`Paréntesis desbalanceados en el código (${totalOpenP} abiertos vs ${totalCloseP} cerrados).`);
     }
-    });
 
     const noComments = code.replace(/\/\*[\s\S]*?\*\//g, '').replace(/%[^\n]*/g, '');
     const clauses = noComments.split('.').map(c => c.trim()).filter(Boolean);

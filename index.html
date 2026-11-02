@@ -210,7 +210,7 @@
       </div>
 
       <!-- =====================================================================
-           EJERCICIO T1: RACIONALIDAD, PEAS INDUSTRIAL, AGENTES CON ESTADO E IA FUERTE
+           EJERCICIO T1: RACIONALIDAD, PEAS INDUSTRIAL, FILOSOFÍA DE LA IA Y LÍMITES COMPUTACIONALES
       ====================================================================== -->
       <article class="ucse-card p-6 md:p-8 bg-white dark:bg-[#023967]/90 border border-slate-200 dark:border-[#154D80] space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 dark:border-[#154D80] pb-4">
@@ -218,7 +218,7 @@
             <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-bold bg-[#01305B] text-[#FFED00] mb-1.5">
               <span>📘 Unidad 1 • TP N° 1</span>
             </div>
-            <h3 class="text-lg md:text-xl font-extrabold text-[#01305B] dark:text-white ucse-heading">Ejercicio T1: Racionalidad, PEAS Industrial, Agentes con Estado e IA Fuerte</h3>
+            <h3 class="text-lg md:text-xl font-extrabold text-[#01305B] dark:text-white ucse-heading">Ejercicio T1: Racionalidad, PEAS Industrial, Filosofía de la IA y Límites Computacionales</h3>
           </div>
           <span class="px-3.5 py-1 rounded-full bg-[#1569AE]/10 dark:bg-[#6EC1E4]/15 text-[#01305B] dark:text-[#6EC1E4] border border-[#1569AE]/30 text-xs font-extrabold self-start sm:self-auto shrink-0">
             10 Puntos (4 &times; 2,5 pts)
@@ -226,7 +226,7 @@
         </div>
 
         <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed">
-          Evalúa la definición formal de Racionalidad en agentes, la especificación PEAS de un brazo robótico clasificador, la necesidad ontológica de agentes con estado interno frente a entornos parcialmente observables, y el debate epistemológico de la IA Fuerte.
+          Evalúa la definición formal de Racionalidad en agentes, la especificación PEAS de un brazo robótico clasificador, el debate epistemológico de la IA Fuerte vs. Débil y los límites computacionales de intratabilidad NP-completa.
         </p>
 
         <div class="space-y-3.5">
@@ -534,7 +534,7 @@
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
                 <option value="ambos_con_tablas_de_verdad">(A) Tablas de verdad exhaustivas • (B) Búsqueda en anchura no informada.</option>
                 <option value="monitoreo_backward_diagnostico_forward">(A) Encadenamiento hacia Atrás • (B) Encadenamiento hacia Adelante.</option>
-                <option value="monitoreo_forward_diagnostico_backward">(A) Encadenamiento hacia Adelante (datos continuos) • (B) Encadenamiento hacia Atrás (hipótesis puntual).</option>
+                <option value="monitoreo_forward_diagnostico_backward">(A) Encadenamiento hacia Adelante • (B) Encadenamiento hacia Atrás.</option>
                 <option value="ninguno_usa_reglas_condicionales">(A) Inferencia por contradicción • (B) Algoritmo TT-Entails proposicional.</option>
               </select>
             </div>
@@ -619,10 +619,10 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej5_teoria_tp5" data-key="item_unificador_mas_general_mgu" aria-label="3. Algoritmo de Unificación (Most General Unifier — MGU):" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la respuesta técnica --</option>
-                <option value="sustitucion_vacia">{x/Juan, y/Juan}</option>
-                <option value="no_unifican_por_aridad">{y/Madre(x), x/Juan}</option>
-                <option value="sustitucion_mgu_correcta">{y/Juan, x/Madre(Juan)}</option>
-                <option value="falla_occurs_check">Falla: los dos predicados no unifican por diferencia de aridad.</option>
+                <option value="sustitucion_x_juan_y_juan">{x/Juan, y/Juan}</option>
+                <option value="sustitucion_circular_y_madre_x">{y/Madre(x), x/Juan}</option>
+                <option value="sustitucion_mgu_y_juan_x_madre_juan">{y/Juan, x/Madre(Juan)}</option>
+                <option value="falla_unificacion_por_aridad">Falla: los dos predicados no unifican por diferencia de aridad.</option>
               </select>
             </div>
           </div>
@@ -638,7 +638,7 @@
                 <option value="algoritmo_igual_datos_mas_codigo">Algoritmo = Estructuras de Datos + Código Imperativo</option>
                 <option value="algoritmo_igual_heuristica_mas_memoria">Algoritmo = Función Heurística + Asignación Dinámica de Memoria</option>
                 <option value="algoritmo_igual_sintaxis_mas_semantica">Algoritmo = Reglas Sintácticas + Validación Semántica de Modelos</option>
-                <option value="algoritmo_igual_logica_mas_control">Algoritmo = Lógica (base de conocimiento del programador) + Control (estrategia del intérprete)</option>
+                <option value="algoritmo_igual_logica_mas_control">Algoritmo = Lógica + Control</option>
               </select>
             </div>
           </div>
@@ -780,35 +780,35 @@
                   <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 2 pts = 6 pts)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">obra(Titulo, Area)</code>
                 </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): asocia cada Titulo ('aima_russell', 'prolog_bratko', 'calculo_stewart') con su Area ('inteligencia_artificial' o 'matematica').</span>
+                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): asocia cada Titulo (átomos: aima_russell, prolog_bratko, calculo_stewart) con su Area (inteligencia_artificial o matematica).</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 2 pts = 6 pts)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">autor_obra(Titulo, Autor)</code>
                 </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): declara el autor académico ('russell_norvig', 'ivan_bratko', 'james_stewart') de la obra.</span>
+                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): declara el autor académico (átomos: russell_norvig, ivan_bratko, james_stewart) de la obra.</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#1569AE]/15 text-[#01305B] dark:text-[#6EC1E4] shrink-0">Hechos (3 × 2 pts = 6 pts)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">disponibilidad(Titulo, Modalidad)</code>
                 </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): registra el régimen de consulta ('domicilio' o 'solo_sala').</span>
+                <span class="text-xs text-slate-600 dark:text-slate-300">Hecho binario (/2): registra el régimen de consulta (átomos: domicilio o solo_sala).</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#FFED00] text-[#01305B] shrink-0">Regla (4 pts)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">prestamo_domicilio(Titulo)</code>
                 </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/1): verdadero si el Titulo tiene modalidad 'domicilio'.</span>
+                <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/1): verdadero si el Titulo tiene modalidad domicilio.</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-white dark:bg-[#01182E] border border-slate-200 dark:border-[#154D80] gap-2">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#FFED00] text-[#01305B] shrink-0">Regla (4 pts)</span>
                   <code class="text-xs font-bold prolog-code text-[#01305B] dark:text-[#FFED00]">material_ia_disponible(Titulo, Autor)</code>
                 </div>
-                <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/2): verdadero si la obra pertenece a 'inteligencia_artificial', fue escrita por Autor y permite 'domicilio'.</span>
+                <span class="text-xs text-slate-600 dark:text-slate-300">Regla deductiva (/2): verdadero si la obra pertenece a inteligencia_artificial, fue escrita por Autor y permite modalidad domicilio.</span>
               </div>
             </div>
           </div>
@@ -900,7 +900,7 @@
           <div class="flex flex-col lg:flex-row lg:items-center justify-between p-4 bg-slate-50 dark:bg-[#012243] rounded-xl border border-slate-200 dark:border-[#154D80] hover:border-[#0080FB] transition-all gap-4">
             <div class="lg:max-w-xl space-y-1">
               <span class="font-bold text-[#01305B] dark:text-[#FFED00] text-sm block">1. Unificación de variables compartidas en reglas conjuntivas:</span>
-              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">Al escribir la regla material_ia_disponible(T, A), ¿por qué debe usarse exactamente el mismo identificador de variable T en obra(T, ...), autor_obra(T, ...) y disponibilidad(T, ...)?</span>
+              <span class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed block">Al definir una regla conjuntiva que vincula el área temática, el autor y la disponibilidad de un mismo ejemplar, ¿por qué debe repetirse el mismo identificador de variable en los tres predicados del cuerpo?</span>
             </div>
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej6_practica_caso1" data-key="item_unificacion_variable_compartida_biblio" aria-label="1. Unificación de variables compartidas en reglas conjuntivas:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
@@ -969,7 +969,7 @@
             <div class="lg:w-96 shrink-0">
               <select data-ex="ej6_practica_caso1" data-key="item_consulta_inversa_autor" aria-label="5. Consulta relacional inversa: &quot;¿De qué título es autor ivan_bratko?&quot;:" class="w-full bg-white dark:bg-[#01182E] text-slate-800 dark:text-slate-100 border border-[#B6C9DB] dark:border-[#1569AE] rounded-lg px-3.5 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0080FB] transition shadow-sm cursor-pointer">
                 <option value="" disabled selected>-- Selecciona la opción en Prolog --</option>
-                <option value="autor_obra(Titulo, ivan_bratko).">autor_obra(Titulo, ivan_bratko). → Liga Titulo = prolog_bratko.</option>
+                <option value="autor_obra(Titulo, ivan_bratko).">autor_obra(Titulo, ivan_bratko).</option>
                 <option value="autor_obra(ivan_bratko, Titulo).">autor_obra(ivan_bratko, Titulo).</option>
                 <option value="autor_obra(titulo, Ivan_Bratko).">autor_obra(titulo, Ivan_Bratko).</option>
                 <option value="quien_escribio(ivan_bratko).">quien_escribio(ivan_bratko).</option>
@@ -1014,9 +1014,6 @@
         <button type="button" id="btn-export-json-footer" class="px-6 py-3 rounded-xl bg-[#01305B] hover:bg-[#1569AE] text-[#FFED00] font-extrabold text-sm shadow-lg transition flex items-center gap-2">
           <span>📥</span> Generar y Descargar respuestas_recuperatorio.json
         </button>
-        <button type="button" id="btn-preview-json" class="px-4 py-3 rounded-xl bg-[#F4F6F9] dark:bg-[#01182E] hover:bg-slate-200 text-[#01305B] dark:text-white border border-[#B6C9DB] dark:border-[#1569AE] font-bold text-xs transition flex items-center gap-1.5">
-          <span>👁️</span> Previsualizar JSON en Pantalla
-        </button>
         <button type="button" id="btn-import-json" class="px-4 py-3 rounded-xl bg-[#F4F6F9] dark:bg-[#01182E] hover:bg-slate-200 text-[#01305B] dark:text-white border border-[#B6C9DB] dark:border-[#1569AE] font-bold text-xs transition flex items-center gap-1.5">
           <span>📂</span> Importar JSON Previo
         </button>
@@ -1047,26 +1044,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- =========================================================================
-       MODAL 1: PREVISUALIZACIÓN DE PAYLOAD JSON
-  ========================================================================== -->
-  <div id="modal-preview" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-[#023967] border-2 border-[#1569AE] rounded-2xl max-w-3xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
-      <div class="px-5 py-4 bg-[#01305B] text-white flex items-center justify-between">
-        <h3 class="font-extrabold text-sm text-[#FFED00] ucse-heading">👁️ Previsualización en Vivo — respuestas_recuperatorio.json</h3>
-        <div class="flex items-center gap-2">
-          <button type="button" id="btn-copy-json" class="px-3 py-1 rounded bg-[#FFED00] text-[#01305B] text-xs font-extrabold hover:bg-[#FDD247] transition">
-            📋 Copiar JSON
-          </button>
-          <button type="button" id="btn-close-preview" class="px-2.5 py-1 rounded bg-rose-600 text-white text-xs font-bold hover:bg-rose-500 transition">
-            ✕ Cerrar
-          </button>
-        </div>
-      </div>
-      <pre id="json-preview" class="p-5 text-xs prolog-code text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-[#01182E] overflow-y-auto flex-1"></pre>
-    </div>
-  </div>
 
   <!-- =========================================================================
        MODAL 2: GUÍA DE ENTREGA Y COMANDOS GIT
