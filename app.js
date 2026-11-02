@@ -6,6 +6,8 @@
   const STORAGE_KEY = 'ucse_lab1_examen_recuperatorio_2026';
   const TIMER_STORAGE_KEY = 'ucse_lab1_examen_recuperatorio_timer_2026';
   const START_TIME_KEY = 'ucse_lab1_examen_recuperatorio_start_time';
+  const FIRST_START_TIME_KEY = 'ucse_lab1_examen_recuperatorio_first_start_2026';
+  const RESET_COUNT_KEY = 'ucse_lab1_examen_recuperatorio_reset_count_2026';
   const COLOR_SCHEME_KEY = 'ucse_color_scheme';
   const DEFAULT_TIMER_SECONDS = 90 * 60; // 90 minutos continuos (Examen Controlado)
   const EXPORT_FILENAME = 'respuestas_recuperatorio.json';
@@ -126,6 +128,34 @@
   }
 
   // ==========================================
+  // BLOQUEO Y DESBLOQUEO DE CONTROLES POR EXPIRACIÓN DE TIEMPO
+  // ==========================================
+  function lockExamDueToTimeout() {
+    document.querySelectorAll('select[data-ex], input[data-ex], textarea[data-kb-ex]').forEach(el => {
+      el.disabled = true;
+      el.classList.add('opacity-60', 'cursor-not-allowed');
+    });
+
+    const lockBanner = document.getElementById('exam-lock-banner');
+    if (!lockBanner) {
+      const banner = document.createElement('div');
+      banner.id = 'exam-lock-banner';
+      banner.className = 'p-3.5 rounded-xl bg-rose-600 text-white font-bold text-center text-xs md:text-sm shadow-xl sticky top-16 z-50';
+      banner.innerHTML = '⏰ <strong>¡Tiempo cumplido (90 min)!</strong> El período de examen ha finalizado y la edición ha sido bloqueada. Por favor descarga tu archivo JSON de entrega.';
+      document.body.prepend(banner);
+    }
+  }
+
+  function unlockExam() {
+    document.querySelectorAll('select[data-ex], input[data-ex], textarea[data-kb-ex]').forEach(el => {
+      el.disabled = false;
+      el.classList.remove('opacity-60', 'cursor-not-allowed');
+    });
+    const lockBanner = document.getElementById('exam-lock-banner');
+    if (lockBanner) lockBanner.remove();
+  }
+
+  // ==========================================
   // CRONÓMETRO CONTINUO (EXAMEN CONTROLADO: BASADO EN TIEMPO REAL SIN PAUSA)
   // ==========================================
   function initTimer() {
@@ -133,7 +163,20 @@
     let startTime = localStorage.getItem(START_TIME_KEY);
     if (!startTime) {
       startTime = new Date().toISOString();
-      try { localStorage.setItem(START_TIME_KEY, startTime); } catch (e) {}
+      try {
+        localStorage.setItem(START_TIME_KEY, startTime);
+        if (!localStorage.getItem(FIRST_START_TIME_KEY)) {
+          localStorage.setItem(FIRST_START_TIME_KEY, startTime);
+          localStorage.setItem(RESET_COUNT_KEY, '0');
+        }
+      } catch (e) {}
+    } else {
+      if (!localStorage.getItem(FIRST_START_TIME_KEY)) {
+        try {
+          localStorage.setItem(FIRST_START_TIME_KEY, startTime);
+          localStorage.setItem(RESET_COUNT_KEY, '0');
+        } catch (e) {}
+      }
     }
 
     const updateFromWallClock = () => {
@@ -145,12 +188,17 @@
       renderTimer();
       if (timerSeconds <= 0) {
         if (timerInterval) clearInterval(timerInterval);
-        alert('⏰ ¡Tiempo cumplido! La instancia ha finalizado. Por favor genera y exporta el archivo ' + EXPORT_FILENAME);
+        lockExamDueToTimeout();
+        alert('⏰ ¡Tiempo cumplido! La instancia ha finalizado y el formulario fue bloqueado. Por favor genera y exporta el archivo ' + EXPORT_FILENAME);
       }
     };
 
     updateFromWallClock();
-    timerInterval = setInterval(updateFromWallClock, 1000);
+    if (timerSeconds > 0) {
+      timerInterval = setInterval(updateFromWallClock, 1000);
+    } else {
+      lockExamDueToTimeout();
+    }
   }
 
   function renderTimer() {
@@ -219,16 +267,17 @@
         if (!line.endsWith('.')) warnings.push(`Línea ${i + 1}: La directiva '${line}' debe terminar en punto (.).`);
         return;
       }
-      if (line.includes('=') && !line.includes(':-') && !line.includes('\\=')) {
+      // Advertencia solo si se intenta definir el encabezado de una regla usando '=' en vez de ':-'
+      if (/^[a-z][a-zA-Z0-9_]*(\([^)]*\))?\s*=[^=]/.test(line) && !line.includes(':-')) {
         warnings.push(`Línea ${i + 1}: Usa ':-' en lugar de '=' para definir reglas en Prolog.`);
       }
-      const openP = (line.match(/\(/g) || []).length;
-      const closeP = (line.match(/\)/g) || []).length;
-      if (openP !== closeP) {
-        warnings.push(`Línea ${i + 1}: Paréntesis desbalanceados en '${line}'.`);
-      } else if (openP > 0 && line.endsWith(')') && !line.endsWith('.')) {
-        warnings.push(`Línea ${i + 1}: Falta el punto final '.' al cerrar '${line}'.`);
-      }
+    });
+
+    const totalOpenP = (code.replace(/%.*$/gm, '').match(/\(/g) || []).length;
+    const totalCloseP = (code.replace(/%.*$/gm, '').match(/\)/g) || []).length;
+    if (totalOpenP !== totalCloseP) {
+      warnings.push(`Paréntesis desbalanceados en el código (${totalOpenP} abiertos vs ${totalCloseP} cerrados).`);
+    }
     });
 
     const noComments = code.replace(/\/\*[\s\S]*?\*\//g, '').replace(/%[^\n]*/g, '');
@@ -637,6 +686,9 @@
     const startTime = localStorage.getItem(START_TIME_KEY) || new Date().toISOString();
     const endTime = new Date().toISOString();
     const elapsedSec = Math.max(0, Math.round((new Date(endTime).getTime() - new Date(startTime).getTime()) / 1000));
+    const firstStart = localStorage.getItem(FIRST_START_TIME_KEY) || startTime;
+    const resetCount = parseInt(localStorage.getItem(RESET_COUNT_KEY) || '0', 10);
+    const totalSessionSeconds = Math.max(0, Math.round((new Date(endTime).getTime() - new Date(firstStart).getTime()) / 1000));
 
     const payload = {
       metadata: {
@@ -646,6 +698,9 @@
         start_time: startTime,
         end_time: endTime,
         elapsed_seconds: elapsedSec,
+        first_session_start: firstStart,
+        reset_count: resetCount,
+        total_session_seconds: totalSessionSeconds,
         timestamp: endTime
       },
       student: {
@@ -878,22 +933,27 @@
     );
     if (!confirmed) return;
 
-    // 1. Limpiar almacenamiento local
+    // 1. Limpiar almacenamiento local (conservando auditoría de sesión)
+    const prevResetCount = parseInt(localStorage.getItem(RESET_COUNT_KEY) || '0', 10);
     try {
       localStorage.removeItem(STORAGE_KEY);
       localStorage.removeItem(TIMER_STORAGE_KEY);
       localStorage.removeItem(START_TIME_KEY);
+      localStorage.setItem(RESET_COUNT_KEY, (prevResetCount + 1).toString());
     } catch (e) {
       console.warn('Error al limpiar localStorage:', e);
     }
 
-    // 2. Limpiar datos del alumno
+    // 2. Desbloquear examen en caso de haber estado bloqueado por timeout
+    unlockExam();
+
+    // 3. Limpiar datos del alumno
     ['student-name', 'student-id', 'student-email', 'student-comision'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.value = '';
     });
 
-    // 3. Limpiar selecciones de teoría y consultas
+    // 4. Limpiar selecciones de teoría y consultas
     document.querySelectorAll('select[data-ex]').forEach(sel => {
       sel.selectedIndex = 0;
     });
@@ -901,12 +961,12 @@
       r.checked = false;
     });
 
-    // 4. Limpiar editores Prolog
+    // 5. Restaurar editores Prolog a su plantilla inicial (conservando directivas discontiguous y comentarios)
     document.querySelectorAll('textarea[data-kb-ex]').forEach(ta => {
-      ta.value = '';
+      ta.value = ta.defaultValue || '';
     });
 
-    // 5. Reiniciar cronómetro
+    // 6. Reiniciar cronómetro
     if (timerInterval) clearInterval(timerInterval);
     const newStart = new Date().toISOString();
     try {
@@ -916,7 +976,7 @@
     timerSeconds = DEFAULT_TIMER_SECONDS;
     initTimer();
 
-    // 6. Actualizar verificadores y progreso
+    // 7. Actualizar verificadores y progreso
     runAllLinters();
     updateProgress();
     window.scrollTo({ top: 0, behavior: 'smooth' });
